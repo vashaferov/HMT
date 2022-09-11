@@ -11,11 +11,11 @@ namespace HMT
         string resultText = "";
         string line;
         string[] subLine;
-        string processName = Settings.Default.process;
+        string processName;
         string steepNum;
         string testNum;
         string screanPath;
-        string release = Settings.Default.release;
+        string release;
 
         public Form1()
         {
@@ -46,6 +46,8 @@ namespace HMT
         {
             resultText = "";
             screanPath = Settings.Default.screenshot;
+            processName = Settings.Default.process;
+            release = Settings.Default.release;
             steepNum = steepTextBox.Text.Trim();
             testNum = testTextBox.Text.Trim();
             if (steepNum != "" && testNum != "")
@@ -58,7 +60,7 @@ namespace HMT
                 if (Settings.Default.typeScreen == 1)
                     screenProcessWindow(screanPath, processName);
                 else if (Settings.Default.typeScreen == 2)
-                    screenFullWindow(screanPath, processName);
+                    screenFullWindow(screanPath);
 
                 this.WindowState = FormWindowState.Normal;
                 steepTextBox.Text = null;
@@ -78,6 +80,7 @@ namespace HMT
             resultTextBox.Text = "";
             logRB.Checked = false;
             linkRB.Checked = false;
+            resultButtonPane.Controls.Clear();
 
             foreach (RadioButton rb in envGB.Controls.OfType<RadioButton>())
             {
@@ -167,7 +170,11 @@ namespace HMT
                         var hdcBitmap = graphics.GetHdc();
                         PrintWindow(hwnd, hdcBitmap, 0);
                         graphics.ReleaseHdc(hdcBitmap);
+                        graphics.DrawRectangle(new Pen(Color.Black, 100), 0, 0, 172, 17);
+                        graphics.DrawRectangle(new Pen(Color.White, 100), 0, 0, 170, 15);
+                        graphics.DrawString("Тест № " + testNum + "\nШаг № " + steepNum, new Font("Verdana", (float)20), new SolidBrush(Color.Red), 0, 0);
                     }
+
                     image.Save(screanPath, ImageFormat.Png);
                 }
                 resultTextBox.Text = "Скриншот теста № " + testNum + " 'Шаг " + steepNum + "' готов";
@@ -178,7 +185,7 @@ namespace HMT
         }
         //
         // Скриншот монитора
-        private void screenFullWindow(String screanPath, String processName)
+        private void screenFullWindow(String screanPath)
         {
             int width = Settings.Default.monitorSize.Width;
             int height = Settings.Default.monitorSize.Height;
@@ -186,8 +193,13 @@ namespace HMT
             Bitmap printscreen = new Bitmap(width, height);
             Graphics graphics = Graphics.FromImage(printscreen as Image);
             graphics.CopyFromScreen(point, new Point(0, 0), printscreen.Size);
+            graphics.DrawRectangle(new Pen(Color.Black, 100), 0, 0, 172, 17);
+            graphics.DrawRectangle(new Pen(Color.White, 100), 0, 0, 170, 15);
+            graphics.DrawString("Тест № "+testNum+"\nШаг № "+steepNum, new Font("Verdana", (float)20), new SolidBrush(Color.Red), 0, 0);
             printscreen.Save(screanPath, ImageFormat.Png);
             resultTextBox.Text = "Скриншот теста № " + testNum + " 'Шаг " + steepNum + "' готов";
+            graphics = null;
+            printscreen = null;
         }
         //
     }

@@ -74,14 +74,17 @@
             {
                 var resulution1 = Screen.AllScreens[0].Bounds.Size;
                 var resulution2 = Screen.AllScreens[0].Bounds.Location;
+
                 Settings.Default.monitorSize = resulution1;
                 Settings.Default.monitorLocetion = resulution2;
                 Settings.Default.typeScreen = 2;
                 Settings.Default.Save();
+
             } else if (primaryMonitor.Checked == Enabled)
             {
                 var resulution1 = Screen.AllScreens[1].Bounds.Size;
                 var resulution2 = Screen.AllScreens[1].Bounds.Location;
+
                 Settings.Default.monitorSize = resulution1;
                 Settings.Default.monitorLocetion = resulution2;
                 Settings.Default.typeScreen = 2;
