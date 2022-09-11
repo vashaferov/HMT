@@ -42,6 +42,8 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.mainMonitor = new System.Windows.Forms.RadioButton();
             this.primaryMonitor = new System.Windows.Forms.RadioButton();
+            this.label4 = new System.Windows.Forms.Label();
+            this.releaseTB = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -68,7 +70,7 @@
             // 
             // processTB
             // 
-            this.processTB.Location = new System.Drawing.Point(12, 169);
+            this.processTB.Location = new System.Drawing.Point(12, 218);
             this.processTB.Name = "processTB";
             this.processTB.Size = new System.Drawing.Size(299, 23);
             this.processTB.TabIndex = 2;
@@ -95,7 +97,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 151);
+            this.label3.Location = new System.Drawing.Point(12, 200);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(126, 15);
             this.label3.TabIndex = 5;
@@ -104,7 +106,7 @@
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(236, 218);
+            this.saveButton.Location = new System.Drawing.Point(236, 267);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(75, 23);
             this.saveButton.TabIndex = 6;
@@ -140,7 +142,7 @@
             // 
             this.groupBox1.Controls.Add(this.menuProcessRB);
             this.groupBox1.Controls.Add(this.menuMonitorRB);
-            this.groupBox1.Location = new System.Drawing.Point(14, 104);
+            this.groupBox1.Location = new System.Drawing.Point(14, 153);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(299, 41);
             this.groupBox1.TabIndex = 10;
@@ -151,7 +153,7 @@
             // 
             this.groupBox2.Controls.Add(this.mainMonitor);
             this.groupBox2.Controls.Add(this.primaryMonitor);
-            this.groupBox2.Location = new System.Drawing.Point(12, 151);
+            this.groupBox2.Location = new System.Drawing.Point(12, 200);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(299, 41);
             this.groupBox2.TabIndex = 11;
@@ -183,11 +185,29 @@
             this.primaryMonitor.UseVisualStyleBackColor = true;
             this.primaryMonitor.CheckedChanged += new System.EventHandler(this.monitor_CheckedChanged);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(12, 101);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(42, 15);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "Релиз:";
+            // 
+            // releaseTB
+            // 
+            this.releaseTB.Location = new System.Drawing.Point(12, 119);
+            this.releaseTB.Name = "releaseTB";
+            this.releaseTB.Size = new System.Drawing.Size(299, 23);
+            this.releaseTB.TabIndex = 13;
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(325, 254);
+            this.ClientSize = new System.Drawing.Size(325, 302);
+            this.Controls.Add(this.releaseTB);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.saveButton);
@@ -226,5 +246,7 @@
         private GroupBox groupBox2;
         private RadioButton mainMonitor;
         private RadioButton primaryMonitor;
+        public TextBox releaseTB;
+        private Label label4;
     }
 }

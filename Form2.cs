@@ -16,6 +16,7 @@
             screenPathTB.Text = Settings.Default.screenshot;
             configPathTB.Text = Settings.Default.conf;
             processTB.Text = Settings.Default.process;
+            releaseTB.Text = Settings.Default.release;
         }
 
         private void saveButton_Click(object sender, EventArgs e)
@@ -25,6 +26,7 @@
             Settings.Default.screenshot = screenPathTB.Text;
             Settings.Default.conf = configPathTB.Text;
             Settings.Default.process = processTB.Text;
+            Settings.Default.release = releaseTB.Text;
             Settings.Default.Save();
             Settings.Default.Upgrade();
             this.Close();

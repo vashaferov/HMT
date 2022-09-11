@@ -14,11 +14,18 @@ namespace HMT
         string processName = Settings.Default.process;
         string steepNum;
         string testNum;
-        string screanPath = Settings.Default.screenshot;
+        string screanPath;
+        string release = Settings.Default.release;
 
         public Form1()
         {
             InitializeComponent();
+             if (Settings.Default.firstStart == 0)
+            {
+                MessageBox.Show("...", "Информация", MessageBoxButtons.OK);
+                Settings.Default.firstStart = 1;
+                Settings.Default.Save();
+            }
         }
 
         //Для скриншота
@@ -38,19 +45,22 @@ namespace HMT
         private void screanshotButton_Click(object sender, EventArgs e)
         {
             resultText = "";
-            steepNum = steepTextBox.Text;
-            testNum = testTextBox.Text;
+            screanPath = Settings.Default.screenshot;
+            steepNum = steepTextBox.Text.Trim();
+            testNum = testTextBox.Text.Trim();
             if (steepNum != "" && testNum != "")
             {
-                Directory.CreateDirectory(screanPath + testNum);
-                screanPath += testNum + "\\" + "Шаг " + steepNum + ".png";
+                Directory.CreateDirectory(screanPath + "\\" + release + "\\" + testNum);
+                screanPath += "\\" + release + "\\" + testNum + "\\" + "Шаг " + steepNum + ".png";
+
+                this.WindowState = FormWindowState.Minimized;
 
                 if (Settings.Default.typeScreen == 1)
                     screenProcessWindow(screanPath, processName);
                 else if (Settings.Default.typeScreen == 2)
                     screenFullWindow(screanPath, processName);
 
-
+                this.WindowState = FormWindowState.Normal;
                 steepTextBox.Text = null;
                 screanPath = Settings.Default.screenshot;
             } else
@@ -127,18 +137,21 @@ namespace HMT
 
         }
         //
+        // Запись действия на кнопку
         private void Btn_Click(object? sender, EventArgs e)
         {
             Clipboard.SetText(subLine[1]);
         }
-
+        //
+        // Открытие окна "Настройки"
         private void настройкиToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form2 form2 = new Form2();
             form2.Show();
             
         }
-
+        //
+        // Скриншот процесса
         private void screenProcessWindow(String screanPath, String processName)
         {
             try
@@ -163,7 +176,8 @@ namespace HMT
                 resultTextBox.Text = "Не указан процесс";
             }
         }
-
+        //
+        // Скриншот монитора
         private void screenFullWindow(String screanPath, String processName)
         {
             int width = Settings.Default.monitorSize.Width;
@@ -175,5 +189,6 @@ namespace HMT
             printscreen.Save(screanPath, ImageFormat.Png);
             resultTextBox.Text = "Скриншот теста № " + testNum + " 'Шаг " + steepNum + "' готов";
         }
+        //
     }
 }

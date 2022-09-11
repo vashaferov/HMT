@@ -20,5 +20,11 @@
     <Setting Name="monitorLocetion" Type="System.Drawing.Point" Scope="User">
       <Value Profile="(Default)">0, 0</Value>
     </Setting>
+    <Setting Name="release" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Foris 7.22.7</Value>
+    </Setting>
+    <Setting Name="firstStart" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

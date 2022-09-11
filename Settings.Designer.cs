@@ -93,5 +93,29 @@ namespace HMT {
                 this["monitorLocetion"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Foris 7.22.7")]
+        public string release {
+            get {
+                return ((string)(this["release"]));
+            }
+            set {
+                this["release"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int firstStart {
+            get {
+                return ((int)(this["firstStart"]));
+            }
+            set {
+                this["firstStart"] = value;
+            }
+        }
     }
 }
