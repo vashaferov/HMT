@@ -20,10 +20,10 @@ namespace HMT
         public Form1()
         {
             InitializeComponent();
-             if (Settings.Default.firstStart == 0)
+             if (Settings.Default.firstStart == true)
             {
                 MessageBox.Show("...", "Информация", MessageBoxButtons.OK);
-                Settings.Default.firstStart = 1;
+                Settings.Default.firstStart = false;
                 Settings.Default.Save();
             }
         }
@@ -163,19 +163,18 @@ namespace HMT
                 var hwnd = process.MainWindowHandle;
                 GetWindowRect(hwnd, out var rect);
 
-                using (var image = new Bitmap(rect.Right - rect.Left, rect.Bottom - rect.Top))
+                using (var printscreen = new Bitmap(rect.Right - rect.Left, rect.Bottom - rect.Top))
                 {
-                    using (var graphics = Graphics.FromImage(image))
+                    using (var graphics = Graphics.FromImage(printscreen))
                     {
                         var hdcBitmap = graphics.GetHdc();
                         PrintWindow(hwnd, hdcBitmap, 0);
                         graphics.ReleaseHdc(hdcBitmap);
-                        graphics.DrawRectangle(new Pen(Color.Black, 100), 0, 0, 172, 17);
-                        graphics.DrawRectangle(new Pen(Color.White, 100), 0, 0, 170, 15);
-                        graphics.DrawString("Тест № " + testNum + "\nШаг № " + steepNum, new Font("Verdana", (float)20), new SolidBrush(Color.Red), 0, 0);
+                        if (Settings.Default.numOnScreen == true)
+                            numOnScreen(graphics);
                     }
 
-                    image.Save(screanPath, ImageFormat.Png);
+                    printscreen.Save(screanPath, ImageFormat.Png);
                 }
                 resultTextBox.Text = "Скриншот теста № " + testNum + " 'Шаг " + steepNum + "' готов";
             } catch (Exception e)
@@ -193,13 +192,20 @@ namespace HMT
             Bitmap printscreen = new Bitmap(width, height);
             Graphics graphics = Graphics.FromImage(printscreen as Image);
             graphics.CopyFromScreen(point, new Point(0, 0), printscreen.Size);
-            graphics.DrawRectangle(new Pen(Color.Black, 100), 0, 0, 172, 17);
-            graphics.DrawRectangle(new Pen(Color.White, 100), 0, 0, 170, 15);
-            graphics.DrawString("Тест № "+testNum+"\nШаг № "+steepNum, new Font("Verdana", (float)20), new SolidBrush(Color.Red), 0, 0);
+            if(Settings.Default.numOnScreen == true)
+                numOnScreen(graphics);
             printscreen.Save(screanPath, ImageFormat.Png);
             resultTextBox.Text = "Скриншот теста № " + testNum + " 'Шаг " + steepNum + "' готов";
             graphics = null;
             printscreen = null;
+        }
+        //
+        // Номер теста и шага на скриншоте
+        private void numOnScreen(Graphics graphics)
+        {
+            graphics.DrawRectangle(new Pen(Color.Black, 100), 0, 0, 172, 17);
+            graphics.DrawRectangle(new Pen(Color.White, 100), 0, 0, 170, 15);
+            graphics.DrawString("Тест № " + testNum + "\nШаг № " + steepNum, new Font("Verdana", (float)20), new SolidBrush(Color.Red), 0, 0);
         }
         //
     }

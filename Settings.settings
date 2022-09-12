@@ -23,8 +23,11 @@
     <Setting Name="release" Type="System.String" Scope="User">
       <Value Profile="(Default)">Foris 7.22.7</Value>
     </Setting>
-    <Setting Name="firstStart" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">0</Value>
+    <Setting Name="firstStart" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="numOnScreen" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
     </Setting>
   </Settings>
 </SettingsFile>

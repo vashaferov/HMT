@@ -108,13 +108,25 @@ namespace HMT {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int firstStart {
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool firstStart {
             get {
-                return ((int)(this["firstStart"]));
+                return ((bool)(this["firstStart"]));
             }
             set {
                 this["firstStart"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool numOnScreen {
+            get {
+                return ((bool)(this["numOnScreen"]));
+            }
+            set {
+                this["numOnScreen"] = value;
             }
         }
     }

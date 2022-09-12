@@ -92,5 +92,18 @@
             }
 
         }
+
+        private void numOnScreenRB_CheckedChanged(object sender, EventArgs e)
+        {
+            if (numOnScreenPosRB.Checked == Enabled)
+            {
+                Settings.Default.numOnScreen = true;
+            }
+            else
+            {
+                Settings.Default.numOnScreen = false;
+            }
+            Settings.Default.Save();
+        }
     }
 }

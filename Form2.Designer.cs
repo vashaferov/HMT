@@ -44,9 +44,13 @@
             this.primaryMonitor = new System.Windows.Forms.RadioButton();
             this.label4 = new System.Windows.Forms.Label();
             this.releaseTB = new System.Windows.Forms.TextBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.numOnScreenPosRB = new System.Windows.Forms.RadioButton();
+            this.numOnScreenNegRB = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // fileSystemWatcher1
@@ -70,7 +74,7 @@
             // 
             // processTB
             // 
-            this.processTB.Location = new System.Drawing.Point(12, 218);
+            this.processTB.Location = new System.Drawing.Point(10, 261);
             this.processTB.Name = "processTB";
             this.processTB.Size = new System.Drawing.Size(299, 23);
             this.processTB.TabIndex = 2;
@@ -97,7 +101,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 200);
+            this.label3.Location = new System.Drawing.Point(10, 243);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(126, 15);
             this.label3.TabIndex = 5;
@@ -106,7 +110,7 @@
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(236, 267);
+            this.saveButton.Location = new System.Drawing.Point(234, 310);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(75, 23);
             this.saveButton.TabIndex = 6;
@@ -142,7 +146,7 @@
             // 
             this.groupBox1.Controls.Add(this.menuProcessRB);
             this.groupBox1.Controls.Add(this.menuMonitorRB);
-            this.groupBox1.Location = new System.Drawing.Point(14, 153);
+            this.groupBox1.Location = new System.Drawing.Point(12, 196);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(299, 41);
             this.groupBox1.TabIndex = 10;
@@ -153,9 +157,9 @@
             // 
             this.groupBox2.Controls.Add(this.mainMonitor);
             this.groupBox2.Controls.Add(this.primaryMonitor);
-            this.groupBox2.Location = new System.Drawing.Point(12, 200);
+            this.groupBox2.Location = new System.Drawing.Point(10, 243);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(299, 41);
+            this.groupBox2.Size = new System.Drawing.Size(234, 41);
             this.groupBox2.TabIndex = 11;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Монитор:";
@@ -176,7 +180,7 @@
             // primaryMonitor
             // 
             this.primaryMonitor.AutoSize = true;
-            this.primaryMonitor.Location = new System.Drawing.Point(157, 16);
+            this.primaryMonitor.Location = new System.Drawing.Point(109, 16);
             this.primaryMonitor.Name = "primaryMonitor";
             this.primaryMonitor.Size = new System.Drawing.Size(122, 19);
             this.primaryMonitor.TabIndex = 9;
@@ -201,11 +205,47 @@
             this.releaseTB.Size = new System.Drawing.Size(299, 23);
             this.releaseTB.TabIndex = 13;
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.numOnScreenNegRB);
+            this.groupBox3.Controls.Add(this.numOnScreenPosRB);
+            this.groupBox3.Location = new System.Drawing.Point(12, 148);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(216, 41);
+            this.groupBox3.TabIndex = 14;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Номер теста и шага на скриншоте:";
+            // 
+            // numOnScreenPosRB
+            // 
+            this.numOnScreenPosRB.AutoSize = true;
+            this.numOnScreenPosRB.Location = new System.Drawing.Point(7, 17);
+            this.numOnScreenPosRB.Name = "numOnScreenPosRB";
+            this.numOnScreenPosRB.Size = new System.Drawing.Size(39, 19);
+            this.numOnScreenPosRB.TabIndex = 0;
+            this.numOnScreenPosRB.TabStop = true;
+            this.numOnScreenPosRB.Text = "Да";
+            this.numOnScreenPosRB.UseVisualStyleBackColor = true;
+            this.numOnScreenPosRB.CheckedChanged += new System.EventHandler(this.numOnScreenRB_CheckedChanged);
+            // 
+            // numOnScreenNegRB
+            // 
+            this.numOnScreenNegRB.AutoSize = true;
+            this.numOnScreenNegRB.Location = new System.Drawing.Point(165, 17);
+            this.numOnScreenNegRB.Name = "numOnScreenNegRB";
+            this.numOnScreenNegRB.Size = new System.Drawing.Size(45, 19);
+            this.numOnScreenNegRB.TabIndex = 1;
+            this.numOnScreenNegRB.TabStop = true;
+            this.numOnScreenNegRB.Text = "Нет";
+            this.numOnScreenNegRB.UseVisualStyleBackColor = true;
+            this.numOnScreenNegRB.CheckedChanged += new System.EventHandler(this.numOnScreenRB_CheckedChanged);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(325, 302);
+            this.ClientSize = new System.Drawing.Size(325, 354);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.releaseTB);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.groupBox2);
@@ -225,6 +265,8 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -248,5 +290,8 @@
         private RadioButton primaryMonitor;
         public TextBox releaseTB;
         private Label label4;
+        private GroupBox groupBox3;
+        private RadioButton numOnScreenPosRB;
+        private RadioButton numOnScreenNegRB;
     }
 }
