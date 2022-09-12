@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using System.Drawing.Imaging;
+using System.IO;
 using System.Runtime.InteropServices;
 
 namespace HMT
@@ -143,7 +144,20 @@ namespace HMT
         // Запись действия на кнопку
         private void Btn_Click(object? sender, EventArgs e)
         {
-            Clipboard.SetText(subLine[1]);
+            Button btn = (Button)sender;
+            StreamReader sr1 = new StreamReader(Settings.Default.conf);
+            line = sr1.ReadLine();
+            while (line != null)
+            {
+                subLine = line.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+                if (subLine[0] == btn.Text)
+                {
+                    Clipboard.SetText(subLine[1]);
+                    break;
+                }
+                line = sr1.ReadLine();
+            }
+            sr1.Close();
         }
         //
         // Открытие окна "Настройки"
