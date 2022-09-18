@@ -45,8 +45,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.releaseTB = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.numOnScreenPosRB = new System.Windows.Forms.RadioButton();
             this.numOnScreenNegRB = new System.Windows.Forms.RadioButton();
+            this.numOnScreenPosRB = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -216,18 +216,6 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Номер теста и шага на скриншоте:";
             // 
-            // numOnScreenPosRB
-            // 
-            this.numOnScreenPosRB.AutoSize = true;
-            this.numOnScreenPosRB.Location = new System.Drawing.Point(7, 17);
-            this.numOnScreenPosRB.Name = "numOnScreenPosRB";
-            this.numOnScreenPosRB.Size = new System.Drawing.Size(39, 19);
-            this.numOnScreenPosRB.TabIndex = 0;
-            this.numOnScreenPosRB.TabStop = true;
-            this.numOnScreenPosRB.Text = "Да";
-            this.numOnScreenPosRB.UseVisualStyleBackColor = true;
-            this.numOnScreenPosRB.CheckedChanged += new System.EventHandler(this.numOnScreenRB_CheckedChanged);
-            // 
             // numOnScreenNegRB
             // 
             this.numOnScreenNegRB.AutoSize = true;
@@ -239,6 +227,18 @@
             this.numOnScreenNegRB.Text = "Нет";
             this.numOnScreenNegRB.UseVisualStyleBackColor = true;
             this.numOnScreenNegRB.CheckedChanged += new System.EventHandler(this.numOnScreenRB_CheckedChanged);
+            // 
+            // numOnScreenPosRB
+            // 
+            this.numOnScreenPosRB.AutoSize = true;
+            this.numOnScreenPosRB.Location = new System.Drawing.Point(7, 17);
+            this.numOnScreenPosRB.Name = "numOnScreenPosRB";
+            this.numOnScreenPosRB.Size = new System.Drawing.Size(39, 19);
+            this.numOnScreenPosRB.TabIndex = 0;
+            this.numOnScreenPosRB.TabStop = true;
+            this.numOnScreenPosRB.Text = "Да";
+            this.numOnScreenPosRB.UseVisualStyleBackColor = true;
+            this.numOnScreenPosRB.CheckedChanged += new System.EventHandler(this.numOnScreenRB_CheckedChanged);
             // 
             // Form2
             // 
@@ -258,6 +258,7 @@
             this.Controls.Add(this.configPathTB);
             this.Controls.Add(this.screenPathTB);
             this.Name = "Form2";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Настройки";
             this.Load += new System.EventHandler(this.Form2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
@@ -269,6 +270,7 @@
             this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
 
         }
 

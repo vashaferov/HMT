@@ -47,6 +47,9 @@
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.файлToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.настройкиToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.добавлениеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.видToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.компактныйтолькоСкриншотыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.envGB.SuspendLayout();
             this.sectionGB.SuspendLayout();
             this.mainPanel.SuspendLayout();
@@ -68,7 +71,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(9, 294);
+            this.label1.Location = new System.Drawing.Point(5, 254);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(124, 15);
             this.label1.TabIndex = 0;
@@ -76,7 +79,7 @@
             // 
             // steepTextBox
             // 
-            this.steepTextBox.Location = new System.Drawing.Point(138, 291);
+            this.steepTextBox.Location = new System.Drawing.Point(134, 251);
             this.steepTextBox.Name = "steepTextBox";
             this.steepTextBox.Size = new System.Drawing.Size(56, 23);
             this.steepTextBox.TabIndex = 1;
@@ -85,7 +88,7 @@
             // screanshotButton
             // 
             this.screanshotButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.screanshotButton.Location = new System.Drawing.Point(200, 262);
+            this.screanshotButton.Location = new System.Drawing.Point(196, 222);
             this.screanshotButton.Name = "screanshotButton";
             this.screanshotButton.Size = new System.Drawing.Size(75, 52);
             this.screanshotButton.TabIndex = 2;
@@ -96,9 +99,9 @@
             // 
             // resultButtonPane
             // 
-            this.resultButtonPane.Location = new System.Drawing.Point(134, 27);
+            this.resultButtonPane.Location = new System.Drawing.Point(113, 27);
             this.resultButtonPane.Name = "resultButtonPane";
-            this.resultButtonPane.Size = new System.Drawing.Size(385, 206);
+            this.resultButtonPane.Size = new System.Drawing.Size(345, 189);
             this.resultButtonPane.TabIndex = 6;
             this.resultButtonPane.Tag = "resultButtonPane";
             // 
@@ -106,7 +109,7 @@
             // 
             this.resultTextBox.AutoSize = true;
             this.resultTextBox.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.resultTextBox.Location = new System.Drawing.Point(281, 301);
+            this.resultTextBox.Location = new System.Drawing.Point(277, 256);
             this.resultTextBox.Name = "resultTextBox";
             this.resultTextBox.Size = new System.Drawing.Size(0, 13);
             this.resultTextBox.TabIndex = 7;
@@ -203,7 +206,7 @@
             // 
             // testTextBox
             // 
-            this.testTextBox.Location = new System.Drawing.Point(138, 262);
+            this.testTextBox.Location = new System.Drawing.Point(134, 222);
             this.testTextBox.Name = "testTextBox";
             this.testTextBox.Size = new System.Drawing.Size(56, 23);
             this.testTextBox.TabIndex = 11;
@@ -213,7 +216,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(9, 265);
+            this.label2.Location = new System.Drawing.Point(5, 225);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(125, 15);
             this.label2.TabIndex = 12;
@@ -234,17 +237,19 @@
             this.mainPanel.Controls.Add(this.menuStrip2);
             this.mainPanel.Location = new System.Drawing.Point(1, 1);
             this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(530, 334);
+            this.mainPanel.Size = new System.Drawing.Size(472, 282);
             this.mainPanel.TabIndex = 0;
             this.mainPanel.Tag = "mainPanel";
             // 
             // menuStrip2
             // 
             this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.файлToolStripMenuItem1});
+            this.файлToolStripMenuItem1,
+            this.добавлениеToolStripMenuItem,
+            this.видToolStripMenuItem});
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(530, 24);
+            this.menuStrip2.Size = new System.Drawing.Size(472, 24);
             this.menuStrip2.TabIndex = 13;
             this.menuStrip2.Text = "menuStrip2";
             // 
@@ -263,11 +268,33 @@
             this.настройкиToolStripMenuItem1.Text = "Настройки";
             this.настройкиToolStripMenuItem1.Click += new System.EventHandler(this.настройкиToolStripMenuItem_Click);
             // 
+            // добавлениеToolStripMenuItem
+            // 
+            this.добавлениеToolStripMenuItem.Name = "добавлениеToolStripMenuItem";
+            this.добавлениеToolStripMenuItem.Size = new System.Drawing.Size(130, 20);
+            this.добавлениеToolStripMenuItem.Text = "Добавление ссылок";
+            this.добавлениеToolStripMenuItem.Click += new System.EventHandler(this.добавлениеToolStripMenuItem_Click);
+            // 
+            // видToolStripMenuItem
+            // 
+            this.видToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.компактныйтолькоСкриншотыToolStripMenuItem});
+            this.видToolStripMenuItem.Name = "видToolStripMenuItem";
+            this.видToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
+            this.видToolStripMenuItem.Text = "Вид";
+            // 
+            // компактныйтолькоСкриншотыToolStripMenuItem
+            // 
+            this.компактныйтолькоСкриншотыToolStripMenuItem.Name = "компактныйтолькоСкриншотыToolStripMenuItem";
+            this.компактныйтолькоСкриншотыToolStripMenuItem.Size = new System.Drawing.Size(261, 22);
+            this.компактныйтолькоСкриншотыToolStripMenuItem.Text = "Компактный (только скриншоты)";
+            this.компактныйтолькоСкриншотыToolStripMenuItem.Click += new System.EventHandler(this.компактныйтолькоСкриншотыToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(532, 333);
+            this.ClientSize = new System.Drawing.Size(471, 280);
             this.Controls.Add(this.mainPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MainMenuStrip = this.miniToolStrip;
@@ -301,11 +328,14 @@
         private GroupBox sectionGB;
         private RadioButton logRB;
         private RadioButton linkRB;
-        private TextBox testTextBox;
         private Label label2;
         private Panel mainPanel;
         private MenuStrip menuStrip2;
         private ToolStripMenuItem файлToolStripMenuItem1;
         private ToolStripMenuItem настройкиToolStripMenuItem1;
+        private ToolStripMenuItem добавлениеToolStripMenuItem;
+        private ToolStripMenuItem видToolStripMenuItem;
+        private ToolStripMenuItem компактныйтолькоСкриншотыToolStripMenuItem;
+        private TextBox testTextBox;
     }
 }

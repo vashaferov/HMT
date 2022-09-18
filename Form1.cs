@@ -23,7 +23,10 @@ namespace HMT
             InitializeComponent();
              if (Settings.Default.firstStart == true)
             {
-                MessageBox.Show("...", "Информация", MessageBoxButtons.OK);
+                MessageBox.Show("В настройках необходима указать:\n" +
+                    "- 'Путь для сохранения скриншотов' - указать дерикторию для сохранения скриншотов;\n" +
+                    "- 'Путь к файлу конфига' - изменять только при смене файла;\n" +
+                    "- 'Скриншот процесса' - указать процесс который будет фиксироваться. Название можно посмотреть через 'Диспетчер задач';", "Информация", MessageBoxButtons.OK);
                 Settings.Default.firstStart = false;
                 Settings.Default.Save();
             }
@@ -57,11 +60,17 @@ namespace HMT
                 screanPath += "\\" + release + "\\" + testNum + "\\" + "Шаг " + steepNum + ".png";
 
                 this.WindowState = FormWindowState.Minimized;
+                Thread.Sleep(200);
 
                 if (Settings.Default.typeScreen == 1)
-                    screenProcessWindow(screanPath, processName);
+                {
+                    ScreenshotHelper.screenProcessWindow(screanPath, processName, testNum, steepNum);
+                }
                 else if (Settings.Default.typeScreen == 2)
-                    screenFullWindow(screanPath);
+                {
+                    ScreenshotHelper.screenFullWindow(screanPath, testNum, steepNum);
+                }
+                resultTextBox.Text = "Скриншот теста № " + testNum + " 'Шаг " + steepNum + "' готов";
 
                 this.WindowState = FormWindowState.Normal;
                 steepTextBox.Text = null;
@@ -70,7 +79,6 @@ namespace HMT
             {
                 resultTextBox.Text = "Не указан нормер шага или номер теста";
             }
-            
         }
         //
         //Получение нажатого RB в "стенд"
@@ -92,7 +100,6 @@ namespace HMT
                 }
 
             }
-
         }
         //
         //Получение нажатого RB в "раздел"
@@ -119,10 +126,10 @@ namespace HMT
                 line = sr.ReadLine();
                 while(line != null)
                 {
-                    if(line == "--"+resultText)
+                    if(line == "<"+resultText+">")
                     {
                         line = sr.ReadLine().Trim();
-                        while (line != "---")
+                        while (line != "</" + resultText + ">")
                         {
                             subLine = line.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
                             Button btn = new Button();
@@ -144,20 +151,29 @@ namespace HMT
         // Запись действия на кнопку
         private void Btn_Click(object? sender, EventArgs e)
         {
-            Button btn = (Button)sender;
+            Button btn = (Button) sender;
             StreamReader sr1 = new StreamReader(Settings.Default.conf);
             line = sr1.ReadLine();
             while (line != null)
             {
-                subLine = line.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-                if (subLine[0] == btn.Text)
+                if (line == "<" + resultText + ">")
                 {
-                    Clipboard.SetText(subLine[1]);
-                    break;
+                    line = sr1.ReadLine();
+                    while (line != "</" + resultText + ">")
+                    {
+                        subLine = line.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+                        if (subLine[0] == btn.Text)
+                        {
+                            Clipboard.SetText(subLine[1]);
+                        }
+                        line = sr1.ReadLine();
+                    }
                 }
                 line = sr1.ReadLine();
             }
             sr1.Close();
+
+            resultTextBox.Text = "Ссылка для " + btn.Text + " скопирована";
         }
         //
         // Открытие окна "Настройки"
@@ -165,61 +181,24 @@ namespace HMT
         {
             Form2 form2 = new Form2();
             form2.Show();
-            
         }
         //
-        // Скриншот процесса
-        private void screenProcessWindow(String screanPath, String processName)
+        // Открытие окна "Добавление"
+        private void добавлениеToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            try
-            {
-                var process = Process.GetProcessesByName(processName).FirstOrDefault();
-                var hwnd = process.MainWindowHandle;
-                GetWindowRect(hwnd, out var rect);
+            Form3 form3 = new Form3();
 
-                using (var printscreen = new Bitmap(rect.Right - rect.Left, rect.Bottom - rect.Top))
-                {
-                    using (var graphics = Graphics.FromImage(printscreen))
-                    {
-                        var hdcBitmap = graphics.GetHdc();
-                        PrintWindow(hwnd, hdcBitmap, 0);
-                        graphics.ReleaseHdc(hdcBitmap);
-                        if (Settings.Default.numOnScreen == true)
-                            numOnScreen(graphics);
-                    }
+            resultButtonPane.Controls.Clear();
+            form3.Show();
+        }
 
-                    printscreen.Save(screanPath, ImageFormat.Png);
-                }
-                resultTextBox.Text = "Скриншот теста № " + testNum + " 'Шаг " + steepNum + "' готов";
-            } catch (Exception e)
-            {
-                resultTextBox.Text = "Не указан процесс";
-            }
-        }
-        //
-        // Скриншот монитора
-        private void screenFullWindow(String screanPath)
+        private void компактныйтолькоСкриншотыToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            int width = Settings.Default.monitorSize.Width;
-            int height = Settings.Default.monitorSize.Height;
-            Point point = Settings.Default.monitorLocetion;
-            Bitmap printscreen = new Bitmap(width, height);
-            Graphics graphics = Graphics.FromImage(printscreen as Image);
-            graphics.CopyFromScreen(point, new Point(0, 0), printscreen.Size);
-            if(Settings.Default.numOnScreen == true)
-                numOnScreen(graphics);
-            printscreen.Save(screanPath, ImageFormat.Png);
-            resultTextBox.Text = "Скриншот теста № " + testNum + " 'Шаг " + steepNum + "' готов";
-            graphics = null;
-            printscreen = null;
-        }
-        //
-        // Номер теста и шага на скриншоте
-        private void numOnScreen(Graphics graphics)
-        {
-            graphics.DrawRectangle(new Pen(Color.Black, 100), 0, 0, 172, 17);
-            graphics.DrawRectangle(new Pen(Color.White, 100), 0, 0, 170, 15);
-            graphics.DrawString("Тест № " + testNum + "\nШаг № " + steepNum, new Font("Verdana", (float)20), new SolidBrush(Color.Red), 0, 0);
+            Form1 form1 = new Form1();
+            Form4 form4 = new Form4();
+
+            form4.Show();
+            this.WindowState = FormWindowState.Minimized;
         }
         //
     }
