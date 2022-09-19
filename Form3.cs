@@ -14,9 +14,7 @@ namespace HMT
     public partial class Form3 : Form
     {
         string line;
-        string[] subLine;
         string resultText;
-        string subResultText;
 
         public Form3()
         {

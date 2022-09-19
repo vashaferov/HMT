@@ -23,6 +23,7 @@ namespace HMT
             InitializeComponent();
              if (Settings.Default.firstStart == true)
             {
+                Settings.Default.conf = System.Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData) + "\\HMT\\conf.txt";
                 MessageBox.Show("В настройках необходима указать:\n" +
                     "- 'Путь для сохранения скриншотов' - указать дерикторию для сохранения скриншотов;\n" +
                     "- 'Путь к файлу конфига' - изменять только при смене файла;\n" +
