@@ -17,7 +17,7 @@ namespace HMT
         string testNum;
         string screanPath;
         string release;
-
+        
         public Form1()
         {
             InitializeComponent();
@@ -62,6 +62,12 @@ namespace HMT
 
                 this.WindowState = FormWindowState.Minimized;
                 Thread.Sleep(200);
+                
+                if (timerCB.Checked == true)
+                {
+                    Thread.Sleep(5000);
+                    timerCB.Checked = false;
+                }
 
                 if (Settings.Default.typeScreen == 1)
                 {

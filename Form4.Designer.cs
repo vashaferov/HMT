@@ -34,6 +34,7 @@
             this.testNumTB = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.resultL = new System.Windows.Forms.Label();
+            this.timerCB_min = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label1
@@ -81,17 +82,28 @@
             // resultL
             // 
             this.resultL.AutoSize = true;
-            this.resultL.Location = new System.Drawing.Point(6, 67);
+            this.resultL.Location = new System.Drawing.Point(6, 88);
             this.resultL.Name = "resultL";
             this.resultL.Size = new System.Drawing.Size(10, 15);
             this.resultL.TabIndex = 6;
             this.resultL.Text = " ";
             // 
+            // timerCB_min
+            // 
+            this.timerCB_min.AutoSize = true;
+            this.timerCB_min.Location = new System.Drawing.Point(6, 61);
+            this.timerCB_min.Name = "timerCB_min";
+            this.timerCB_min.Size = new System.Drawing.Size(196, 19);
+            this.timerCB_min.TabIndex = 7;
+            this.timerCB_min.Text = "Установить таймер на 5 секунд";
+            this.timerCB_min.UseVisualStyleBackColor = true;
+            // 
             // Form4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(235, 91);
+            this.ClientSize = new System.Drawing.Size(235, 112);
+            this.Controls.Add(this.timerCB_min);
             this.Controls.Add(this.resultL);
             this.Controls.Add(this.testNumTB);
             this.Controls.Add(this.label3);
@@ -113,5 +125,6 @@
         private TextBox testNumTB;
         private Label label3;
         private Label resultL;
+        private CheckBox timerCB_min;
     }
 }

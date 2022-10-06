@@ -44,6 +44,7 @@
             this.testTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.mainPanel = new System.Windows.Forms.Panel();
+            this.timerCB = new System.Windows.Forms.CheckBox();
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.файлToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.настройкиToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -225,6 +226,7 @@
             // mainPanel
             // 
             this.mainPanel.AutoSize = true;
+            this.mainPanel.Controls.Add(this.timerCB);
             this.mainPanel.Controls.Add(this.label2);
             this.mainPanel.Controls.Add(this.testTextBox);
             this.mainPanel.Controls.Add(this.sectionGB);
@@ -237,9 +239,19 @@
             this.mainPanel.Controls.Add(this.menuStrip2);
             this.mainPanel.Location = new System.Drawing.Point(1, 1);
             this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(472, 282);
+            this.mainPanel.Size = new System.Drawing.Size(487, 308);
             this.mainPanel.TabIndex = 0;
             this.mainPanel.Tag = "mainPanel";
+            // 
+            // timerCB
+            // 
+            this.timerCB.AutoSize = true;
+            this.timerCB.Location = new System.Drawing.Point(9, 280);
+            this.timerCB.Name = "timerCB";
+            this.timerCB.Size = new System.Drawing.Size(196, 19);
+            this.timerCB.TabIndex = 14;
+            this.timerCB.Text = "Установить таймер на 5 секунд";
+            this.timerCB.UseVisualStyleBackColor = true;
             // 
             // menuStrip2
             // 
@@ -249,7 +261,7 @@
             this.видToolStripMenuItem});
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(472, 24);
+            this.menuStrip2.Size = new System.Drawing.Size(487, 24);
             this.menuStrip2.TabIndex = 13;
             this.menuStrip2.Text = "menuStrip2";
             // 
@@ -294,7 +306,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(471, 280);
+            this.ClientSize = new System.Drawing.Size(488, 309);
             this.Controls.Add(this.mainPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MainMenuStrip = this.miniToolStrip;
@@ -337,5 +349,6 @@
         private ToolStripMenuItem видToolStripMenuItem;
         private ToolStripMenuItem компактныйтолькоСкриншотыToolStripMenuItem;
         private TextBox testTextBox;
+        private CheckBox timerCB;
     }
 }

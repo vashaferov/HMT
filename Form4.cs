@@ -41,6 +41,12 @@ namespace HMT
                 this.WindowState = FormWindowState.Minimized;
                 Thread.Sleep(200);
 
+                if (timerCB_min.Checked == true)
+                {
+                    Thread.Sleep(5000);
+                    timerCB_min.Checked = false;
+                }
+
                 if (Settings.Default.typeScreen == 1)
                 {
                     ScreenshotHelper.screenProcessWindow(screanPath, processName, testNum, steepNum);

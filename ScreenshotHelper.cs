@@ -78,5 +78,6 @@ namespace HMT
             graphics.DrawRectangle(new Pen(Color.White, 100), 0, 0, 170, 15);
             graphics.DrawString("Тест № " + testNum + "\nШаг № " + steepNum, new Font("Verdana", (float)20), new SolidBrush(Color.Red), 0, 0);
         }
+        //
     }
 }
