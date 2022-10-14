@@ -2,6 +2,7 @@ using System.Diagnostics;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Runtime.InteropServices;
+using System.ComponentModel;
 
 namespace HMT
 
@@ -21,6 +22,7 @@ namespace HMT
         public Form1()
         {
             InitializeComponent();
+
              if (Settings.Default.firstStart == true)
             {
                 Settings.Default.conf = System.Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData) + "\\HMT\\conf.txt";
@@ -118,9 +120,13 @@ namespace HMT
                 {
                     resultText = subResultText + "_" + rb.Text;
                     showResult(resultText);
+
+                    if (logRB.Checked == Enabled)
+                        browserGB.Visible = false;
+                    else
+                        browserGB.Visible = true;
                 }
             }
-
         }
         //
         //Чтение файла с ссылками, отрисовка кнопок на экране, привязка "копирования"
@@ -143,6 +149,7 @@ namespace HMT
                             btn.Text = subLine[0];
                             btn.Click += Btn_Click;
                             resultButtonPane.Controls.Add(btn);
+
                             line = sr.ReadLine().Trim();
                         }
                     }
@@ -172,6 +179,7 @@ namespace HMT
                         if (subLine[0] == btn.Text)
                         {
                             Clipboard.SetText(subLine[1]);
+                            Process.Start(processGetName(), subLine[1]);
                         }
                         line = sr1.ReadLine();
                     }
@@ -179,8 +187,6 @@ namespace HMT
                 line = sr1.ReadLine();
             }
             sr1.Close();
-
-            resultTextBox.Text = "Ссылка для " + btn.Text + " скопирована";
         }
         //
         // Открытие окна "Настройки"
@@ -198,7 +204,7 @@ namespace HMT
             resultButtonPane.Controls.Clear();
             form3.Show();
         }
-
+        // Открытие окна "Компактный вид"
         private void компактныйтолькоСкриншотыToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form1 form1 = new Form1();
@@ -206,6 +212,20 @@ namespace HMT
 
             form4.Show();
             this.WindowState = FormWindowState.Minimized;
+        }
+        //
+        // Получение процесса для "кнопки"
+        private string processGetName()
+        {
+            string processName;
+
+            if (logRB.Checked == Enabled)
+                processName = "explorer.exe";
+            else if (IEexplorerRB.Checked == Enabled)
+                    processName = "C:\\Program Files\\Internet Explorer\\iexplore.exe";
+                 else
+                    processName = "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe";
+            return processName;
         }
         //
     }

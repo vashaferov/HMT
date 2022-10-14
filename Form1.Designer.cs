@@ -44,6 +44,9 @@
             this.testTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.mainPanel = new System.Windows.Forms.Panel();
+            this.browserGB = new System.Windows.Forms.GroupBox();
+            this.chromeRB = new System.Windows.Forms.RadioButton();
+            this.IEexplorerRB = new System.Windows.Forms.RadioButton();
             this.timerCB = new System.Windows.Forms.CheckBox();
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.файлToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -54,6 +57,7 @@
             this.envGB.SuspendLayout();
             this.sectionGB.SuspendLayout();
             this.mainPanel.SuspendLayout();
+            this.browserGB.SuspendLayout();
             this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -72,7 +76,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(5, 254);
+            this.label1.Location = new System.Drawing.Point(3, 299);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(124, 15);
             this.label1.TabIndex = 0;
@@ -80,7 +84,7 @@
             // 
             // steepTextBox
             // 
-            this.steepTextBox.Location = new System.Drawing.Point(134, 251);
+            this.steepTextBox.Location = new System.Drawing.Point(132, 296);
             this.steepTextBox.Name = "steepTextBox";
             this.steepTextBox.Size = new System.Drawing.Size(56, 23);
             this.steepTextBox.TabIndex = 1;
@@ -89,7 +93,7 @@
             // screanshotButton
             // 
             this.screanshotButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.screanshotButton.Location = new System.Drawing.Point(196, 222);
+            this.screanshotButton.Location = new System.Drawing.Point(194, 267);
             this.screanshotButton.Name = "screanshotButton";
             this.screanshotButton.Size = new System.Drawing.Size(75, 52);
             this.screanshotButton.TabIndex = 2;
@@ -102,7 +106,7 @@
             // 
             this.resultButtonPane.Location = new System.Drawing.Point(113, 27);
             this.resultButtonPane.Name = "resultButtonPane";
-            this.resultButtonPane.Size = new System.Drawing.Size(345, 189);
+            this.resultButtonPane.Size = new System.Drawing.Size(374, 182);
             this.resultButtonPane.TabIndex = 6;
             this.resultButtonPane.Tag = "resultButtonPane";
             // 
@@ -110,7 +114,7 @@
             // 
             this.resultTextBox.AutoSize = true;
             this.resultTextBox.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.resultTextBox.Location = new System.Drawing.Point(277, 256);
+            this.resultTextBox.Location = new System.Drawing.Point(275, 301);
             this.resultTextBox.Name = "resultTextBox";
             this.resultTextBox.Size = new System.Drawing.Size(0, 13);
             this.resultTextBox.TabIndex = 7;
@@ -172,7 +176,7 @@
             this.sectionGB.Controls.Add(this.logRB);
             this.sectionGB.Controls.Add(this.linkRB);
             this.sectionGB.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.sectionGB.Location = new System.Drawing.Point(9, 134);
+            this.sectionGB.Location = new System.Drawing.Point(9, 127);
             this.sectionGB.Name = "sectionGB";
             this.sectionGB.Size = new System.Drawing.Size(98, 82);
             this.sectionGB.TabIndex = 9;
@@ -183,7 +187,7 @@
             // 
             // logRB
             // 
-            this.logRB.Location = new System.Drawing.Point(13, 49);
+            this.logRB.Location = new System.Drawing.Point(6, 49);
             this.logRB.Name = "logRB";
             this.logRB.Size = new System.Drawing.Size(79, 24);
             this.logRB.TabIndex = 2;
@@ -195,7 +199,7 @@
             // 
             // linkRB
             // 
-            this.linkRB.Location = new System.Drawing.Point(13, 19);
+            this.linkRB.Location = new System.Drawing.Point(6, 19);
             this.linkRB.Name = "linkRB";
             this.linkRB.Size = new System.Drawing.Size(79, 24);
             this.linkRB.TabIndex = 1;
@@ -207,7 +211,7 @@
             // 
             // testTextBox
             // 
-            this.testTextBox.Location = new System.Drawing.Point(134, 222);
+            this.testTextBox.Location = new System.Drawing.Point(132, 267);
             this.testTextBox.Name = "testTextBox";
             this.testTextBox.Size = new System.Drawing.Size(56, 23);
             this.testTextBox.TabIndex = 11;
@@ -217,7 +221,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(5, 225);
+            this.label2.Location = new System.Drawing.Point(3, 270);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(125, 15);
             this.label2.TabIndex = 12;
@@ -226,6 +230,7 @@
             // mainPanel
             // 
             this.mainPanel.AutoSize = true;
+            this.mainPanel.Controls.Add(this.browserGB);
             this.mainPanel.Controls.Add(this.timerCB);
             this.mainPanel.Controls.Add(this.label2);
             this.mainPanel.Controls.Add(this.testTextBox);
@@ -239,14 +244,48 @@
             this.mainPanel.Controls.Add(this.menuStrip2);
             this.mainPanel.Location = new System.Drawing.Point(1, 1);
             this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(487, 308);
+            this.mainPanel.Size = new System.Drawing.Size(494, 350);
             this.mainPanel.TabIndex = 0;
             this.mainPanel.Tag = "mainPanel";
+            // 
+            // browserGB
+            // 
+            this.browserGB.Controls.Add(this.chromeRB);
+            this.browserGB.Controls.Add(this.IEexplorerRB);
+            this.browserGB.Location = new System.Drawing.Point(9, 215);
+            this.browserGB.Name = "browserGB";
+            this.browserGB.Size = new System.Drawing.Size(206, 44);
+            this.browserGB.TabIndex = 15;
+            this.browserGB.TabStop = false;
+            this.browserGB.Text = "Выбор браузера:";
+            this.browserGB.Visible = false;
+            // 
+            // chromeRB
+            // 
+            this.chromeRB.AutoSize = true;
+            this.chromeRB.Location = new System.Drawing.Point(123, 19);
+            this.chromeRB.Name = "chromeRB";
+            this.chromeRB.Size = new System.Drawing.Size(68, 19);
+            this.chromeRB.TabIndex = 1;
+            this.chromeRB.TabStop = true;
+            this.chromeRB.Text = "Chrome";
+            this.chromeRB.UseVisualStyleBackColor = true;
+            // 
+            // IEexplorerRB
+            // 
+            this.IEexplorerRB.AutoSize = true;
+            this.IEexplorerRB.Location = new System.Drawing.Point(6, 19);
+            this.IEexplorerRB.Name = "IEexplorerRB";
+            this.IEexplorerRB.Size = new System.Drawing.Size(112, 19);
+            this.IEexplorerRB.TabIndex = 0;
+            this.IEexplorerRB.TabStop = true;
+            this.IEexplorerRB.Text = "Internet Explorer";
+            this.IEexplorerRB.UseVisualStyleBackColor = true;
             // 
             // timerCB
             // 
             this.timerCB.AutoSize = true;
-            this.timerCB.Location = new System.Drawing.Point(9, 280);
+            this.timerCB.Location = new System.Drawing.Point(7, 325);
             this.timerCB.Name = "timerCB";
             this.timerCB.Size = new System.Drawing.Size(196, 19);
             this.timerCB.TabIndex = 14;
@@ -261,7 +300,7 @@
             this.видToolStripMenuItem});
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(487, 24);
+            this.menuStrip2.Size = new System.Drawing.Size(494, 24);
             this.menuStrip2.TabIndex = 13;
             this.menuStrip2.Text = "menuStrip2";
             // 
@@ -306,7 +345,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(488, 309);
+            this.ClientSize = new System.Drawing.Size(497, 353);
             this.Controls.Add(this.mainPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MainMenuStrip = this.miniToolStrip;
@@ -318,6 +357,8 @@
             this.sectionGB.ResumeLayout(false);
             this.mainPanel.ResumeLayout(false);
             this.mainPanel.PerformLayout();
+            this.browserGB.ResumeLayout(false);
+            this.browserGB.PerformLayout();
             this.menuStrip2.ResumeLayout(false);
             this.menuStrip2.PerformLayout();
             this.ResumeLayout(false);
@@ -350,5 +391,8 @@
         private ToolStripMenuItem компактныйтолькоСкриншотыToolStripMenuItem;
         private TextBox testTextBox;
         private CheckBox timerCB;
+        private GroupBox browserGB;
+        private RadioButton chromeRB;
+        private RadioButton IEexplorerRB;
     }
 }
