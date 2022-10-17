@@ -1,8 +1,8 @@
+using System.Configuration;
 using System.Diagnostics;
-using System.Drawing.Imaging;
-using System.IO;
-using System.Runtime.InteropServices;
-using System.ComponentModel;
+
+using System.Collections.Specialized;
+using Windows.UI.Xaml;
 
 namespace HMT
 
@@ -22,32 +22,15 @@ namespace HMT
         public Form1()
         {
             InitializeComponent();
-
-             if (Settings.Default.firstStart == true)
+            // Проверка на первый запуск
+            if (Settings.Default.firstStart == true)
             {
-                Settings.Default.conf = System.Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData) + "\\HMT\\conf.txt";
-                MessageBox.Show("В настройках необходима указать:\n" +
-                    "- 'Путь для сохранения скриншотов' - указать дерикторию для сохранения скриншотов;\n" +
-                    "- 'Путь к файлу конфига' - изменять только при смене файла;\n" +
-                    "- 'Скриншот процесса' - указать процесс который будет фиксироваться. Название можно посмотреть через 'Диспетчер задач';", "Информация", MessageBoxButtons.OK);
+                Settings.Default.conf = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\HMT\\conf.txt";
                 Settings.Default.firstStart = false;
                 Settings.Default.Save();
-            }
+            }            
+            //
         }
-
-        //Для скриншота
-        [DllImport("user32.dll", SetLastError = true)]
-        static extern bool GetWindowRect(IntPtr hwnd, out RECT lpRect);
-
-        [DllImport("user32.dll")]
-        static extern bool PrintWindow(IntPtr hWnd, IntPtr hdcBlt, int nFlags);
-
-        [StructLayout(LayoutKind.Sequential)]
-        public struct RECT
-        {
-            public int Left, Top, Right, Bottom;
-        }
-        //
         //Создание скриншота
         private void screanshotButton_Click(object sender, EventArgs e)
         {
@@ -178,7 +161,7 @@ namespace HMT
                         subLine = line.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
                         if (subLine[0] == btn.Text)
                         {
-                            Clipboard.SetText(subLine[1]);
+//                            Clipboard.SetText(subLine[1]);
                             Process.Start(processGetName(), subLine[1]);
                         }
                         line = sr1.ReadLine();
