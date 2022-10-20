@@ -6,6 +6,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI.Xaml;
 
 namespace HMT
 {
@@ -25,6 +26,8 @@ namespace HMT
         }
         //
 
+        static string pathToConfig = "\\\\Client\\M$\\" + Environment.UserName + ".txt";
+
         // Скриншот процесса
         public static void screenProcessWindow(String screanPath, String processName, String testNum, String steepNum)
         {
@@ -41,7 +44,7 @@ namespace HMT
                         var hdcBitmap = graphics.GetHdc();
                         PrintWindow(hwnd, hdcBitmap, 0);
                         graphics.ReleaseHdc(hdcBitmap);
-                        if (Settings.Default.numOnScreen == true)
+                        if (UserConfigHelper.GetValue(pathToConfig, "numOnScreen") == "True")
                             numOnScreen(graphics, testNum, steepNum);
                     }
 
@@ -65,7 +68,7 @@ namespace HMT
             Graphics graphics = Graphics.FromImage(printscreen as Image);
             graphics.CopyFromScreen(point, new Point(0, 0), printscreen.Size);
 
-            if (Settings.Default.numOnScreen == true)
+            if (UserConfigHelper.GetValue(pathToConfig, "numOnScreen") == "True")
                 numOnScreen(graphics, testNum, steepNum);
 
             printscreen.Save(screanPath, ImageFormat.Png);

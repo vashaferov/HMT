@@ -15,6 +15,7 @@ namespace HMT
     {
         string line;
         string resultText;
+        string pathToConfig = "\\\\Client\\M$\\" + Environment.UserName + ".txt";
 
         public Form3()
         {
@@ -56,13 +57,13 @@ namespace HMT
         }
         public void replaceline(String section, String endSection, String newLine)
         {
-            StreamReader sr = new StreamReader(Settings.Default.conf);
+            StreamReader sr = new StreamReader(UserConfigHelper.GetValue(pathToConfig, "conf"));
             
             line = sr.ReadToEnd();
             line = line.Replace(endSection, nameTB.Text + " " + newLine + "\n" + endSection);
             sr.Close();
 
-            StreamWriter sw = new StreamWriter(Settings.Default.conf);
+            StreamWriter sw = new StreamWriter(UserConfigHelper.GetValue(pathToConfig, "conf"));
 
             sw.Write(line);
             sw.Close();

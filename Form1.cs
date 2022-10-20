@@ -1,8 +1,5 @@
-using System.Configuration;
-using System.Diagnostics;
 
-using System.Collections.Specialized;
-using Windows.UI.Xaml;
+using System.Diagnostics;
 
 namespace HMT
 
@@ -18,32 +15,40 @@ namespace HMT
         string testNum;
         string screanPath;
         string release;
-        
+        string userName = Environment.UserName;
+        //string pathToConfig = "C:\\Users\\Вячеслав\\Documents\\" + Environment.UserName + ".txt";
+        string pathToConfig = "\\\\Client\\M$\\" + Environment.UserName + ".txt";
+
         public Form1()
         {
             InitializeComponent();
             // Проверка на первый запуск
-            if (Settings.Default.firstStart == true)
-            {
-                Settings.Default.conf = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\HMT\\conf.txt";
-                Settings.Default.firstStart = false;
-                Settings.Default.Save();
-            }            
+
+                //if (Settings.Default.firstStart == true)
+                //{
+                //    Settings.Default.conf = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\HMT\\conf.txt";
+                //    Settings.Default.firstStart = false;
+                //    Settings.Default.Save();
+                //}
+            UserConfigHelper.CheckConfig(userName);
             //
         }
         //Создание скриншота
         private void screanshotButton_Click(object sender, EventArgs e)
         {
             resultText = "";
-            screanPath = Settings.Default.screenshot;
-            processName = Settings.Default.process;
-            release = Settings.Default.release;
-            steepNum = steepTextBox.Text.Trim();
-            testNum = testTextBox.Text.Trim();
+            //screanPath = Settings.Default.screenshot;
+            //processName = Settings.Default.process;
+            //release = Settings.Default.release;
+            screanPath = UserConfigHelper.GetValue(pathToConfig, "screenshot");
+            processName = UserConfigHelper.GetValue(pathToConfig, "process");
+            release = UserConfigHelper.GetValue(pathToConfig, "release").Replace(" ", "_");
+            steepNum = steepTextBox.Text.Trim().Replace(" ", "_");
+            testNum = testTextBox.Text.Trim().Replace(" ", "_");
             if (steepNum != "" && testNum != "")
             {
                 Directory.CreateDirectory(screanPath + "\\" + release + "\\" + testNum);
-                screanPath += "\\" + release + "\\" + testNum + "\\" + "Шаг " + steepNum + ".png";
+                screanPath += "\\" + release + "\\" + testNum + "\\" + "Шаг_" + steepNum + ".png";
 
                 this.WindowState = FormWindowState.Minimized;
                 Thread.Sleep(200);
@@ -54,19 +59,23 @@ namespace HMT
                     timerCB.Checked = false;
                 }
 
-                if (Settings.Default.typeScreen == 1)
+                //if (Settings.Default.typeScreen == 1)
+                if (UserConfigHelper.GetValue(pathToConfig, "typeScreen") == "1")
                 {
                     ScreenshotHelper.screenProcessWindow(screanPath, processName, testNum, steepNum);
                 }
-                else if (Settings.Default.typeScreen == 2)
+                //else if (Settings.Default.typeScreen == 2)
+                else if (UserConfigHelper.GetValue(pathToConfig, "typeScreen") == "2")
                 {
                     ScreenshotHelper.screenFullWindow(screanPath, testNum, steepNum);
                 }
                 resultTextBox.Text = "Скриншот теста № " + testNum + " 'Шаг " + steepNum + "' готов";
+                linkToPaint.Visible = true;
 
                 this.WindowState = FormWindowState.Normal;
                 steepTextBox.Text = null;
-                screanPath = Settings.Default.screenshot;
+                //screanPath = Settings.Default.screenshot;
+                //screanPath = UserConfigHelper.GetValue(pathToConfig, "screenshot");
             } else
             {
                 resultTextBox.Text = "Не указан нормер шага или номер теста";
@@ -118,7 +127,8 @@ namespace HMT
             resultButtonPane.Controls.Clear();
             try
             {
-                StreamReader sr = new StreamReader(Settings.Default.conf);
+                //StreamReader sr = new StreamReader(Settings.Default.conf);
+                StreamReader sr = new StreamReader(UserConfigHelper.GetValue(pathToConfig, "conf"));
                 line = sr.ReadLine();
                 while(line != null)
                 {
@@ -149,7 +159,8 @@ namespace HMT
         private void Btn_Click(object? sender, EventArgs e)
         {
             Button btn = (Button) sender;
-            StreamReader sr1 = new StreamReader(Settings.Default.conf);
+            //StreamReader sr1 = new StreamReader(Settings.Default.conf);
+            StreamReader sr1 = new StreamReader(UserConfigHelper.GetValue(pathToConfig, "conf"));
             line = sr1.ReadLine();
             while (line != null)
             {
@@ -203,12 +214,17 @@ namespace HMT
             string processName;
 
             if (logRB.Checked == Enabled)
-                processName = "explorer.exe";
+                processName = UserConfigHelper.GetValue(pathToConfig, "pathExplorer");
             else if (IEexplorerRB.Checked == Enabled)
-                    processName = "C:\\Program Files\\Internet Explorer\\iexplore.exe";
+                    processName = UserConfigHelper.GetValue(pathToConfig, "pathIE");
                  else
-                    processName = "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe";
+                    processName = UserConfigHelper.GetValue(pathToConfig, "pathChrome");
             return processName;
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start(UserConfigHelper.GetValue(pathToConfig, "pathPaint"), screanPath);
         }
         //
     }

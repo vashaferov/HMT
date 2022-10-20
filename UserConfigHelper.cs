@@ -1,17 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Windows.UI.Xaml.Shapes;
+﻿
+using System.Windows.Forms;
 
 namespace HMT
 {
     public class UserConfigHelper
     {
-        string line;
+        static string line;
+        static string pathToConfig = "\\\\Client\\M$\\";
 
-        public string GetValue(string file, string name)
+        public static void CheckConfig(string nameUser)
+        {
+            if (!File.Exists(pathToConfig + nameUser + ".txt"))
+            {
+                File.Copy("dcf.txt", pathToConfig + nameUser + ".txt");
+                Form2 form2 = new Form2();
+                form2.Show();
+            }
+        }
+
+        public static string GetValue(string file, string name)
         {
             StreamReader sr = new StreamReader(file);
 
@@ -29,32 +36,14 @@ namespace HMT
             return line; 
         }
 
-        public string SabeValue(string file, string name)
+        public static void SaveValue(string file, string section, string newLine)
         {
             StreamReader sr = new StreamReader(file);
-
-            line = sr.ReadLine();
-            while (line != null)
-            {
-                if (line == "<" + name + ">")
-                {
-                    line = sr.ReadLine();
-                    break;
-                }
-                line = sr.ReadLine();
-            }
-            sr.Close();
-            return line;
-        }
-
-        public void replaceline(String section, String endSection, String newLine)
-        {
-            StreamReader sr = new StreamReader(Settings.Default.conf);
             line = sr.ReadToEnd();
-            line = line.Replace(section,   " " + newLine + "\n" + endSection);
+            line = line.Replace(GetValue(file, section), newLine);
             sr.Close();
 
-            StreamWriter sw = new StreamWriter(Settings.Default.conf);
+            StreamWriter sw = new StreamWriter(file);
 
             sw.Write(line);
             sw.Close();

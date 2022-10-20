@@ -44,6 +44,7 @@
             this.testTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.mainPanel = new System.Windows.Forms.Panel();
+            this.linkToPaint = new System.Windows.Forms.LinkLabel();
             this.browserGB = new System.Windows.Forms.GroupBox();
             this.chromeRB = new System.Windows.Forms.RadioButton();
             this.IEexplorerRB = new System.Windows.Forms.RadioButton();
@@ -114,7 +115,7 @@
             // 
             this.resultTextBox.AutoSize = true;
             this.resultTextBox.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.resultTextBox.Location = new System.Drawing.Point(275, 301);
+            this.resultTextBox.Location = new System.Drawing.Point(275, 287);
             this.resultTextBox.Name = "resultTextBox";
             this.resultTextBox.Size = new System.Drawing.Size(0, 13);
             this.resultTextBox.TabIndex = 7;
@@ -230,6 +231,7 @@
             // mainPanel
             // 
             this.mainPanel.AutoSize = true;
+            this.mainPanel.Controls.Add(this.linkToPaint);
             this.mainPanel.Controls.Add(this.browserGB);
             this.mainPanel.Controls.Add(this.timerCB);
             this.mainPanel.Controls.Add(this.label2);
@@ -247,6 +249,18 @@
             this.mainPanel.Size = new System.Drawing.Size(494, 350);
             this.mainPanel.TabIndex = 0;
             this.mainPanel.Tag = "mainPanel";
+            // 
+            // linkToPaint
+            // 
+            this.linkToPaint.AutoSize = true;
+            this.linkToPaint.Location = new System.Drawing.Point(275, 304);
+            this.linkToPaint.Name = "linkToPaint";
+            this.linkToPaint.Size = new System.Drawing.Size(215, 15);
+            this.linkToPaint.TabIndex = 16;
+            this.linkToPaint.TabStop = true;
+            this.linkToPaint.Text = "Открыть последний скриншот в Paint";
+            this.linkToPaint.Visible = false;
+            this.linkToPaint.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // browserGB
             // 
@@ -394,5 +408,6 @@
         private GroupBox browserGB;
         private RadioButton chromeRB;
         private RadioButton IEexplorerRB;
+        private LinkLabel linkToPaint;
     }
 }

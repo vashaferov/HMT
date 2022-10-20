@@ -1,0 +1,24 @@
+<conf>
+C:\Users\Вячеслав\AppData\Roaming\HMT\conf.txt
+<screenshot>
+C:\
+<process>
+chrome
+<monitorSize>
+0, 0
+<typeScreen>
+1
+<monitorLocetion>
+0, 0
+<release>
+Foris 7.22.8
+<numOnScreen>
+True
+<pathChrome>
+C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe
+<pathIE>
+C:\\Program Files (x86)\\Internet Explorer\\iexplore.exe
+<pathPaint>
+mspaint.exe
+<pathExplorer>
+explorer.exe
