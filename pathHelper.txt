@@ -1,0 +1,2 @@
+<pathToConfig>
+\\\\Client\\M$\\

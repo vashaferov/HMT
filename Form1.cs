@@ -17,7 +17,7 @@ namespace HMT
         string release;
         string userName = Environment.UserName;
         //string pathToConfig = "C:\\Users\\ֲÿקוסכאג\\Documents\\" + Environment.UserName + ".txt";
-        string pathToConfig = "\\\\Client\\M$\\" + Environment.UserName + ".txt";
+        string pathToConfig = pathHelper.GetPathToUserSF() + Environment.UserName + ".txt";
 
         public Form1()
         {

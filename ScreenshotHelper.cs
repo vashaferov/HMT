@@ -26,7 +26,7 @@ namespace HMT
         }
         //
 
-        static string pathToConfig = "\\\\Client\\M$\\" + Environment.UserName + ".txt";
+        static string pathToConfig = pathHelper.GetPathToUserSF() + Environment.UserName + ".txt";
 
         // Скриншот процесса
         public static void screenProcessWindow(String screanPath, String processName, String testNum, String steepNum)

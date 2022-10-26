@@ -1,7 +1,7 @@
 <conf>
-C:\Users\Вячеслав\AppData\Roaming\HMT\conf.txt
+\\\\Client\\M$\\\conf.txt
 <screenshot>
-C:\
+\\\\Client\\M$\\
 <process>
 chrome
 <monitorSize>

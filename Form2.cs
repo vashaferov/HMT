@@ -7,7 +7,7 @@ namespace HMT
         public string screenshotP;
         public string configP;
         public string processP;
-        string pathToConfig = "\\\\Client\\M$\\" + Environment.UserName + ".txt";
+        string pathToConfig = pathHelper.GetPathToUserSF() + Environment.UserName + ".txt";
 
         public Form2()
         {

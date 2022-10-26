@@ -15,7 +15,7 @@ namespace HMT
     {
         string line;
         string resultText;
-        string pathToConfig = "\\\\Client\\M$\\" + Environment.UserName + ".txt";
+        string pathToConfig = pathHelper.GetPathToUserSF() + Environment.UserName + ".txt";
 
         public Form3()
         {

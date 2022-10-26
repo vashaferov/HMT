@@ -19,7 +19,7 @@ namespace HMT
         string testNum;
         string screanPath;
         string release;
-        string pathToConfig = "\\\\Client\\M$\\" + Environment.UserName + ".txt";
+        string pathToConfig = pathHelper.GetPathToUserSF() + Environment.UserName + ".txt";
 
 
         public Form4()

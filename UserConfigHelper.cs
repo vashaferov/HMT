@@ -6,7 +6,7 @@ namespace HMT
     public class UserConfigHelper
     {
         static string line;
-        static string pathToConfig = "\\\\Client\\M$\\";
+        static string pathToConfig = pathHelper.GetPathToUserSF();
 
         public static void CheckConfig(string nameUser)
         {
