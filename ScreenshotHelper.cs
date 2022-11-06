@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing.Imaging;
+using System.IO.Compression;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Windows.UI.Xaml;
+
 
 namespace HMT
 {
@@ -28,41 +31,18 @@ namespace HMT
 
         static string pathToConfig = pathHelper.GetPathToUserSF() + Environment.UserName + ".txt";
 
-        // Скриншот процесса
-        public static void screenProcessWindow(String screanPath, String processName, String testNum, String steepNum)
-        {
-            try
-            {
-                var process = Process.GetProcessesByName(processName).FirstOrDefault();
-                var hwnd = process.MainWindowHandle;
-                GetWindowRect(hwnd, out var rect);
-
-                using (var printscreen = new Bitmap(rect.Right - rect.Left, rect.Bottom - rect.Top))
-                {
-                    using (var graphics = Graphics.FromImage(printscreen))
-                    {
-                        var hdcBitmap = graphics.GetHdc();
-                        PrintWindow(hwnd, hdcBitmap, 0);
-                        graphics.ReleaseHdc(hdcBitmap);
-                        if (UserConfigHelper.GetValue(pathToConfig, "numOnScreen") == "True")
-                            numOnScreen(graphics, testNum, steepNum);
-                    }
-
-                    printscreen.Save(screanPath, ImageFormat.Png);
-                }
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show("Не указан процесс", "Ошибка", MessageBoxButtons.OK);
-            }
-        }
-        //
         // Скриншот монитора
         public static void screenFullWindow(String screanPath, String testNum, String steepNum)
         {
-            int width = Settings.Default.monitorSize.Width;
-            int height = Settings.Default.monitorSize.Height;
-            Point point = Settings.Default.monitorLocetion;
+            var monitorLocetionBeChanged = UserConfigHelper.GetValue(pathToConfig, "monitorLocetion");
+            var g1 = Regex.Replace(monitorLocetionBeChanged, @"[\{\}a-zA-Z=]", "").Split(',');
+            Point point = new Point(int.Parse(g1[0]), int.Parse(g1[1]));
+
+            var monitorSizeBeChanged = UserConfigHelper.GetValue(pathToConfig, "monitorSize");
+            var g = Regex.Replace(monitorSizeBeChanged, @"[\{\}a-zA-Z=]", "").Split(',');
+
+            int width = int.Parse(g[0]);
+            int height = int.Parse(g[1]);
 
             Bitmap printscreen = new Bitmap(width, height);
             Graphics graphics = Graphics.FromImage(printscreen as Image);
@@ -82,5 +62,14 @@ namespace HMT
             graphics.DrawString("Тест № " + testNum + "\nШаг № " + steepNum, new Font("Verdana", (float)20), new SolidBrush(Color.Red), 0, 0);
         }
         //
+
+        public static void createZip (string path, string testNum)
+        {
+            if (!File.Exists(path + "\\Archives"))
+                Directory.CreateDirectory(path + "\\Archives");
+            
+            string extractPath = "Test_" + testNum + "_" + DateTime.Today.ToString("d") + ".zip";
+            ZipFile.CreateFromDirectory(path, extractPath);
+        }
     }
 }

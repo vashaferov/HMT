@@ -10,26 +10,17 @@ namespace HMT
         string resultText = "";
         string line;
         string[] subLine;
-        string processName;
         string steepNum;
         string testNum;
-        string screanPath;
+        string screenPath;
         string release;
         string userName = Environment.UserName;
-        //string pathToConfig = "C:\\Users\\Вячеслав\\Documents\\" + Environment.UserName + ".txt";
         string pathToConfig = pathHelper.GetPathToUserSF() + Environment.UserName + ".txt";
 
         public Form1()
         {
             InitializeComponent();
             // Проверка на первый запуск
-
-                //if (Settings.Default.firstStart == true)
-                //{
-                //    Settings.Default.conf = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\HMT\\conf.txt";
-                //    Settings.Default.firstStart = false;
-                //    Settings.Default.Save();
-                //}
             UserConfigHelper.CheckConfig(userName);
             //
         }
@@ -37,18 +28,14 @@ namespace HMT
         private void screanshotButton_Click(object sender, EventArgs e)
         {
             resultText = "";
-            //screanPath = Settings.Default.screenshot;
-            //processName = Settings.Default.process;
-            //release = Settings.Default.release;
-            screanPath = UserConfigHelper.GetValue(pathToConfig, "screenshot");
-            processName = UserConfigHelper.GetValue(pathToConfig, "process");
+            screenPath = UserConfigHelper.GetValue(pathToConfig, "screenshot");
             release = UserConfigHelper.GetValue(pathToConfig, "release").Replace(" ", "_");
             steepNum = steepTextBox.Text.Trim().Replace(" ", "_");
             testNum = testTextBox.Text.Trim().Replace(" ", "_");
             if (steepNum != "" && testNum != "")
             {
-                Directory.CreateDirectory(screanPath + "\\" + release + "\\" + testNum);
-                screanPath += "\\" + release + "\\" + testNum + "\\" + "Шаг_" + steepNum + ".png";
+                Directory.CreateDirectory(screenPath + "\\" + release + "\\" + testNum);
+                screenPath += "\\" + release + "\\" + testNum + "\\" + "Шаг_" + steepNum + ".png";
 
                 this.WindowState = FormWindowState.Minimized;
                 Thread.Sleep(200);
@@ -59,23 +46,13 @@ namespace HMT
                     timerCB.Checked = false;
                 }
 
-                //if (Settings.Default.typeScreen == 1)
-                if (UserConfigHelper.GetValue(pathToConfig, "typeScreen") == "1")
-                {
-                    ScreenshotHelper.screenProcessWindow(screanPath, processName, testNum, steepNum);
-                }
-                //else if (Settings.Default.typeScreen == 2)
-                else if (UserConfigHelper.GetValue(pathToConfig, "typeScreen") == "2")
-                {
-                    ScreenshotHelper.screenFullWindow(screanPath, testNum, steepNum);
-                }
+                ScreenshotHelper.screenFullWindow(screenPath, testNum, steepNum);
+
                 resultTextBox.Text = "Скриншот теста № " + testNum + " 'Шаг " + steepNum + "' готов";
                 linkToPaint.Visible = true;
 
                 this.WindowState = FormWindowState.Normal;
                 steepTextBox.Text = null;
-                //screanPath = Settings.Default.screenshot;
-                //screanPath = UserConfigHelper.GetValue(pathToConfig, "screenshot");
             } else
             {
                 resultTextBox.Text = "Не указан нормер шага или номер теста";
@@ -127,7 +104,6 @@ namespace HMT
             resultButtonPane.Controls.Clear();
             try
             {
-                //StreamReader sr = new StreamReader(Settings.Default.conf);
                 StreamReader sr = new StreamReader(UserConfigHelper.GetValue(pathToConfig, "conf"));
                 line = sr.ReadLine();
                 while(line != null)
@@ -159,7 +135,6 @@ namespace HMT
         private void Btn_Click(object? sender, EventArgs e)
         {
             Button btn = (Button) sender;
-            //StreamReader sr1 = new StreamReader(Settings.Default.conf);
             StreamReader sr1 = new StreamReader(UserConfigHelper.GetValue(pathToConfig, "conf"));
             line = sr1.ReadLine();
             while (line != null)
@@ -172,7 +147,6 @@ namespace HMT
                         subLine = line.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
                         if (subLine[0] == btn.Text)
                         {
-//                            Clipboard.SetText(subLine[1]);
                             Process.Start(processGetName(), subLine[1]);
                         }
                         line = sr1.ReadLine();
@@ -224,8 +198,18 @@ namespace HMT
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Process.Start(UserConfigHelper.GetValue(pathToConfig, "pathPaint"), screanPath);
+            Process.Start(UserConfigHelper.GetValue(pathToConfig, "pathPaint"), screenPath);
         }
+
+        //private void button1_Click(object sender, EventArgs e)
+        //{
+        //    screenPath = UserConfigHelper.GetValue(pathToConfig, "screenshot");
+        //    testNum = testTextBox.Text.Trim().Replace(" ", "_");
+        //    release = UserConfigHelper.GetValue(pathToConfig, "release").Replace(" ", "_");
+        //    screenPath += "\\" + release;
+        //    ScreenshotHelper.createZip(screenPath, testNum);
+        //}
+
         //
     }
 }

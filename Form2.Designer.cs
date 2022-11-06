@@ -31,26 +31,20 @@
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
             this.screenPathTB = new System.Windows.Forms.TextBox();
             this.configPathTB = new System.Windows.Forms.TextBox();
-            this.processTB = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.saveButton = new System.Windows.Forms.Button();
-            this.menuProcessRB = new System.Windows.Forms.RadioButton();
-            this.menuMonitorRB = new System.Windows.Forms.RadioButton();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.mainMonitor = new System.Windows.Forms.RadioButton();
-            this.primaryMonitor = new System.Windows.Forms.RadioButton();
             this.label4 = new System.Windows.Forms.Label();
             this.releaseTB = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.numOnScreenNegRB = new System.Windows.Forms.RadioButton();
             this.numOnScreenPosRB = new System.Windows.Forms.RadioButton();
+            this.primaryMonitor = new System.Windows.Forms.RadioButton();
+            this.mainMonitor = new System.Windows.Forms.RadioButton();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // fileSystemWatcher1
@@ -72,14 +66,6 @@
             this.configPathTB.Size = new System.Drawing.Size(299, 23);
             this.configPathTB.TabIndex = 1;
             // 
-            // processTB
-            // 
-            this.processTB.Location = new System.Drawing.Point(10, 261);
-            this.processTB.Name = "processTB";
-            this.processTB.Size = new System.Drawing.Size(299, 23);
-            this.processTB.TabIndex = 2;
-            this.processTB.Visible = false;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -98,96 +84,15 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Путь к файлу конфига:";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(10, 243);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(126, 15);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Скриншот процесса: ";
-            this.label3.Visible = false;
-            // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(234, 310);
+            this.saveButton.Location = new System.Drawing.Point(247, 241);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(75, 23);
             this.saveButton.TabIndex = 6;
             this.saveButton.Text = "Сохранить";
             this.saveButton.UseVisualStyleBackColor = true;
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
-            // 
-            // menuProcessRB
-            // 
-            this.menuProcessRB.AutoSize = true;
-            this.menuProcessRB.Location = new System.Drawing.Point(6, 16);
-            this.menuProcessRB.Name = "menuProcessRB";
-            this.menuProcessRB.Size = new System.Drawing.Size(138, 19);
-            this.menuProcessRB.TabIndex = 8;
-            this.menuProcessRB.TabStop = true;
-            this.menuProcessRB.Text = "Скриншот процесса";
-            this.menuProcessRB.UseVisualStyleBackColor = true;
-            this.menuProcessRB.CheckedChanged += new System.EventHandler(this.menuScreenRB_CheckedChanged);
-            // 
-            // menuMonitorRB
-            // 
-            this.menuMonitorRB.AutoSize = true;
-            this.menuMonitorRB.Location = new System.Drawing.Point(156, 16);
-            this.menuMonitorRB.Name = "menuMonitorRB";
-            this.menuMonitorRB.Size = new System.Drawing.Size(141, 19);
-            this.menuMonitorRB.TabIndex = 9;
-            this.menuMonitorRB.TabStop = true;
-            this.menuMonitorRB.Text = "Скриншот монитора";
-            this.menuMonitorRB.UseVisualStyleBackColor = true;
-            this.menuMonitorRB.CheckedChanged += new System.EventHandler(this.menuScreenRB_CheckedChanged);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.menuProcessRB);
-            this.groupBox1.Controls.Add(this.menuMonitorRB);
-            this.groupBox1.Location = new System.Drawing.Point(12, 196);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(299, 41);
-            this.groupBox1.TabIndex = 10;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Метод создания скриншота:";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.mainMonitor);
-            this.groupBox2.Controls.Add(this.primaryMonitor);
-            this.groupBox2.Location = new System.Drawing.Point(10, 243);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(234, 41);
-            this.groupBox2.TabIndex = 11;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Монитор:";
-            this.groupBox2.Visible = false;
-            // 
-            // mainMonitor
-            // 
-            this.mainMonitor.AutoSize = true;
-            this.mainMonitor.Location = new System.Drawing.Point(6, 16);
-            this.mainMonitor.Name = "mainMonitor";
-            this.mainMonitor.Size = new System.Drawing.Size(81, 19);
-            this.mainMonitor.TabIndex = 8;
-            this.mainMonitor.TabStop = true;
-            this.mainMonitor.Text = "Основной";
-            this.mainMonitor.UseVisualStyleBackColor = true;
-            this.mainMonitor.CheckedChanged += new System.EventHandler(this.monitor_CheckedChanged);
-            // 
-            // primaryMonitor
-            // 
-            this.primaryMonitor.AutoSize = true;
-            this.primaryMonitor.Location = new System.Drawing.Point(109, 16);
-            this.primaryMonitor.Name = "primaryMonitor";
-            this.primaryMonitor.Size = new System.Drawing.Size(122, 19);
-            this.primaryMonitor.TabIndex = 9;
-            this.primaryMonitor.TabStop = true;
-            this.primaryMonitor.Text = "Дополнительный";
-            this.primaryMonitor.UseVisualStyleBackColor = true;
-            this.primaryMonitor.CheckedChanged += new System.EventHandler(this.monitor_CheckedChanged);
             // 
             // label4
             // 
@@ -211,7 +116,7 @@
             this.groupBox3.Controls.Add(this.numOnScreenPosRB);
             this.groupBox3.Location = new System.Drawing.Point(12, 148);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(216, 41);
+            this.groupBox3.Size = new System.Drawing.Size(231, 41);
             this.groupBox3.TabIndex = 14;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Номер теста и шага на скриншоте:";
@@ -240,21 +145,53 @@
             this.numOnScreenPosRB.UseVisualStyleBackColor = true;
             this.numOnScreenPosRB.CheckedChanged += new System.EventHandler(this.numOnScreenRB_CheckedChanged);
             // 
+            // primaryMonitor
+            // 
+            this.primaryMonitor.AutoSize = true;
+            this.primaryMonitor.Location = new System.Drawing.Point(109, 16);
+            this.primaryMonitor.Name = "primaryMonitor";
+            this.primaryMonitor.Size = new System.Drawing.Size(122, 19);
+            this.primaryMonitor.TabIndex = 9;
+            this.primaryMonitor.TabStop = true;
+            this.primaryMonitor.Text = "Дополнительный";
+            this.primaryMonitor.UseVisualStyleBackColor = true;
+            this.primaryMonitor.CheckedChanged += new System.EventHandler(this.monitor_CheckedChanged);
+            // 
+            // mainMonitor
+            // 
+            this.mainMonitor.AutoSize = true;
+            this.mainMonitor.Location = new System.Drawing.Point(6, 16);
+            this.mainMonitor.Name = "mainMonitor";
+            this.mainMonitor.Size = new System.Drawing.Size(81, 19);
+            this.mainMonitor.TabIndex = 8;
+            this.mainMonitor.TabStop = true;
+            this.mainMonitor.Text = "Основной";
+            this.mainMonitor.UseVisualStyleBackColor = true;
+            this.mainMonitor.CheckedChanged += new System.EventHandler(this.monitor_CheckedChanged);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.mainMonitor);
+            this.groupBox2.Controls.Add(this.primaryMonitor);
+            this.groupBox2.Location = new System.Drawing.Point(12, 195);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(234, 41);
+            this.groupBox2.TabIndex = 11;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Монитор:";
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(325, 354);
+            this.ClientSize = new System.Drawing.Size(325, 273);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.releaseTB);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.saveButton);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.processTB);
             this.Controls.Add(this.configPathTB);
             this.Controls.Add(this.screenPathTB);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -264,12 +201,10 @@
             this.TopMost = true;
             this.Load += new System.EventHandler(this.Form2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -279,22 +214,17 @@
 
         private FileSystemWatcher fileSystemWatcher1;
         private Label label1;
-        public TextBox processTB;
         public TextBox configPathTB;
         public TextBox screenPathTB;
         private Button saveButton;
-        private Label label3;
         private Label label2;
-        private GroupBox groupBox1;
-        private RadioButton menuProcessRB;
-        private RadioButton menuMonitorRB;
-        private GroupBox groupBox2;
-        private RadioButton mainMonitor;
-        private RadioButton primaryMonitor;
         public TextBox releaseTB;
         private Label label4;
         private GroupBox groupBox3;
         private RadioButton numOnScreenPosRB;
         private RadioButton numOnScreenNegRB;
+        private GroupBox groupBox2;
+        private RadioButton mainMonitor;
+        private RadioButton primaryMonitor;
     }
 }

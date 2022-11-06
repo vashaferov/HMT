@@ -14,7 +14,6 @@ namespace HMT
     public partial class Form4 : Form
     {
 
-        string processName;
         string steepNum;
         string testNum;
         string screanPath;
@@ -30,12 +29,7 @@ namespace HMT
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //screanPath = Settings.Default.screenshot;
-            //processName = Settings.Default.process;
-            //release = Settings.Default.release;
-
             screanPath = UserConfigHelper.GetValue(pathToConfig, "screenshot").Replace(" ", "_");
-            processName = UserConfigHelper.GetValue(pathToConfig, "process").Replace(" ", "_");
             release = UserConfigHelper.GetValue(pathToConfig, "release").Replace(" ", "_");
             steepNum = steepNumTB.Text.Trim();
             testNum = testNumTB.Text.Trim();
@@ -54,22 +48,13 @@ namespace HMT
                     timerCB_min.Checked = false;
                 }
 
-                //if (Settings.Default.typeScreen == 1)
-                if (UserConfigHelper.GetValue(pathToConfig, "typeScreen") == "1")
-                {
-                    ScreenshotHelper.screenProcessWindow(screanPath, processName, testNum, steepNum);
-                }
-                //else if (Settings.Default.typeScreen == 2)
-                else if (UserConfigHelper.GetValue(pathToConfig, "typeScreen") == "2")
-                {
-                    ScreenshotHelper.screenFullWindow(screanPath, testNum, steepNum);
-                }
+                ScreenshotHelper.screenFullWindow(screanPath, testNum, steepNum);
+
                 resultL.Text = "Скриншот теста № " + testNum + " 'Шаг " + steepNum + "' готов";
 
                 linkToPaint.Visible = true;
                 this.WindowState = FormWindowState.Normal;
                 steepNumTB.Text = null;
-                //screanPath = Settings.Default.screenshot;
             }
             else
             {

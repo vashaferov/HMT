@@ -1,2 +1,2 @@
 <pathToConfig>
-\\\\Client\\M$\\
+C:\Program Files\vashaferov\HMT

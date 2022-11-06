@@ -1,23 +1,19 @@
 <conf>
-\\\\Client\\M$\\\conf.txt
+\\Client\M$\conf.txt
 <screenshot>
-\\\\Client\\M$\\
-<process>
-chrome
+\\Client\M$\
 <monitorSize>
-0, 0
-<typeScreen>
-1
+{Width=0, Height=0}
 <monitorLocetion>
-0, 0
+{X=0,Y=0}
 <release>
 Foris 7.22.8
 <numOnScreen>
 True
 <pathChrome>
-C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe
+C:\Program Files\Google\Chrome\Application\chrome.exe
 <pathIE>
-C:\\Program Files (x86)\\Internet Explorer\\iexplore.exe
+C:\Program Files (x86)\Internet Explorer\iexplore.exe
 <pathPaint>
 mspaint.exe
 <pathExplorer>
