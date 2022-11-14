@@ -21,7 +21,13 @@ namespace HMT
         {
             InitializeComponent();
             // Проверка на первый запуск
-            UserConfigHelper.CheckConfig(userName);
+            //try
+            //{
+                UserConfigHelper.CheckConfig(userName);
+            //} catch (Exception e)
+            //{
+            //    MessageBox.Show("Ошибка при полчении пути для сохранения файла конфига.");
+            //}  
             //
         }
         //Создание скриншота
@@ -76,7 +82,6 @@ namespace HMT
                     subResultText = rb.Text;
                     sectionGB.Visible = true;
                 }
-
             }
         }
         //
@@ -177,7 +182,7 @@ namespace HMT
         {
             Form1 form1 = new Form1();
             Form4 form4 = new Form4();
-
+            
             form4.Show();
             this.WindowState = FormWindowState.Minimized;
         }
@@ -189,27 +194,32 @@ namespace HMT
 
             if (logRB.Checked == Enabled)
                 processName = UserConfigHelper.GetValue(pathToConfig, "pathExplorer");
-            else if (IEexplorerRB.Checked == Enabled)
+            else
+            {
+                if (IEexplorerRB.Checked == Enabled)
                     processName = UserConfigHelper.GetValue(pathToConfig, "pathIE");
-                 else
-                    processName = UserConfigHelper.GetValue(pathToConfig, "pathChrome");
+                else
+                {
+                    if (Directory.Exists(UserConfigHelper.GetValue(pathToConfig, "pathChrome")))
+                        processName = UserConfigHelper.GetValue(pathToConfig, "pathChrome");
+                    else
+                        processName = UserConfigHelper.GetValue(pathToConfig, "pathChromeX86");
+                } 
+            }  
             return processName;
         }
-
+        // Открытие последнего скриншота в Paint
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Process.Start(UserConfigHelper.GetValue(pathToConfig, "pathPaint"), screenPath);
         }
-
-        //private void button1_Click(object sender, EventArgs e)
-        //{
-        //    screenPath = UserConfigHelper.GetValue(pathToConfig, "screenshot");
-        //    testNum = testTextBox.Text.Trim().Replace(" ", "_");
-        //    release = UserConfigHelper.GetValue(pathToConfig, "release").Replace(" ", "_");
-        //    screenPath += "\\" + release;
-        //    ScreenshotHelper.createZip(screenPath, testNum);
-        //}
-
+        //
+        // Создание архива
+        private void button1_Click(object sender, EventArgs e)
+        {
+            screenPath = UserConfigHelper.GetValue(pathToConfig, "screenshot") + "\\" + UserConfigHelper.GetValue(pathToConfig, "release").Replace(" ", "_") + "\\";
+            ScreenshotHelper.createZip(screenPath, testTextBox.Text.Trim().Replace(" ", "_"));
+        }
         //
     }
 }

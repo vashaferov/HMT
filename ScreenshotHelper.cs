@@ -62,14 +62,16 @@ namespace HMT
             graphics.DrawString("Тест № " + testNum + "\nШаг № " + steepNum, new Font("Verdana", (float)20), new SolidBrush(Color.Red), 0, 0);
         }
         //
-
+        // Создание архива
         public static void createZip (string path, string testNum)
         {
-            if (!File.Exists(path + "\\Archives"))
-                Directory.CreateDirectory(path + "\\Archives");
+            //if (!File.Exists(path + "\\Archives"))
+            //    Directory.CreateDirectory(path + "\\Archives");
             
-            string extractPath = "Test_" + testNum + "_" + DateTime.Today.ToString("d") + ".zip";
-            ZipFile.CreateFromDirectory(path, extractPath);
+            string extractPath = path + "\\Test_" + testNum + "_" + DateTime.Today.ToString("d") + ".zip";
+            ZipFile.CreateFromDirectory(path + testNum, extractPath);
+            File.Move(extractPath, path + testNum + "\\Test_" + testNum + "_" + DateTime.Today.ToString("d") + ".zip");
         }
+        //
     }
 }

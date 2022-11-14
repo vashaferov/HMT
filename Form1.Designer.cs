@@ -55,6 +55,7 @@
             this.добавлениеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.видToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.компактныйтолькоСкриншотыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.button1 = new System.Windows.Forms.Button();
             this.envGB.SuspendLayout();
             this.sectionGB.SuspendLayout();
             this.mainPanel.SuspendLayout();
@@ -231,6 +232,7 @@
             // mainPanel
             // 
             this.mainPanel.AutoSize = true;
+            this.mainPanel.Controls.Add(this.button1);
             this.mainPanel.Controls.Add(this.linkToPaint);
             this.mainPanel.Controls.Add(this.browserGB);
             this.mainPanel.Controls.Add(this.timerCB);
@@ -301,9 +303,9 @@
             this.timerCB.AutoSize = true;
             this.timerCB.Location = new System.Drawing.Point(7, 325);
             this.timerCB.Name = "timerCB";
-            this.timerCB.Size = new System.Drawing.Size(196, 19);
+            this.timerCB.Size = new System.Drawing.Size(180, 19);
             this.timerCB.TabIndex = 14;
-            this.timerCB.Text = "Установить таймер на 5 секунд";
+            this.timerCB.Text = "Установить таймер 5 секунд";
             this.timerCB.UseVisualStyleBackColor = true;
             // 
             // menuStrip2
@@ -354,6 +356,16 @@
             this.компактныйтолькоСкриншотыToolStripMenuItem.Size = new System.Drawing.Size(261, 22);
             this.компактныйтолькоСкриншотыToolStripMenuItem.Text = "Компактный (только скриншоты)";
             this.компактныйтолькоСкриншотыToolStripMenuItem.Click += new System.EventHandler(this.компактныйтолькоСкриншотыToolStripMenuItem_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(194, 324);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 17;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form1
             // 
@@ -409,5 +421,6 @@
         private RadioButton chromeRB;
         private RadioButton IEexplorerRB;
         private LinkLabel linkToPaint;
+        private Button button1;
     }
 }

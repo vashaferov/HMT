@@ -1,2 +1,2 @@
 <pathToConfig>
-C:\Program Files\vashaferov\HMT
+C:\Foris_7.22.8\

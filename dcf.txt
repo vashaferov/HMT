@@ -10,6 +10,8 @@
 Foris 7.22.8
 <numOnScreen>
 True
+<pathChromeX86>
+C:\Program Files (x86)\Google\Chrome\Application\chrome.exe
 <pathChrome>
 C:\Program Files\Google\Chrome\Application\chrome.exe
 <pathIE>
@@ -18,3 +20,5 @@ C:\Program Files (x86)\Internet Explorer\iexplore.exe
 mspaint.exe
 <pathExplorer>
 explorer.exe
+<typeScreen>
+2
