@@ -42,6 +42,10 @@
             this.primaryMonitor = new System.Windows.Forms.RadioButton();
             this.mainMonitor = new System.Windows.Forms.RadioButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.button2 = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -56,14 +60,14 @@
             // 
             this.screenPathTB.Location = new System.Drawing.Point(12, 31);
             this.screenPathTB.Name = "screenPathTB";
-            this.screenPathTB.Size = new System.Drawing.Size(299, 23);
+            this.screenPathTB.Size = new System.Drawing.Size(245, 23);
             this.screenPathTB.TabIndex = 0;
             // 
             // configPathTB
             // 
             this.configPathTB.Location = new System.Drawing.Point(12, 75);
             this.configPathTB.Name = "configPathTB";
-            this.configPathTB.Size = new System.Drawing.Size(299, 23);
+            this.configPathTB.Size = new System.Drawing.Size(245, 23);
             this.configPathTB.TabIndex = 1;
             // 
             // label1
@@ -180,11 +184,37 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Монитор:";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(263, 31);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(50, 23);
+            this.button1.TabIndex = 15;
+            this.button1.Text = "Обзор";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(263, 75);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(50, 23);
+            this.button2.TabIndex = 16;
+            this.button2.Text = "Обзор";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(325, 273);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.releaseTB);
             this.Controls.Add(this.label4);
@@ -226,5 +256,9 @@
         private GroupBox groupBox2;
         private RadioButton mainMonitor;
         private RadioButton primaryMonitor;
+        private Button button1;
+        private FolderBrowserDialog folderBrowserDialog1;
+        private Button button2;
+        private OpenFileDialog openFileDialog1;
     }
 }

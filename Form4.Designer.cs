@@ -37,6 +37,7 @@
             this.resultL = new System.Windows.Forms.Label();
             this.timerCB_min = new System.Windows.Forms.CheckBox();
             this.linkToPaint = new System.Windows.Forms.LinkLabel();
+            this.zipButtonFM = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -84,10 +85,19 @@
             this.linkToPaint.TabStop = true;
             this.linkToPaint.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkToPaint_LinkClicked);
             // 
+            // zipButtonFM
+            // 
+            resources.ApplyResources(this.zipButtonFM, "zipButtonFM");
+            this.zipButtonFM.Name = "zipButtonFM";
+            this.zipButtonFM.UseVisualStyleBackColor = true;
+            this.zipButtonFM.Click += new System.EventHandler(this.zipButtonFM_Click);
+            // 
             // Form4
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Controls.Add(this.zipButtonFM);
             this.Controls.Add(this.linkToPaint);
             this.Controls.Add(this.timerCB_min);
             this.Controls.Add(this.resultL);
@@ -112,5 +122,6 @@
         private Label resultL;
         private CheckBox timerCB_min;
         private LinkLabel linkToPaint;
+        private Button zipButtonFM;
     }
 }

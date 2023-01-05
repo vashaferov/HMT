@@ -51,7 +51,15 @@ namespace HMT
             if (UserConfigHelper.GetValue(pathToConfig, "numOnScreen") == "True")
                 numOnScreen(graphics, testNum, steepNum);
 
-            printscreen.Save(screanPath, ImageFormat.Png);
+            if (!File.Exists(screanPath))
+                printscreen.Save(screanPath, ImageFormat.Png);
+            else
+                if (MessageBox.Show("Скриншот существует\nПерезаписать?", "Скриншот", MessageBoxButtons.YesNo)==DialogResult.Yes)
+                    printscreen.Save(screanPath, ImageFormat.Png);
+                else
+                    return;
+
+            GC.Collect();
         }
         //
         // Номер теста и шага на скриншоте
@@ -65,12 +73,16 @@ namespace HMT
         // Создание архива
         public static void createZip (string path, string testNum)
         {
-            //if (!File.Exists(path + "\\Archives"))
-            //    Directory.CreateDirectory(path + "\\Archives");
-            
             string extractPath = path + "\\Test_" + testNum + "_" + DateTime.Today.ToString("d") + ".zip";
             ZipFile.CreateFromDirectory(path + testNum, extractPath);
-            File.Move(extractPath, path + testNum + "\\Test_" + testNum + "_" + DateTime.Today.ToString("d") + ".zip");
+            string newPath = path + testNum + "\\Test_" + testNum + "_" + DateTime.Today.ToString("d") + ".zip";
+            if (!File.Exists(path + testNum + "\\Test_" + testNum + "_" + DateTime.Today.ToString("d") + ".zip"))
+                File.Move(extractPath, path + testNum + "\\Test_" + testNum + "_" + DateTime.Today.ToString("d") + ".zip");
+            else
+            {
+                File.Delete(newPath);
+                File.Move(extractPath, path + testNum + "\\Test_" + testNum + "_" + DateTime.Today.ToString("d") + ".zip");
+            }                
         }
         //
     }

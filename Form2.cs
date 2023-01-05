@@ -20,6 +20,11 @@ namespace HMT
             configPathTB.Text = UserConfigHelper.GetValue(pathToConfig, "conf");
             releaseTB.Text = UserConfigHelper.GetValue(pathToConfig, "release");
 
+            if (UserConfigHelper.GetValue(pathToConfig, "numOnScreen") == "True")
+                numOnScreenPosRB.Checked = true;
+            else
+                numOnScreenNegRB.Checked = true;
+
             // Проверка на наличие второго монитора, если его нет, то передаются координаты основного монитора 
             int screens = Screen.AllScreens.Length;
             if (screens == 1)
@@ -35,18 +40,22 @@ namespace HMT
             }
             //
         }
-
+        // Сохранение настроек
         private void saveButton_Click(object sender, EventArgs e)
         {
             Form1 form1= new Form1();
-
-            UserConfigHelper.SaveValue(pathToConfig, "screenshot", screenPathTB.Text);
-            UserConfigHelper.SaveValue(pathToConfig, "conf", configPathTB.Text);
-            UserConfigHelper.SaveValue(pathToConfig, "release", releaseTB.Text);
-            this.Close();
-            MessageBox.Show("Настройки сохранены", "Настройки", MessageBoxButtons.OK);
+            if (screenPathTB.Text == "" || configPathTB.Text == "" || releaseTB.Text == "")
+                MessageBox.Show("Поля не заполнены!", "Настройки", MessageBoxButtons.OK);
+            else
+            {
+                UserConfigHelper.SaveValue(pathToConfig, "screenshot", screenPathTB.Text);
+                UserConfigHelper.SaveValue(pathToConfig, "conf", configPathTB.Text);
+                UserConfigHelper.SaveValue(pathToConfig, "release", releaseTB.Text);
+                this.Close();
+                MessageBox.Show("Настройки сохранены", "Настройки", MessageBoxButtons.OK);
+            }
         }
- 
+        //
         // Выбор монитора для скриншота
         private void monitor_CheckedChanged(object sender, EventArgs e)
         {
@@ -69,7 +78,8 @@ namespace HMT
 
 
         }
-
+        //
+        // Проверка активности тригеров "Номер теста на скриншоте"
         private void numOnScreenRB_CheckedChanged(object sender, EventArgs e)
         {
             if (numOnScreenPosRB.Checked == Enabled)
@@ -81,5 +91,19 @@ namespace HMT
                 UserConfigHelper.SaveValue(pathToConfig, "numOnScreen", "False");
             }
         }
+        //
+        // Кнопки "Обзор"
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
+                screenPathTB.Text = folderBrowserDialog1.SelectedPath;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+                configPathTB.Text = openFileDialog1.FileName;
+        }
+        //
     }
 }

@@ -1,8 +1,6 @@
-
 using System.Diagnostics;
 
 namespace HMT
-
 {
     public partial class Form1 : Form
     {
@@ -20,15 +18,7 @@ namespace HMT
         public Form1()
         {
             InitializeComponent();
-            // Проверка на первый запуск
-            //try
-            //{
-                UserConfigHelper.CheckConfig(userName);
-            //} catch (Exception e)
-            //{
-            //    MessageBox.Show("Ошибка при полчении пути для сохранения файла конфига.");
-            //}  
-            //
+            UserConfigHelper.CheckConfig(userName);
         }
         //Создание скриншота
         private void screanshotButton_Click(object sender, EventArgs e)
@@ -180,7 +170,7 @@ namespace HMT
         // Открытие окна "Компактный вид"
         private void компактныйтолькоСкриншотыToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form1 form1 = new Form1();
+            //Form1 form1 = new Form1();
             Form4 form4 = new Form4();
             
             form4.Show();
@@ -200,7 +190,7 @@ namespace HMT
                     processName = UserConfigHelper.GetValue(pathToConfig, "pathIE");
                 else
                 {
-                    if (Directory.Exists(UserConfigHelper.GetValue(pathToConfig, "pathChrome")))
+                    if (File.Exists(UserConfigHelper.GetValue(pathToConfig, "pathChrome")))
                         processName = UserConfigHelper.GetValue(pathToConfig, "pathChrome");
                     else
                         processName = UserConfigHelper.GetValue(pathToConfig, "pathChromeX86");
@@ -215,10 +205,26 @@ namespace HMT
         }
         //
         // Создание архива
-        private void button1_Click(object sender, EventArgs e)
+        private void zipButton_Click(object sender, EventArgs e)
         {
-            screenPath = UserConfigHelper.GetValue(pathToConfig, "screenshot") + "\\" + UserConfigHelper.GetValue(pathToConfig, "release").Replace(" ", "_") + "\\";
-            ScreenshotHelper.createZip(screenPath, testTextBox.Text.Trim().Replace(" ", "_"));
+            if (testTextBox.Text != null)
+            {
+                screenPath = UserConfigHelper.GetValue(pathToConfig, "screenshot") + "\\" + UserConfigHelper.GetValue(pathToConfig, "release").Replace(" ", "_") + "\\";
+                ScreenshotHelper.createZip(screenPath, testTextBox.Text.Trim().Replace(" ", "_"));
+                resultTextBox.Text = "Архив для теста " + testTextBox.Text + " создан";
+                testTextBox.Text = null;
+            } else
+            {
+                resultTextBox.Text = "Не указан нормер шага или номер теста";
+            }
+            
+        }
+        //
+        // Открытие окна "Справка"
+        private void справкаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            InfoForm infoForm = new InfoForm();
+            infoForm.Show();
         }
         //
     }

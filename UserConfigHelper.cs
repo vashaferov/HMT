@@ -1,5 +1,4 @@
-﻿
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 namespace HMT
 {
@@ -14,6 +13,7 @@ namespace HMT
             {
                 File.Copy("dcf.txt", pathToConfig + nameUser + ".txt");
                 Form2 form2 = new Form2();
+                Thread.Sleep(1000);
                 form2.Show();
             }
         }
@@ -44,7 +44,6 @@ namespace HMT
             sr.Close();
 
             StreamWriter sw = new StreamWriter(file);
-
             sw.Write(line);
             sw.Close();
         }

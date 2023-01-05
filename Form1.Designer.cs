@@ -29,6 +29,13 @@
         private void InitializeComponent()
         {
             this.miniToolStrip = new System.Windows.Forms.MenuStrip();
+            this.menuStrip2 = new System.Windows.Forms.MenuStrip();
+            this.файлToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.настройкиToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.добавлениеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.видToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.компактныйтолькоСкриншотыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.steepTextBox = new System.Windows.Forms.TextBox();
             this.screanshotButton = new System.Windows.Forms.Button();
@@ -43,24 +50,18 @@
             this.linkRB = new System.Windows.Forms.RadioButton();
             this.testTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.mainPanel = new System.Windows.Forms.Panel();
-            this.linkToPaint = new System.Windows.Forms.LinkLabel();
+            this.timerCB = new System.Windows.Forms.CheckBox();
             this.browserGB = new System.Windows.Forms.GroupBox();
             this.chromeRB = new System.Windows.Forms.RadioButton();
             this.IEexplorerRB = new System.Windows.Forms.RadioButton();
-            this.timerCB = new System.Windows.Forms.CheckBox();
-            this.menuStrip2 = new System.Windows.Forms.MenuStrip();
-            this.файлToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.настройкиToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.добавлениеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.видToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.компактныйтолькоСкриншотыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.button1 = new System.Windows.Forms.Button();
+            this.linkToPaint = new System.Windows.Forms.LinkLabel();
+            this.zipButton = new System.Windows.Forms.Button();
+            this.mainPanel = new System.Windows.Forms.Panel();
+            this.menuStrip2.SuspendLayout();
             this.envGB.SuspendLayout();
             this.sectionGB.SuspendLayout();
-            this.mainPanel.SuspendLayout();
             this.browserGB.SuspendLayout();
-            this.menuStrip2.SuspendLayout();
+            this.mainPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // miniToolStrip
@@ -73,6 +74,63 @@
             this.miniToolStrip.Name = "miniToolStrip";
             this.miniToolStrip.Size = new System.Drawing.Size(522, 24);
             this.miniToolStrip.TabIndex = 10;
+            // 
+            // menuStrip2
+            // 
+            this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.файлToolStripMenuItem1,
+            this.добавлениеToolStripMenuItem,
+            this.видToolStripMenuItem});
+            this.menuStrip2.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip2.Name = "menuStrip2";
+            this.menuStrip2.Size = new System.Drawing.Size(515, 24);
+            this.menuStrip2.TabIndex = 13;
+            this.menuStrip2.Text = "menuStrip2";
+            // 
+            // файлToolStripMenuItem1
+            // 
+            this.файлToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.настройкиToolStripMenuItem1,
+            this.справкаToolStripMenuItem});
+            this.файлToolStripMenuItem1.Name = "файлToolStripMenuItem1";
+            this.файлToolStripMenuItem1.Size = new System.Drawing.Size(48, 20);
+            this.файлToolStripMenuItem1.Text = "Файл";
+            // 
+            // настройкиToolStripMenuItem1
+            // 
+            this.настройкиToolStripMenuItem1.Name = "настройкиToolStripMenuItem1";
+            this.настройкиToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.настройкиToolStripMenuItem1.Text = "Настройки";
+            this.настройкиToolStripMenuItem1.Click += new System.EventHandler(this.настройкиToolStripMenuItem_Click);
+            // 
+            // справкаToolStripMenuItem
+            // 
+            this.справкаToolStripMenuItem.Name = "справкаToolStripMenuItem";
+            this.справкаToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.справкаToolStripMenuItem.Text = "Справка";
+            this.справкаToolStripMenuItem.Click += new System.EventHandler(this.справкаToolStripMenuItem_Click);
+            // 
+            // добавлениеToolStripMenuItem
+            // 
+            this.добавлениеToolStripMenuItem.Name = "добавлениеToolStripMenuItem";
+            this.добавлениеToolStripMenuItem.Size = new System.Drawing.Size(130, 20);
+            this.добавлениеToolStripMenuItem.Text = "Добавление ссылок";
+            this.добавлениеToolStripMenuItem.Click += new System.EventHandler(this.добавлениеToolStripMenuItem_Click);
+            // 
+            // видToolStripMenuItem
+            // 
+            this.видToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.компактныйтолькоСкриншотыToolStripMenuItem});
+            this.видToolStripMenuItem.Name = "видToolStripMenuItem";
+            this.видToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
+            this.видToolStripMenuItem.Text = "Вид";
+            // 
+            // компактныйтолькоСкриншотыToolStripMenuItem
+            // 
+            this.компактныйтолькоСкриншотыToolStripMenuItem.Name = "компактныйтолькоСкриншотыToolStripMenuItem";
+            this.компактныйтолькоСкриншотыToolStripMenuItem.Size = new System.Drawing.Size(261, 22);
+            this.компактныйтолькоСкриншотыToolStripMenuItem.Text = "Компактный (только скриншоты)";
+            this.компактныйтолькоСкриншотыToolStripMenuItem.Click += new System.EventHandler(this.компактныйтолькоСкриншотыToolStripMenuItem_Click);
             // 
             // label1
             // 
@@ -97,7 +155,7 @@
             this.screanshotButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.screanshotButton.Location = new System.Drawing.Point(194, 267);
             this.screanshotButton.Name = "screanshotButton";
-            this.screanshotButton.Size = new System.Drawing.Size(75, 52);
+            this.screanshotButton.Size = new System.Drawing.Size(92, 52);
             this.screanshotButton.TabIndex = 2;
             this.screanshotButton.Tag = "screanshotButton";
             this.screanshotButton.Text = "Скриншот";
@@ -108,7 +166,7 @@
             // 
             this.resultButtonPane.Location = new System.Drawing.Point(113, 27);
             this.resultButtonPane.Name = "resultButtonPane";
-            this.resultButtonPane.Size = new System.Drawing.Size(374, 182);
+            this.resultButtonPane.Size = new System.Drawing.Size(394, 182);
             this.resultButtonPane.TabIndex = 6;
             this.resultButtonPane.Tag = "resultButtonPane";
             // 
@@ -116,7 +174,7 @@
             // 
             this.resultTextBox.AutoSize = true;
             this.resultTextBox.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.resultTextBox.Location = new System.Drawing.Point(275, 287);
+            this.resultTextBox.Location = new System.Drawing.Point(292, 287);
             this.resultTextBox.Name = "resultTextBox";
             this.resultTextBox.Size = new System.Drawing.Size(0, 13);
             this.resultTextBox.TabIndex = 7;
@@ -229,40 +287,15 @@
             this.label2.TabIndex = 12;
             this.label2.Text = "Введите номер теста:";
             // 
-            // mainPanel
+            // timerCB
             // 
-            this.mainPanel.AutoSize = true;
-            this.mainPanel.Controls.Add(this.button1);
-            this.mainPanel.Controls.Add(this.linkToPaint);
-            this.mainPanel.Controls.Add(this.browserGB);
-            this.mainPanel.Controls.Add(this.timerCB);
-            this.mainPanel.Controls.Add(this.label2);
-            this.mainPanel.Controls.Add(this.testTextBox);
-            this.mainPanel.Controls.Add(this.sectionGB);
-            this.mainPanel.Controls.Add(this.envGB);
-            this.mainPanel.Controls.Add(this.resultTextBox);
-            this.mainPanel.Controls.Add(this.resultButtonPane);
-            this.mainPanel.Controls.Add(this.screanshotButton);
-            this.mainPanel.Controls.Add(this.steepTextBox);
-            this.mainPanel.Controls.Add(this.label1);
-            this.mainPanel.Controls.Add(this.menuStrip2);
-            this.mainPanel.Location = new System.Drawing.Point(1, 1);
-            this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(494, 350);
-            this.mainPanel.TabIndex = 0;
-            this.mainPanel.Tag = "mainPanel";
-            // 
-            // linkToPaint
-            // 
-            this.linkToPaint.AutoSize = true;
-            this.linkToPaint.Location = new System.Drawing.Point(275, 304);
-            this.linkToPaint.Name = "linkToPaint";
-            this.linkToPaint.Size = new System.Drawing.Size(215, 15);
-            this.linkToPaint.TabIndex = 16;
-            this.linkToPaint.TabStop = true;
-            this.linkToPaint.Text = "Открыть последний скриншот в Paint";
-            this.linkToPaint.Visible = false;
-            this.linkToPaint.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            this.timerCB.AutoSize = true;
+            this.timerCB.Location = new System.Drawing.Point(7, 325);
+            this.timerCB.Name = "timerCB";
+            this.timerCB.Size = new System.Drawing.Size(180, 19);
+            this.timerCB.TabIndex = 14;
+            this.timerCB.Text = "Установить таймер 5 секунд";
+            this.timerCB.UseVisualStyleBackColor = true;
             // 
             // browserGB
             // 
@@ -298,95 +331,71 @@
             this.IEexplorerRB.Text = "Internet Explorer";
             this.IEexplorerRB.UseVisualStyleBackColor = true;
             // 
-            // timerCB
+            // linkToPaint
             // 
-            this.timerCB.AutoSize = true;
-            this.timerCB.Location = new System.Drawing.Point(7, 325);
-            this.timerCB.Name = "timerCB";
-            this.timerCB.Size = new System.Drawing.Size(180, 19);
-            this.timerCB.TabIndex = 14;
-            this.timerCB.Text = "Установить таймер 5 секунд";
-            this.timerCB.UseVisualStyleBackColor = true;
+            this.linkToPaint.AutoSize = true;
+            this.linkToPaint.Location = new System.Drawing.Point(292, 304);
+            this.linkToPaint.Name = "linkToPaint";
+            this.linkToPaint.Size = new System.Drawing.Size(215, 15);
+            this.linkToPaint.TabIndex = 16;
+            this.linkToPaint.TabStop = true;
+            this.linkToPaint.Text = "Открыть последний скриншот в Paint";
+            this.linkToPaint.Visible = false;
+            this.linkToPaint.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
-            // menuStrip2
+            // zipButton
             // 
-            this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.файлToolStripMenuItem1,
-            this.добавлениеToolStripMenuItem,
-            this.видToolStripMenuItem});
-            this.menuStrip2.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(494, 24);
-            this.menuStrip2.TabIndex = 13;
-            this.menuStrip2.Text = "menuStrip2";
+            this.zipButton.Location = new System.Drawing.Point(194, 324);
+            this.zipButton.Name = "zipButton";
+            this.zipButton.Size = new System.Drawing.Size(93, 23);
+            this.zipButton.TabIndex = 17;
+            this.zipButton.Text = "Архивировать";
+            this.zipButton.UseVisualStyleBackColor = true;
+            this.zipButton.Click += new System.EventHandler(this.zipButton_Click);
             // 
-            // файлToolStripMenuItem1
+            // mainPanel
             // 
-            this.файлToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.настройкиToolStripMenuItem1});
-            this.файлToolStripMenuItem1.Name = "файлToolStripMenuItem1";
-            this.файлToolStripMenuItem1.Size = new System.Drawing.Size(48, 20);
-            this.файлToolStripMenuItem1.Text = "Файл";
-            // 
-            // настройкиToolStripMenuItem1
-            // 
-            this.настройкиToolStripMenuItem1.Name = "настройкиToolStripMenuItem1";
-            this.настройкиToolStripMenuItem1.Size = new System.Drawing.Size(134, 22);
-            this.настройкиToolStripMenuItem1.Text = "Настройки";
-            this.настройкиToolStripMenuItem1.Click += new System.EventHandler(this.настройкиToolStripMenuItem_Click);
-            // 
-            // добавлениеToolStripMenuItem
-            // 
-            this.добавлениеToolStripMenuItem.Name = "добавлениеToolStripMenuItem";
-            this.добавлениеToolStripMenuItem.Size = new System.Drawing.Size(130, 20);
-            this.добавлениеToolStripMenuItem.Text = "Добавление ссылок";
-            this.добавлениеToolStripMenuItem.Click += new System.EventHandler(this.добавлениеToolStripMenuItem_Click);
-            // 
-            // видToolStripMenuItem
-            // 
-            this.видToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.компактныйтолькоСкриншотыToolStripMenuItem});
-            this.видToolStripMenuItem.Name = "видToolStripMenuItem";
-            this.видToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
-            this.видToolStripMenuItem.Text = "Вид";
-            // 
-            // компактныйтолькоСкриншотыToolStripMenuItem
-            // 
-            this.компактныйтолькоСкриншотыToolStripMenuItem.Name = "компактныйтолькоСкриншотыToolStripMenuItem";
-            this.компактныйтолькоСкриншотыToolStripMenuItem.Size = new System.Drawing.Size(261, 22);
-            this.компактныйтолькоСкриншотыToolStripMenuItem.Text = "Компактный (только скриншоты)";
-            this.компактныйтолькоСкриншотыToolStripMenuItem.Click += new System.EventHandler(this.компактныйтолькоСкриншотыToolStripMenuItem_Click);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(194, 324);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 17;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.mainPanel.AutoSize = true;
+            this.mainPanel.Controls.Add(this.zipButton);
+            this.mainPanel.Controls.Add(this.linkToPaint);
+            this.mainPanel.Controls.Add(this.browserGB);
+            this.mainPanel.Controls.Add(this.timerCB);
+            this.mainPanel.Controls.Add(this.label2);
+            this.mainPanel.Controls.Add(this.testTextBox);
+            this.mainPanel.Controls.Add(this.sectionGB);
+            this.mainPanel.Controls.Add(this.envGB);
+            this.mainPanel.Controls.Add(this.resultTextBox);
+            this.mainPanel.Controls.Add(this.resultButtonPane);
+            this.mainPanel.Controls.Add(this.screanshotButton);
+            this.mainPanel.Controls.Add(this.steepTextBox);
+            this.mainPanel.Controls.Add(this.label1);
+            this.mainPanel.Controls.Add(this.menuStrip2);
+            this.mainPanel.Location = new System.Drawing.Point(1, 1);
+            this.mainPanel.Name = "mainPanel";
+            this.mainPanel.Size = new System.Drawing.Size(515, 350);
+            this.mainPanel.TabIndex = 0;
+            this.mainPanel.Tag = "mainPanel";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(497, 353);
+            this.ClientSize = new System.Drawing.Size(516, 353);
             this.Controls.Add(this.mainPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MainMenuStrip = this.miniToolStrip;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "HMT";
+            this.menuStrip2.ResumeLayout(false);
+            this.menuStrip2.PerformLayout();
             this.envGB.ResumeLayout(false);
             this.envGB.PerformLayout();
             this.sectionGB.ResumeLayout(false);
-            this.mainPanel.ResumeLayout(false);
-            this.mainPanel.PerformLayout();
             this.browserGB.ResumeLayout(false);
             this.browserGB.PerformLayout();
-            this.menuStrip2.ResumeLayout(false);
-            this.menuStrip2.PerformLayout();
+            this.mainPanel.ResumeLayout(false);
+            this.mainPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -395,6 +404,13 @@
         #endregion
 
         private MenuStrip miniToolStrip;
+        private MenuStrip menuStrip2;
+        private ToolStripMenuItem файлToolStripMenuItem1;
+        private ToolStripMenuItem настройкиToolStripMenuItem1;
+        private ToolStripMenuItem справкаToolStripMenuItem;
+        private ToolStripMenuItem добавлениеToolStripMenuItem;
+        private ToolStripMenuItem видToolStripMenuItem;
+        private ToolStripMenuItem компактныйтолькоСкриншотыToolStripMenuItem;
         private Label label1;
         private TextBox steepTextBox;
         private Button screanshotButton;
@@ -407,20 +423,14 @@
         private GroupBox sectionGB;
         private RadioButton logRB;
         private RadioButton linkRB;
-        private Label label2;
-        private Panel mainPanel;
-        private MenuStrip menuStrip2;
-        private ToolStripMenuItem файлToolStripMenuItem1;
-        private ToolStripMenuItem настройкиToolStripMenuItem1;
-        private ToolStripMenuItem добавлениеToolStripMenuItem;
-        private ToolStripMenuItem видToolStripMenuItem;
-        private ToolStripMenuItem компактныйтолькоСкриншотыToolStripMenuItem;
         private TextBox testTextBox;
+        private Label label2;
         private CheckBox timerCB;
         private GroupBox browserGB;
         private RadioButton chromeRB;
         private RadioButton IEexplorerRB;
         private LinkLabel linkToPaint;
-        private Button button1;
+        private Button zipButton;
+        private Panel mainPanel;
     }
 }

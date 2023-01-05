@@ -39,4 +39,8 @@
     <SourceGeneratorInput Remove="pathHelper.cs" />
   </ItemGroup>
 
+  <ItemGroup>
+    <SourceGeneratorInput Remove="GlobalHook.cs" />
+  </ItemGroup>
+
 </Project>
