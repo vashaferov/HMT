@@ -99,14 +99,14 @@
             // настройкиToolStripMenuItem1
             // 
             this.настройкиToolStripMenuItem1.Name = "настройкиToolStripMenuItem1";
-            this.настройкиToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.настройкиToolStripMenuItem1.Size = new System.Drawing.Size(134, 22);
             this.настройкиToolStripMenuItem1.Text = "Настройки";
             this.настройкиToolStripMenuItem1.Click += new System.EventHandler(this.настройкиToolStripMenuItem_Click);
             // 
             // справкаToolStripMenuItem
             // 
             this.справкаToolStripMenuItem.Name = "справкаToolStripMenuItem";
-            this.справкаToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.справкаToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.справкаToolStripMenuItem.Text = "Справка";
             this.справкаToolStripMenuItem.Click += new System.EventHandler(this.справкаToolStripMenuItem_Click);
             // 
@@ -383,10 +383,12 @@
             this.ClientSize = new System.Drawing.Size(516, 353);
             this.Controls.Add(this.mainPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.KeyPreview = true;
             this.MainMenuStrip = this.miniToolStrip;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "HMT";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.menuStrip2.ResumeLayout(false);
             this.menuStrip2.PerformLayout();
             this.envGB.ResumeLayout(false);
