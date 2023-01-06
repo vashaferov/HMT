@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
 namespace HMT
 {
@@ -31,8 +32,8 @@ namespace HMT
         {
             screenPath = UserConfigHelper.GetValue(pathToConfig, "screenshot").Replace(" ", "_");
             release = UserConfigHelper.GetValue(pathToConfig, "release").Replace(" ", "_");
-            steepNum = steepNumTB.Text.Trim();
-            testNum = testNumTB.Text.Trim();
+            steepNum = steepNumTB.Text.Trim().Replace(" ", "_").Replace(",", ".");
+            testNum = testNumTB.Text.Trim().Replace(" ", "_");
 
             if (steepNum != "" && testNum != "")
             {
@@ -54,7 +55,6 @@ namespace HMT
 
                 linkToPaint.Visible = true;
                 this.WindowState = FormWindowState.Normal;
-                steepNumTB.Text = null;
             }
             else
             {
@@ -71,15 +71,65 @@ namespace HMT
         // Создание архива
         private void zipButtonFM_Click(object sender, EventArgs e)
         {
-            if (testNumTB.Text == null)
+            if (testNumTB.Text != null && testNumTB.Text != "")
             {
                 screenPath = UserConfigHelper.GetValue(pathToConfig, "screenshot") + "\\" + UserConfigHelper.GetValue(pathToConfig, "release").Replace(" ", "_") + "\\";
                 ScreenshotHelper.createZip(screenPath, testNumTB.Text.Trim().Replace(" ", "_"));
                 resultL.Text = "Архив для теста " + testNumTB.Text + " создан";
                 testNumTB.Text = null;
+                steepNumTB.Text = null;
             } else
             {
                 resultL.Text = "Не указан нормер шага или номер теста";
+            }
+        }
+        //
+        // Хоткеи
+        private void Form4_KeyDown(object sender, KeyEventArgs e)
+        {
+            double steepD;
+            // ХК скрин "Enter"
+            if (e.KeyValue == (char)Keys.Enter)
+                button1.PerformClick();
+            // ХК создание архива "Ctrl + Shift"
+            if (e.Control && e.Shift)
+                zipButtonFM.PerformClick();
+            // ХК увеличить шаг "Ctrl + U"
+            if (e.Control && e.KeyValue == (char)Keys.U)
+            {
+                if (steepNumTB.Text != null && steepNumTB.Text != "")
+                {
+                    steepD = Double.Parse(steepNumTB.Text) + 1;
+                    steepNumTB.Text = steepD.ToString();
+                }
+            }
+            // ХК уменьшить шаг "Ctrl + J"
+            if (e.Control && e.KeyValue == (char)Keys.J)
+            {
+                if (steepNumTB.Text != null && steepNumTB.Text != "" && steepNumTB.Text != "0")
+                {
+                    steepD = Double.Parse(steepNumTB.Text) - 1;
+                    steepNumTB.Text = steepD.ToString();
+                }
+            }
+
+            // ХК увеличить подшаг "Ctrl + Y"
+            if (e.Control && e.KeyValue == (char)Keys.Y)
+            {
+                if (steepNumTB.Text != null && steepNumTB.Text != "")
+                {
+                    steepD = Double.Parse(steepNumTB.Text) + 0.1f;
+                    steepNumTB.Text = steepD.ToString("#.##");
+                }
+            }
+            // ХК уменьшить подшаг "Ctrl + H"
+            if (e.Control && e.KeyValue == (char)Keys.H)
+            {
+                if (steepNumTB.Text != null && steepNumTB.Text != "" && steepNumTB.Text != "0")
+                {
+                    steepD = Double.Parse(steepNumTB.Text) - 0.1f;
+                    steepNumTB.Text = steepD.ToString("#.##");
+                }
             }
         }
         //

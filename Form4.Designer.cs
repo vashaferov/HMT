@@ -96,7 +96,6 @@
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Controls.Add(this.zipButtonFM);
             this.Controls.Add(this.linkToPaint);
             this.Controls.Add(this.timerCB_min);
@@ -106,7 +105,10 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.steepNumTB);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.KeyPreview = true;
             this.Name = "Form4";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form4_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

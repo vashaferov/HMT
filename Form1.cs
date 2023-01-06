@@ -256,7 +256,7 @@ namespace HMT
                 }
             }
 
-            // ХК увеличить шаг "Ctrl + Y"
+            // ХК увеличить доп. шаг "Ctrl + Y"
             if (e.Control && e.KeyValue == (char)Keys.Y)
             {
                 if (steepTextBox.Text != null && steepTextBox.Text != "")
@@ -265,7 +265,7 @@ namespace HMT
                     steepTextBox.Text = steepD.ToString("#.##");
                 }
             }
-            // ХК уменьшить шаг "Ctrl + H"
+            // ХК уменьшить доп. шаг "Ctrl + H"
             if (e.Control && e.KeyValue == (char)Keys.H)
             {
                 if (steepTextBox.Text != null && steepTextBox.Text != "" && steepTextBox.Text != "0")
