@@ -31,12 +31,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Location = new System.Drawing.Point(12, 93);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(108, 15);
             this.label1.TabIndex = 0;
@@ -45,7 +46,7 @@
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(12, 24);
+            this.linkLabel1.Location = new System.Drawing.Point(12, 108);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(41, 15);
             this.linkLabel1.TabIndex = 1;
@@ -56,7 +57,7 @@
             // linkLabel2
             // 
             this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Location = new System.Drawing.Point(12, 39);
+            this.linkLabel2.Location = new System.Drawing.Point(12, 123);
             this.linkLabel2.Name = "linkLabel2";
             this.linkLabel2.Size = new System.Drawing.Size(183, 15);
             this.linkLabel2.TabIndex = 2;
@@ -64,15 +65,26 @@
             this.linkLabel2.Text = "Ссылка на страницу Confluence";
             this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(151, 75);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Хоткеи:\r\nEnter - создать скриншот\r\nCtrl + Shift - создать архив\r\nCtrl + U - увели" +
+    "четь шаг\r\nCtrl + J - уменьшить шаг \r\n";
+            // 
             // InfoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(273, 65);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.ClientSize = new System.Drawing.Size(273, 147);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.linkLabel2);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "InfoForm";
             this.Text = "Справка";
             this.ResumeLayout(false);
@@ -85,5 +97,6 @@
         private Label label1;
         private LinkLabel linkLabel1;
         private LinkLabel linkLabel2;
+        private Label label2;
     }
 }

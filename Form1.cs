@@ -48,7 +48,6 @@ namespace HMT
                 linkToPaint.Visible = true;
 
                 this.WindowState = FormWindowState.Normal;
-                //steepTextBox.Text = null;
             } else
             {
                 resultTextBox.Text = "Не указан нормер шага или номер теста";
@@ -190,10 +189,11 @@ namespace HMT
                     processName = UserConfigHelper.GetValue(pathToConfig, "pathIE");
                 else
                 {
-                    if (File.Exists(UserConfigHelper.GetValue(pathToConfig, "pathChrome")))
-                        processName = UserConfigHelper.GetValue(pathToConfig, "pathChrome");
-                    else
-                        processName = UserConfigHelper.GetValue(pathToConfig, "pathChromeX86");
+                    processName = UserConfigHelper.GetValue(pathToConfig, "pathChrome");
+                    if (!File.Exists(processName))
+                    {
+                        processName = processName.Replace("Program Files", "Program Files (x86)");
+                    }                        
                 } 
             }  
             return processName;
@@ -212,6 +212,7 @@ namespace HMT
                 screenPath = UserConfigHelper.GetValue(pathToConfig, "screenshot") + "\\" + UserConfigHelper.GetValue(pathToConfig, "release").Replace(" ", "_") + "\\";
                 ScreenshotHelper.createZip(screenPath, testTextBox.Text.Trim().Replace(" ", "_"));
                 resultTextBox.Text = "Архив для теста " + testTextBox.Text + " создан";
+                linkToPaint.Visible = false;
                 testTextBox.Text = null;
                 steepTextBox.Text = null;
             } else
@@ -255,7 +256,6 @@ namespace HMT
                     steepTextBox.Text = steepD.ToString();
                 }
             }
-
             // ХК увеличить доп. шаг "Ctrl + Y"
             if (e.Control && e.KeyValue == (char)Keys.Y)
             {

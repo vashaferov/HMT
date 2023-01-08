@@ -15,19 +15,6 @@ namespace HMT
 {
     public class ScreenshotHelper
     {
-        //Для скриншота процесса
-        [DllImport("user32.dll", SetLastError = true)]
-        static extern bool GetWindowRect(IntPtr hwnd, out RECT lpRect);
-
-        [DllImport("user32.dll")]
-        static extern bool PrintWindow(IntPtr hWnd, IntPtr hdcBlt, int nFlags);
-
-        [StructLayout(LayoutKind.Sequential)]
-        public struct RECT
-        {
-            public int Left, Top, Right, Bottom;
-        }
-        //
 
         static string pathToConfig = pathHelper.GetPathToUserSF() + Environment.UserName + ".txt";
 
@@ -76,12 +63,12 @@ namespace HMT
             string extractPath = path + "\\Test_" + testNum + "_" + DateTime.Today.ToString("d") + ".zip";
             ZipFile.CreateFromDirectory(path + testNum, extractPath);
             string newPath = path + testNum + "\\Test_" + testNum + "_" + DateTime.Today.ToString("d") + ".zip";
-            if (!File.Exists(path + testNum + "\\Test_" + testNum + "_" + DateTime.Today.ToString("d") + ".zip"))
-                File.Move(extractPath, path + testNum + "\\Test_" + testNum + "_" + DateTime.Today.ToString("d") + ".zip");
+            if (!File.Exists(newPath))
+                File.Move(extractPath, newPath);
             else
             {
                 File.Delete(newPath);
-                File.Move(extractPath, path + testNum + "\\Test_" + testNum + "_" + DateTime.Today.ToString("d") + ".zip");
+                File.Move(extractPath, newPath);
             }                
         }
         //

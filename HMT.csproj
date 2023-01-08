@@ -10,15 +10,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="conf.txt" />
     <None Remove="dcf.txt" />
     <None Remove="pathHelper.txt" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="conf.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
     <EmbeddedResource Include="dcf.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>

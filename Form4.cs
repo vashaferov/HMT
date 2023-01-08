@@ -78,6 +78,7 @@ namespace HMT
                 resultL.Text = "Архив для теста " + testNumTB.Text + " создан";
                 testNumTB.Text = null;
                 steepNumTB.Text = null;
+                linkToPaint.Visible = false;
             } else
             {
                 resultL.Text = "Не указан нормер шага или номер теста";

@@ -1,7 +1,7 @@
 <conf>
-\\Client\M$\conf.txt
+\\Client\U$\conf.txt
 <screenshot>
-\\Client\M$\
+\\Client\U$\
 <monitorSize>
 {Width=0, Height=0}
 <monitorLocetion>
@@ -10,8 +10,6 @@
 Foris 7.22.8
 <numOnScreen>
 True
-<pathChromeX86>
-C:\Program Files (x86)\Google\Chrome\Application\chrome.exe
 <pathChrome>
 C:\Program Files\Google\Chrome\Application\chrome.exe
 <pathIE>
