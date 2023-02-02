@@ -23,31 +23,51 @@ namespace HMT
         //Создание скриншота
         private void screanshotButton_Click(object sender, EventArgs e)
         {
-            resultText = "";
-            screenPath = UserConfigHelper.GetValue(pathToConfig, "screenshot");
+            resultTextBox.Text = null;
+            //pictureBox1.Image = null;
+            linkToPaint.Visible = false;
+            lastScreenLabel.Visible = false;
+            screenPath = UserConfigHelper.GetValue(pathToConfig, "screenshot").Replace(" ", "_");
             release = UserConfigHelper.GetValue(pathToConfig, "release").Replace(" ", "_");
             steepNum = steepTextBox.Text.Trim().Replace(" ", "_").Replace(",", ".");
             testNum = testTextBox.Text.Trim().Replace(" ", "_");
             if (steepNum != "" && testNum != "")
             {
                 Directory.CreateDirectory(screenPath + "\\" + release + "\\" + testNum);
-                screenPath += "\\" + release + "\\" + testNum + "\\" + "Шаг_" + steepNum + ".png";
-
+                screenPath += "\\" + release + "\\" + testNum + "\\" + "Шаг_" + steepNum + ".png";               
+                if (pictureBox1.Image != null)
+                    pictureBox1.Image.Dispose();
                 this.WindowState = FormWindowState.Minimized;
                 Thread.Sleep(200);
-                
+
                 if (timerCB.Checked == true)
                 {
                     Thread.Sleep(5000);
                     timerCB.Checked = false;
                 }
 
-                ScreenshotHelper.screenFullWindow(screenPath, testNum, steepNum);
-
-                resultTextBox.Text = "Скриншот теста № " + testNum + " 'Шаг " + steepNum + "' готов";
-                linkToPaint.Visible = true;
-
-                this.WindowState = FormWindowState.Normal;
+                if (!File.Exists(screenPath))
+                {
+                    ScreenshotHelper.screenFullWindow(screenPath, testNum, steepNum);
+                    resultTextBox.Text = "Скриншот теста № " + testNum + " 'Шаг " + steepNum + "' готов";
+                    linkToPaint.Visible = true;
+                    lastScreenLabel.Visible = true;
+                    pictureBox1.Image = Image.FromFile(screenPath);
+                    pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+                } else
+                {
+                    if (MessageBox.Show("Скриншот существует\nПерезаписать?", "Скриншот", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        ScreenshotHelper.screenFullWindow(screenPath, testNum, steepNum);
+                        resultTextBox.Text = "Скриншот теста № " + testNum + " 'Шаг " + steepNum + "' готов";
+                        linkToPaint.Visible = true;
+                        lastScreenLabel.Visible = true;
+                        pictureBox1.Image = Image.FromFile(screenPath);
+                        pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+                    }
+                }   
+                this.WindowState = FormWindowState.Normal;                  
+                                
             } else
             {
                 resultTextBox.Text = "Не указан нормер шага или номер теста";
@@ -257,23 +277,23 @@ namespace HMT
                 }
             }
             // ХК увеличить доп. шаг "Ctrl + Y"
-            if (e.Control && e.KeyValue == (char)Keys.Y)
-            {
-                if (steepTextBox.Text != null && steepTextBox.Text != "")
-                {
-                    steepD = Double.Parse(steepTextBox.Text) + 0.1f;
-                    steepTextBox.Text = steepD.ToString("#.##");
-                }
-            }
-            // ХК уменьшить доп. шаг "Ctrl + H"
-            if (e.Control && e.KeyValue == (char)Keys.H)
-            {
-                if (steepTextBox.Text != null && steepTextBox.Text != "" && steepTextBox.Text != "0")
-                {
-                    steepD = Double.Parse(steepTextBox.Text) - 0.1f;
-                    steepTextBox.Text = steepD.ToString("#.##");
-                }
-            }
+            //if (e.Control && e.KeyValue == (char)Keys.Y)
+            //{
+            //    if (steepTextBox.Text != null && steepTextBox.Text != "")
+            //    {
+            //        steepD = Double.Parse(steepTextBox.Text) + 0.1f;
+            //        steepTextBox.Text = steepD.ToString("#.##");
+            //    }
+            //}
+            //// ХК уменьшить доп. шаг "Ctrl + H"
+            //if (e.Control && e.KeyValue == (char)Keys.H)
+            //{
+            //    if (steepTextBox.Text != null && steepTextBox.Text != "" && steepTextBox.Text != "0")
+            //    {
+            //        steepD = Double.Parse(steepTextBox.Text) - 0.1f;
+            //        steepTextBox.Text = steepD.ToString("#.##");
+            //    }
+            //}
         }
     }
 }

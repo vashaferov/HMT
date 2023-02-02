@@ -49,11 +49,21 @@ namespace HMT
                     timerCB_min.Checked = false;
                 }
 
-                ScreenshotHelper.screenFullWindow(screenPath, testNum, steepNum);
-
-                resultL.Text = "Скриншот теста № " + testNum + " 'Шаг " + steepNum + "' готов";
-
-                linkToPaint.Visible = true;
+                if (!File.Exists(screenPath))
+                {
+                    ScreenshotHelper.screenFullWindow(screenPath, testNum, steepNum);
+                    resultL.Text = "Скриншот теста № " + testNum + " 'Шаг " + steepNum + "' готов";
+                    linkToPaint.Visible = true;
+                }
+                else
+                {
+                    if (MessageBox.Show("Скриншот существует\nПерезаписать?", "Скриншот", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        ScreenshotHelper.screenFullWindow(screenPath, testNum, steepNum);
+                        resultL.Text = "Скриншот теста № " + testNum + " 'Шаг " + steepNum + "' готов";
+                        linkToPaint.Visible = true;
+                    }
+                }
                 this.WindowState = FormWindowState.Normal;
             }
             else
@@ -115,23 +125,23 @@ namespace HMT
             }
 
             // ХК увеличить подшаг "Ctrl + Y"
-            if (e.Control && e.KeyValue == (char)Keys.Y)
-            {
-                if (steepNumTB.Text != null && steepNumTB.Text != "")
-                {
-                    steepD = Double.Parse(steepNumTB.Text) + 0.1f;
-                    steepNumTB.Text = steepD.ToString("#.##");
-                }
-            }
-            // ХК уменьшить подшаг "Ctrl + H"
-            if (e.Control && e.KeyValue == (char)Keys.H)
-            {
-                if (steepNumTB.Text != null && steepNumTB.Text != "" && steepNumTB.Text != "0")
-                {
-                    steepD = Double.Parse(steepNumTB.Text) - 0.1f;
-                    steepNumTB.Text = steepD.ToString("#.##");
-                }
-            }
+            //if (e.Control && e.KeyValue == (char)Keys.Y)
+            //{
+            //    if (steepNumTB.Text != null && steepNumTB.Text != "")
+            //    {
+            //        steepD = Double.Parse(steepNumTB.Text) + 0.1f;
+            //        steepNumTB.Text = steepD.ToString("#.##");
+            //    }
+            //}
+            //// ХК уменьшить подшаг "Ctrl + H"
+            //if (e.Control && e.KeyValue == (char)Keys.H)
+            //{
+            //    if (steepNumTB.Text != null && steepNumTB.Text != "" && steepNumTB.Text != "0")
+            //    {
+            //        steepD = Double.Parse(steepNumTB.Text) - 0.1f;
+            //        steepNumTB.Text = steepD.ToString("#.##");
+            //    }
+            //}
         }
         //
     }

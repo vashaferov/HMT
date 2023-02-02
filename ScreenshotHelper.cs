@@ -32,20 +32,15 @@ namespace HMT
             int height = int.Parse(g[1]);
 
             Bitmap printscreen = new Bitmap(width, height);
+
             Graphics graphics = Graphics.FromImage(printscreen as Image);
             graphics.CopyFromScreen(point, new Point(0, 0), printscreen.Size);
 
             if (UserConfigHelper.GetValue(pathToConfig, "numOnScreen") == "True")
                 numOnScreen(graphics, testNum, steepNum);
-
-            if (!File.Exists(screanPath))
-                printscreen.Save(screanPath, ImageFormat.Png);
-            else
-                if (MessageBox.Show("Скриншот существует\nПерезаписать?", "Скриншот", MessageBoxButtons.YesNo)==DialogResult.Yes)
-                    printscreen.Save(screanPath, ImageFormat.Png);
-                else
-                    return;
-
+            
+            printscreen.Save(screanPath, ImageFormat.Png);                           
+  
             GC.Collect();
         }
         //

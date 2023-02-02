@@ -57,11 +57,14 @@
             this.linkToPaint = new System.Windows.Forms.LinkLabel();
             this.zipButton = new System.Windows.Forms.Button();
             this.mainPanel = new System.Windows.Forms.Panel();
+            this.lastScreenLabel = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip2.SuspendLayout();
             this.envGB.SuspendLayout();
             this.sectionGB.SuspendLayout();
             this.browserGB.SuspendLayout();
             this.mainPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // miniToolStrip
@@ -83,7 +86,7 @@
             this.видToolStripMenuItem});
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(515, 24);
+            this.menuStrip2.Size = new System.Drawing.Size(616, 24);
             this.menuStrip2.TabIndex = 13;
             this.menuStrip2.Text = "menuStrip2";
             // 
@@ -136,7 +139,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(3, 299);
+            this.label1.Location = new System.Drawing.Point(7, 298);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(124, 15);
             this.label1.TabIndex = 0;
@@ -144,7 +147,7 @@
             // 
             // steepTextBox
             // 
-            this.steepTextBox.Location = new System.Drawing.Point(132, 296);
+            this.steepTextBox.Location = new System.Drawing.Point(136, 295);
             this.steepTextBox.Name = "steepTextBox";
             this.steepTextBox.Size = new System.Drawing.Size(56, 23);
             this.steepTextBox.TabIndex = 1;
@@ -153,7 +156,7 @@
             // screanshotButton
             // 
             this.screanshotButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.screanshotButton.Location = new System.Drawing.Point(194, 267);
+            this.screanshotButton.Location = new System.Drawing.Point(198, 266);
             this.screanshotButton.Name = "screanshotButton";
             this.screanshotButton.Size = new System.Drawing.Size(92, 52);
             this.screanshotButton.TabIndex = 2;
@@ -166,7 +169,7 @@
             // 
             this.resultButtonPane.Location = new System.Drawing.Point(113, 27);
             this.resultButtonPane.Name = "resultButtonPane";
-            this.resultButtonPane.Size = new System.Drawing.Size(394, 182);
+            this.resultButtonPane.Size = new System.Drawing.Size(492, 182);
             this.resultButtonPane.TabIndex = 6;
             this.resultButtonPane.Tag = "resultButtonPane";
             // 
@@ -174,7 +177,7 @@
             // 
             this.resultTextBox.AutoSize = true;
             this.resultTextBox.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.resultTextBox.Location = new System.Drawing.Point(292, 287);
+            this.resultTextBox.Location = new System.Drawing.Point(297, 331);
             this.resultTextBox.Name = "resultTextBox";
             this.resultTextBox.Size = new System.Drawing.Size(0, 13);
             this.resultTextBox.TabIndex = 7;
@@ -271,7 +274,7 @@
             // 
             // testTextBox
             // 
-            this.testTextBox.Location = new System.Drawing.Point(132, 267);
+            this.testTextBox.Location = new System.Drawing.Point(136, 266);
             this.testTextBox.Name = "testTextBox";
             this.testTextBox.Size = new System.Drawing.Size(56, 23);
             this.testTextBox.TabIndex = 11;
@@ -281,7 +284,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(3, 270);
+            this.label2.Location = new System.Drawing.Point(7, 269);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(125, 15);
             this.label2.TabIndex = 12;
@@ -290,7 +293,7 @@
             // timerCB
             // 
             this.timerCB.AutoSize = true;
-            this.timerCB.Location = new System.Drawing.Point(7, 325);
+            this.timerCB.Location = new System.Drawing.Point(11, 324);
             this.timerCB.Name = "timerCB";
             this.timerCB.Size = new System.Drawing.Size(180, 19);
             this.timerCB.TabIndex = 14;
@@ -334,18 +337,18 @@
             // linkToPaint
             // 
             this.linkToPaint.AutoSize = true;
-            this.linkToPaint.Location = new System.Drawing.Point(292, 304);
+            this.linkToPaint.Location = new System.Drawing.Point(348, 236);
             this.linkToPaint.Name = "linkToPaint";
-            this.linkToPaint.Size = new System.Drawing.Size(215, 15);
+            this.linkToPaint.Size = new System.Drawing.Size(93, 15);
             this.linkToPaint.TabIndex = 16;
             this.linkToPaint.TabStop = true;
-            this.linkToPaint.Text = "Открыть последний скриншот в Paint";
+            this.linkToPaint.Text = "Открыть в Paint";
             this.linkToPaint.Visible = false;
             this.linkToPaint.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // zipButton
             // 
-            this.zipButton.Location = new System.Drawing.Point(194, 324);
+            this.zipButton.Location = new System.Drawing.Point(198, 323);
             this.zipButton.Name = "zipButton";
             this.zipButton.Size = new System.Drawing.Size(93, 23);
             this.zipButton.TabIndex = 17;
@@ -356,6 +359,8 @@
             // mainPanel
             // 
             this.mainPanel.AutoSize = true;
+            this.mainPanel.Controls.Add(this.lastScreenLabel);
+            this.mainPanel.Controls.Add(this.pictureBox1);
             this.mainPanel.Controls.Add(this.zipButton);
             this.mainPanel.Controls.Add(this.linkToPaint);
             this.mainPanel.Controls.Add(this.browserGB);
@@ -372,15 +377,34 @@
             this.mainPanel.Controls.Add(this.menuStrip2);
             this.mainPanel.Location = new System.Drawing.Point(1, 1);
             this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(515, 350);
+            this.mainPanel.Size = new System.Drawing.Size(616, 351);
             this.mainPanel.TabIndex = 0;
             this.mainPanel.Tag = "mainPanel";
+            // 
+            // lastScreenLabel
+            // 
+            this.lastScreenLabel.AutoSize = true;
+            this.lastScreenLabel.Location = new System.Drawing.Point(310, 218);
+            this.lastScreenLabel.Name = "lastScreenLabel";
+            this.lastScreenLabel.Size = new System.Drawing.Size(131, 15);
+            this.lastScreenLabel.TabIndex = 19;
+            this.lastScreenLabel.Text = "Последний скриншот:";
+            this.lastScreenLabel.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.lastScreenLabel.Visible = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(443, 215);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(162, 113);
+            this.pictureBox1.TabIndex = 18;
+            this.pictureBox1.TabStop = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(516, 353);
+            this.ClientSize = new System.Drawing.Size(618, 353);
             this.Controls.Add(this.mainPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.KeyPreview = true;
@@ -398,6 +422,7 @@
             this.browserGB.PerformLayout();
             this.mainPanel.ResumeLayout(false);
             this.mainPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -434,5 +459,7 @@
         private LinkLabel linkToPaint;
         private Button zipButton;
         private Panel mainPanel;
+        private PictureBox pictureBox1;
+        private Label lastScreenLabel;
     }
 }
