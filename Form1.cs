@@ -64,7 +64,8 @@ namespace HMT
                         lastScreenLabel.Visible = true;
                         pictureBox1.Image = Image.FromFile(screenPath);
                         pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-                    }
+                    } else
+                        pictureBox1.Image = null;
                 }   
                 this.WindowState = FormWindowState.Normal;                  
                                 
