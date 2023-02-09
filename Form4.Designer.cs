@@ -117,7 +117,7 @@
         #endregion
 
         private Label label1;
-        private TextBox steepNumTB;
+        public TextBox steepNumTB;
         private Button button1;
         private TextBox testNumTB;
         private Label label3;

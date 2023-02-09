@@ -36,6 +36,7 @@
             this.добавлениеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.видToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.компактныйтолькоСкриншотыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.учетВремениToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.steepTextBox = new System.Windows.Forms.TextBox();
             this.screanshotButton = new System.Windows.Forms.Button();
@@ -123,7 +124,8 @@
             // видToolStripMenuItem
             // 
             this.видToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.компактныйтолькоСкриншотыToolStripMenuItem});
+            this.компактныйтолькоСкриншотыToolStripMenuItem,
+            this.учетВремениToolStripMenuItem});
             this.видToolStripMenuItem.Name = "видToolStripMenuItem";
             this.видToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
             this.видToolStripMenuItem.Text = "Вид";
@@ -134,6 +136,13 @@
             this.компактныйтолькоСкриншотыToolStripMenuItem.Size = new System.Drawing.Size(261, 22);
             this.компактныйтолькоСкриншотыToolStripMenuItem.Text = "Компактный (только скриншоты)";
             this.компактныйтолькоСкриншотыToolStripMenuItem.Click += new System.EventHandler(this.компактныйтолькоСкриншотыToolStripMenuItem_Click);
+            // 
+            // учетВремениToolStripMenuItem
+            // 
+            this.учетВремениToolStripMenuItem.Name = "учетВремениToolStripMenuItem";
+            this.учетВремениToolStripMenuItem.Size = new System.Drawing.Size(261, 22);
+            this.учетВремениToolStripMenuItem.Text = "Учет времени";
+            this.учетВремениToolStripMenuItem.Click += new System.EventHandler(this.учетВремениToolStripMenuItem_Click);
             // 
             // label1
             // 
@@ -450,7 +459,6 @@
         private GroupBox sectionGB;
         private RadioButton logRB;
         private RadioButton linkRB;
-        private TextBox testTextBox;
         private Label label2;
         private CheckBox timerCB;
         private GroupBox browserGB;
@@ -461,5 +469,7 @@
         private Panel mainPanel;
         private PictureBox pictureBox1;
         private Label lastScreenLabel;
+        private ToolStripMenuItem учетВремениToolStripMenuItem;
+        public TextBox testTextBox;
     }
 }

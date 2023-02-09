@@ -123,26 +123,8 @@ namespace HMT
                     steepNumTB.Text = steepD.ToString();
                 }
             }
-
-            // ХК увеличить подшаг "Ctrl + Y"
-            //if (e.Control && e.KeyValue == (char)Keys.Y)
-            //{
-            //    if (steepNumTB.Text != null && steepNumTB.Text != "")
-            //    {
-            //        steepD = Double.Parse(steepNumTB.Text) + 0.1f;
-            //        steepNumTB.Text = steepD.ToString("#.##");
-            //    }
-            //}
-            //// ХК уменьшить подшаг "Ctrl + H"
-            //if (e.Control && e.KeyValue == (char)Keys.H)
-            //{
-            //    if (steepNumTB.Text != null && steepNumTB.Text != "" && steepNumTB.Text != "0")
-            //    {
-            //        steepD = Double.Parse(steepNumTB.Text) - 0.1f;
-            //        steepNumTB.Text = steepD.ToString("#.##");
-            //    }
-            //}
         }
         //
+       
     }
 }

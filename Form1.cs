@@ -20,11 +20,11 @@ namespace HMT
             InitializeComponent();
             UserConfigHelper.CheckConfig(userName);
         }
+
         //Создание скриншота
         private void screanshotButton_Click(object sender, EventArgs e)
         {
             resultTextBox.Text = null;
-            //pictureBox1.Image = null;
             linkToPaint.Visible = false;
             lastScreenLabel.Visible = false;
             screenPath = UserConfigHelper.GetValue(pathToConfig, "screenshot").Replace(" ", "_");
@@ -277,24 +277,14 @@ namespace HMT
                     steepTextBox.Text = steepD.ToString();
                 }
             }
-            // ХК увеличить доп. шаг "Ctrl + Y"
-            //if (e.Control && e.KeyValue == (char)Keys.Y)
-            //{
-            //    if (steepTextBox.Text != null && steepTextBox.Text != "")
-            //    {
-            //        steepD = Double.Parse(steepTextBox.Text) + 0.1f;
-            //        steepTextBox.Text = steepD.ToString("#.##");
-            //    }
-            //}
-            //// ХК уменьшить доп. шаг "Ctrl + H"
-            //if (e.Control && e.KeyValue == (char)Keys.H)
-            //{
-            //    if (steepTextBox.Text != null && steepTextBox.Text != "" && steepTextBox.Text != "0")
-            //    {
-            //        steepD = Double.Parse(steepTextBox.Text) - 0.1f;
-            //        steepTextBox.Text = steepD.ToString("#.##");
-            //    }
-            //}
         }
+
+        private void учетВремениToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TimerForm timerForm = new TimerForm();
+            timerForm.Show();
+        }
+
+        
     }
 }
