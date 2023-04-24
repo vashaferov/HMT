@@ -1,4 +1,5 @@
-﻿using static System.Net.Mime.MediaTypeNames;
+﻿using System.DirectoryServices.ActiveDirectory;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace HMT
 {
@@ -25,18 +26,16 @@ namespace HMT
             else
                 numOnScreenNegRB.Checked = true;
 
+            if (UserConfigHelper.GetValue(pathToConfig, "monitor") == "main")
+                mainMonitor.Checked = true;
+            else
+                primaryMonitor.Checked = true;
+
             // Проверка на наличие второго монитора, если его нет, то передаются координаты основного монитора 
             int screens = Screen.AllScreens.Length;
             if (screens == 1)
             {
-                primaryMonitor.Visible = false;
-                mainMonitor.Checked = true;
-                var resulution1 = Screen.PrimaryScreen.Bounds.Size;
-                var resulution2 = Screen.PrimaryScreen.Bounds.Location;
-
-                UserConfigHelper.SaveValue(pathToConfig, "monitorSize", resulution1.ToString());
-                UserConfigHelper.SaveValue(pathToConfig, "monitorLocetion", resulution2.ToString());
-                UserConfigHelper.SaveValue(pathToConfig, "typeScreen", "2");
+                UserConfigHelper.SaveValue(pathToConfig, "monitor", "main");
             }
             //
         }
@@ -61,19 +60,11 @@ namespace HMT
         {
             if (mainMonitor.Checked == Enabled)
             {
-                var resulution1 = Screen.AllScreens[0].Bounds.Size;
-                var resulution2 = Screen.AllScreens[0].Bounds.Location;
-
-                UserConfigHelper.SaveValue(pathToConfig, "monitorSize", resulution1.ToString());
-                UserConfigHelper.SaveValue(pathToConfig, "monitorLocetion", resulution2.ToString());
+                UserConfigHelper.SaveValue(pathToConfig, "monitor", "main");
 
             } else if (primaryMonitor.Checked == Enabled)
             {
-                var resulution1 = Screen.AllScreens[1].Bounds.Size;
-                var resulution2 = Screen.AllScreens[1].Bounds.Location;
-
-                UserConfigHelper.SaveValue(pathToConfig, "monitorSize", resulution1.ToString());
-                UserConfigHelper.SaveValue(pathToConfig, "monitorLocetion", resulution2.ToString());
+                UserConfigHelper.SaveValue(pathToConfig, "monitor", "primary");
             }
 
 

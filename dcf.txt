@@ -2,10 +2,6 @@
 \\Client\U$\conf.txt
 <screenshot>
 \\Client\U$\
-<monitorSize>
-{Width=0, Height=0}
-<monitorLocetion>
-{X=0,Y=0}
 <release>
 Foris 7.22.8
 <numOnScreen>
@@ -18,5 +14,5 @@ C:\Program Files (x86)\Internet Explorer\iexplore.exe
 mspaint.exe
 <pathExplorer>
 explorer.exe
-<typeScreen>
-2
+<monitor>
+monitor

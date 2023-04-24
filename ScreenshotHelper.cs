@@ -21,20 +21,19 @@ namespace HMT
         // Скриншот монитора
         public static void screenFullWindow(String screanPath, String testNum, String steepNum)
         {
-            var monitorLocetionBeChanged = UserConfigHelper.GetValue(pathToConfig, "monitorLocetion");
-            var g1 = Regex.Replace(monitorLocetionBeChanged, @"[\{\}a-zA-Z=]", "").Split(',');
-            Point point = new Point(int.Parse(g1[0]), int.Parse(g1[1]));
+            int m;
 
-            var monitorSizeBeChanged = UserConfigHelper.GetValue(pathToConfig, "monitorSize");
-            var g = Regex.Replace(monitorSizeBeChanged, @"[\{\}a-zA-Z=]", "").Split(',');
+            if (UserConfigHelper.GetValue(pathToConfig, "monitor") == "main")
+                m = 0;
+            else
+                m = 1;
 
-            int width = int.Parse(g[0]);
-            int height = int.Parse(g[1]);
+            var resulution2 = Screen.AllScreens[m].Bounds.Location;
 
-            Bitmap printscreen = new Bitmap(width, height);
+            Bitmap printscreen = new Bitmap(Screen.AllScreens[m].Bounds.Width, Screen.AllScreens[m].Bounds.Height);
 
             Graphics graphics = Graphics.FromImage(printscreen as Image);
-            graphics.CopyFromScreen(point, new Point(0, 0), printscreen.Size);
+            graphics.CopyFromScreen(resulution2, new Point(0, 0), printscreen.Size);
 
             if (UserConfigHelper.GetValue(pathToConfig, "numOnScreen") == "True")
                 numOnScreen(graphics, testNum, steepNum);
