@@ -40,17 +40,17 @@ namespace HMT
                 Directory.CreateDirectory(screenPath + "\\" + release + "\\" + testNum);
                 screenPath += "\\" + release + "\\" + testNum + "\\" + "Шаг_" + steepNum + ".png";
 
-                this.WindowState = FormWindowState.Minimized;
-                Thread.Sleep(200);
-
-                if (timerCB_min.Checked == true)
-                {
-                    Thread.Sleep(5000);
-                    timerCB_min.Checked = false;
-                }
-
                 if (!File.Exists(screenPath))
                 {
+                    this.WindowState = FormWindowState.Minimized;
+                    Thread.Sleep(200);
+
+                    if (timerCB_min.Checked == true)
+                    {
+                        Thread.Sleep(5000);
+                        timerCB_min.Checked = false;
+                    }
+
                     ScreenshotHelper.screenFullWindow(screenPath, testNum, steepNum);
                     resultL.Text = "Скриншот теста № " + testNum + " 'Шаг " + steepNum + "' готов";
                     linkToPaint.Visible = true;
@@ -59,6 +59,15 @@ namespace HMT
                 {
                     if (MessageBox.Show("Скриншот существует\nПерезаписать?", "Скриншот", MessageBoxButtons.YesNo) == DialogResult.Yes)
                     {
+                        this.WindowState = FormWindowState.Minimized;
+                        Thread.Sleep(200);
+
+                        if (timerCB_min.Checked == true)
+                        {
+                            Thread.Sleep(5000);
+                            timerCB_min.Checked = false;
+                        }
+
                         ScreenshotHelper.screenFullWindow(screenPath, testNum, steepNum);
                         resultL.Text = "Скриншот теста № " + testNum + " 'Шаг " + steepNum + "' готов";
                         linkToPaint.Visible = true;
@@ -89,7 +98,8 @@ namespace HMT
                 testNumTB.Text = null;
                 steepNumTB.Text = null;
                 linkToPaint.Visible = false;
-            } else
+            }
+            else
             {
                 resultL.Text = "Не указан нормер шага или номер теста";
             }
@@ -124,7 +134,14 @@ namespace HMT
                 }
             }
         }
+
+        private void Form4_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Form1 form1 = new Form1();
+            
+            form1.WindowState = FormWindowState.Normal;
+        }
         //
-       
+
     }
 }

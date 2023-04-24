@@ -47,9 +47,9 @@ namespace HMT
         // Номер теста и шага на скриншоте
         private static void numOnScreen(Graphics graphics, string testNum, string steepNum)
         {
-            graphics.DrawRectangle(new Pen(Color.Black, 100), 0, 0, 172, 17);
-            graphics.DrawRectangle(new Pen(Color.White, 100), 0, 0, 170, 15);
-            graphics.DrawString("Тест № " + testNum + "\nШаг № " + steepNum, new Font("Verdana", (float)20), new SolidBrush(Color.Red), 0, 0);
+            graphics.DrawRectangle(new Pen(Color.Black, 50), 0, 0, 422, 10);
+            graphics.DrawRectangle(new Pen(Color.White, 50), 0, 0, 420, 8);
+            graphics.DrawString("Тест № " + testNum + " Шаг № " + steepNum, new Font("Verdana", (float)20), new SolidBrush(Color.Red), 0, 0);
         }
         //
         // Создание архива

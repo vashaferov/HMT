@@ -24,13 +24,13 @@ namespace HMT
         private void timer1_Tick(object sender, EventArgs e)
         {            
             date = date.AddSeconds(1);
-            label1.Text = date.ToString("mm:ss");
+            label1.Text = date.ToString("hh:mm:ss");
         }
 
         private void timer2_Tick(object sender, EventArgs e)
         {            
             date2 = date2.AddSeconds(1);
-            label2.Text = date2.ToString("mm:ss");
+            label2.Text = date2.ToString("hh:mm:ss");
         }
 
         private object changeStatusRB()

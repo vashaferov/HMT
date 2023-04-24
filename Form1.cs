@@ -190,7 +190,6 @@ namespace HMT
         // Открытие окна "Компактный вид"
         private void компактныйтолькоСкриншотыToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //Form1 form1 = new Form1();
             Form4 form4 = new Form4();
             
             form4.Show();

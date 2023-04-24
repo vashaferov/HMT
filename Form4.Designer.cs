@@ -29,89 +29,89 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form4));
-            this.label1 = new System.Windows.Forms.Label();
-            this.steepNumTB = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.testNumTB = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.resultL = new System.Windows.Forms.Label();
-            this.timerCB_min = new System.Windows.Forms.CheckBox();
-            this.linkToPaint = new System.Windows.Forms.LinkLabel();
-            this.zipButtonFM = new System.Windows.Forms.Button();
-            this.SuspendLayout();
+            label1 = new Label();
+            steepNumTB = new TextBox();
+            button1 = new Button();
+            testNumTB = new TextBox();
+            label3 = new Label();
+            resultL = new Label();
+            timerCB_min = new CheckBox();
+            linkToPaint = new LinkLabel();
+            zipButtonFM = new Button();
+            SuspendLayout();
             // 
             // label1
             // 
-            resources.ApplyResources(this.label1, "label1");
-            this.label1.Name = "label1";
+            resources.ApplyResources(label1, "label1");
+            label1.Name = "label1";
             // 
             // steepNumTB
             // 
-            resources.ApplyResources(this.steepNumTB, "steepNumTB");
-            this.steepNumTB.Name = "steepNumTB";
+            resources.ApplyResources(steepNumTB, "steepNumTB");
+            steepNumTB.Name = "steepNumTB";
             // 
             // button1
             // 
-            resources.ApplyResources(this.button1, "button1");
-            this.button1.Name = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            resources.ApplyResources(button1, "button1");
+            button1.Name = "button1";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // testNumTB
             // 
-            resources.ApplyResources(this.testNumTB, "testNumTB");
-            this.testNumTB.Name = "testNumTB";
+            resources.ApplyResources(testNumTB, "testNumTB");
+            testNumTB.Name = "testNumTB";
             // 
             // label3
             // 
-            resources.ApplyResources(this.label3, "label3");
-            this.label3.Name = "label3";
+            resources.ApplyResources(label3, "label3");
+            label3.Name = "label3";
             // 
             // resultL
             // 
-            resources.ApplyResources(this.resultL, "resultL");
-            this.resultL.Name = "resultL";
+            resources.ApplyResources(resultL, "resultL");
+            resultL.Name = "resultL";
             // 
             // timerCB_min
             // 
-            resources.ApplyResources(this.timerCB_min, "timerCB_min");
-            this.timerCB_min.Name = "timerCB_min";
-            this.timerCB_min.UseVisualStyleBackColor = true;
+            resources.ApplyResources(timerCB_min, "timerCB_min");
+            timerCB_min.Name = "timerCB_min";
+            timerCB_min.UseVisualStyleBackColor = true;
             // 
             // linkToPaint
             // 
-            resources.ApplyResources(this.linkToPaint, "linkToPaint");
-            this.linkToPaint.Name = "linkToPaint";
-            this.linkToPaint.TabStop = true;
-            this.linkToPaint.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkToPaint_LinkClicked);
+            resources.ApplyResources(linkToPaint, "linkToPaint");
+            linkToPaint.Name = "linkToPaint";
+            linkToPaint.TabStop = true;
+            linkToPaint.LinkClicked += linkToPaint_LinkClicked;
             // 
             // zipButtonFM
             // 
-            resources.ApplyResources(this.zipButtonFM, "zipButtonFM");
-            this.zipButtonFM.Name = "zipButtonFM";
-            this.zipButtonFM.UseVisualStyleBackColor = true;
-            this.zipButtonFM.Click += new System.EventHandler(this.zipButtonFM_Click);
+            resources.ApplyResources(zipButtonFM, "zipButtonFM");
+            zipButtonFM.Name = "zipButtonFM";
+            zipButtonFM.UseVisualStyleBackColor = true;
+            zipButtonFM.Click += zipButtonFM_Click;
             // 
             // Form4
             // 
             resources.ApplyResources(this, "$this");
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.zipButtonFM);
-            this.Controls.Add(this.linkToPaint);
-            this.Controls.Add(this.timerCB_min);
-            this.Controls.Add(this.resultL);
-            this.Controls.Add(this.testNumTB);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.steepNumTB);
-            this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.KeyPreview = true;
-            this.Name = "Form4";
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form4_KeyDown);
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(zipButtonFM);
+            Controls.Add(linkToPaint);
+            Controls.Add(timerCB_min);
+            Controls.Add(resultL);
+            Controls.Add(testNumTB);
+            Controls.Add(label3);
+            Controls.Add(button1);
+            Controls.Add(steepNumTB);
+            Controls.Add(label1);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
+            KeyPreview = true;
+            Name = "Form4";
+            FormClosed += Form4_FormClosed;
+            KeyDown += Form4_KeyDown;
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
