@@ -95,9 +95,11 @@ namespace HMT
                 screenPath = UserConfigHelper.GetValue(pathToConfig, "screenshot") + "\\" + UserConfigHelper.GetValue(pathToConfig, "release").Replace(" ", "_") + "\\";
                 ScreenshotHelper.createZip(screenPath, testNumTB.Text.Trim().Replace(" ", "_"));
                 resultL.Text = "Архив для теста " + testNumTB.Text + " создан";
+                Process.Start("explorer.exe", screenPath + testNumTB.Text);
                 testNumTB.Text = null;
                 steepNumTB.Text = null;
                 linkToPaint.Visible = false;
+                
             }
             else
             {

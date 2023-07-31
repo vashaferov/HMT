@@ -15,4 +15,4 @@ mspaint.exe
 <pathExplorer>
 explorer.exe
 <monitor>
-monitor
+main
