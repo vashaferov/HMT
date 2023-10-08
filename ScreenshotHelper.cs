@@ -8,8 +8,9 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using Windows.Devices.Geolocation;
 using Windows.UI.Xaml;
-
+using Windows.UI.Xaml.Documents;
 
 namespace HMT
 {
@@ -52,18 +53,38 @@ namespace HMT
         }
         //
         // Создание архива
-        public static void createZip (string path, string testNum)
+        public static bool createZip (string path, string testNum)
         {
+            bool flag = true;
             string extractPath = path + "\\Test_" + testNum + "_" + DateTime.Today.ToString("d") + ".zip";
-            ZipFile.CreateFromDirectory(path + testNum, extractPath);
             string newPath = path + testNum + "\\Test_" + testNum + "_" + DateTime.Today.ToString("d") + ".zip";
-            if (!File.Exists(newPath))
-                File.Move(extractPath, newPath);
-            else
+            try
             {
-                File.Delete(newPath);
-                File.Move(extractPath, newPath);
-            }                
+                ZipFile.CreateFromDirectory(path + testNum, extractPath);
+            } 
+            catch (IOException e)
+            {
+                flag = false;
+                MessageBox.Show("Открыт файл, который нужно добавить в архив. Закройте его, и запустите процесc повторно.\n" + e.Message + "", "Ошибка создания архива!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            if (flag)
+            {
+                
+                if (!File.Exists(newPath))
+                    File.Move(extractPath, newPath);
+                else
+                {
+                    File.Delete(newPath);
+                    File.Move(extractPath, newPath);
+                }
+                return true;
+            }
+            else
+            {               
+                File.Delete(extractPath);
+                return false;
+            }
+                          
         }
         //
     }

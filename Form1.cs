@@ -230,14 +230,21 @@ namespace HMT
             if (testTextBox.Text != null && testTextBox.Text != "")
             {
                 screenPath = UserConfigHelper.GetValue(pathToConfig, "screenshot") + "\\" + UserConfigHelper.GetValue(pathToConfig, "release").Replace(" ", "_") + "\\";
-                ScreenshotHelper.createZip(screenPath, testTextBox.Text.Trim().Replace(" ", "_"));
-                resultTextBox.Text = "Архив для теста " + testTextBox.Text + " создан";
-                linkToPaint.Visible = false;
-                testTextBox.Text = null;
-                steepTextBox.Text = null;
+                if (ScreenshotHelper.createZip(screenPath, testTextBox.Text.Trim().Replace(" ", "_")))
+                {
+                    resultTextBox.Text = "Архив для теста " + testTextBox.Text + " создан";
+                    linkToPaint.Visible = false;
+                    testTextBox.Text = null;
+                    steepTextBox.Text = null;
+                }
+                else
+                {
+                    resultTextBox.Text = "Архив для теста " + testTextBox.Text + " не создан";
+                }
+                
             } else
             {
-                resultTextBox.Text = "Не указан нормер шага или номер теста";
+                resultTextBox.Text = "Не указан номер теста";
             }
             
         }
@@ -255,27 +262,6 @@ namespace HMT
             // ХК скрин "Enter"
             if (e.KeyValue == (char)Keys.Enter)
                 screanshotButton.PerformClick();
-            // ХК создание архива "Ctrl + Enter"
-            if (e.Control && e.Shift)
-                zipButton.PerformClick();
-            // ХК увеличить шаг "Ctrl + U"
-            if (e.Control && e.KeyValue == (char)Keys.U)
-            {
-                if (steepTextBox.Text != null && steepTextBox.Text != "")
-                {
-                    steepD = Double.Parse(steepTextBox.Text) + 1;
-                    steepTextBox.Text = steepD.ToString();
-                }
-            }
-            // ХК уменьшить шаг "Ctrl + J"
-            if(e.Control && e.KeyValue == (char)Keys.J)
-            {
-                if (steepTextBox.Text != null && steepTextBox.Text != "" && steepTextBox.Text != "0")
-                {
-                    steepD = Double.Parse(steepTextBox.Text) - 1;
-                    steepTextBox.Text = steepD.ToString();
-                }
-            }
         }
 
         private void учетВремениToolStripMenuItem_Click(object sender, EventArgs e)

@@ -3,7 +3,7 @@
 <screenshot>
 \\Client\U$\
 <release>
-Foris 7.22.8
+Foris 
 <numOnScreen>
 True
 <pathChrome>

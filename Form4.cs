@@ -52,7 +52,7 @@ namespace HMT
                     }
 
                     ScreenshotHelper.screenFullWindow(screenPath, testNum, steepNum);
-                    resultL.Text = "Скриншот теста № " + testNum + " 'Шаг " + steepNum + "' готов";
+                    resultL.Text = "Скриншот 'Шаг " + steepNum + "' готов";
                     linkToPaint.Visible = true;
                 }
                 else
@@ -93,17 +93,22 @@ namespace HMT
             if (testNumTB.Text != null && testNumTB.Text != "")
             {
                 screenPath = UserConfigHelper.GetValue(pathToConfig, "screenshot") + "\\" + UserConfigHelper.GetValue(pathToConfig, "release").Replace(" ", "_") + "\\";
-                ScreenshotHelper.createZip(screenPath, testNumTB.Text.Trim().Replace(" ", "_"));
-                resultL.Text = "Архив для теста " + testNumTB.Text + " создан";
-                Process.Start("explorer.exe", screenPath + testNumTB.Text);
-                testNumTB.Text = null;
-                steepNumTB.Text = null;
-                linkToPaint.Visible = false;
-                
+                if (ScreenshotHelper.createZip(screenPath, testNumTB.Text.Trim().Replace(" ", "_")))
+                {
+                    resultL.Text = "Архив для теста " + testNumTB.Text + " создан";
+                    Process.Start("explorer.exe", screenPath + testNumTB.Text);
+                    testNumTB.Text = null;
+                    steepNumTB.Text = null;
+                    linkToPaint.Visible = false;
+                }
+                else
+                {
+                    resultL.Text = "Архив для теста " + testNumTB.Text + " не создан";
+                }               
             }
             else
             {
-                resultL.Text = "Не указан нормер шага или номер теста";
+                resultL.Text = "Не указан номер теста";
             }
         }
         //
@@ -114,34 +119,34 @@ namespace HMT
             // ХК скрин "Enter"
             if (e.KeyValue == (char)Keys.Enter)
                 button1.PerformClick();
-            // ХК создание архива "Ctrl + Shift"
-            if (e.Control && e.Shift)
-                zipButtonFM.PerformClick();
-            // ХК увеличить шаг "Ctrl + U"
-            if (e.Control && e.KeyValue == (char)Keys.U)
-            {
-                if (steepNumTB.Text != null && steepNumTB.Text != "")
-                {
-                    steepD = Double.Parse(steepNumTB.Text) + 1;
-                    steepNumTB.Text = steepD.ToString();
-                }
-            }
-            // ХК уменьшить шаг "Ctrl + J"
-            if (e.Control && e.KeyValue == (char)Keys.J)
-            {
-                if (steepNumTB.Text != null && steepNumTB.Text != "" && steepNumTB.Text != "0")
-                {
-                    steepD = Double.Parse(steepNumTB.Text) - 1;
-                    steepNumTB.Text = steepD.ToString();
-                }
-            }
         }
-
+        //
         private void Form4_FormClosed(object sender, FormClosedEventArgs e)
         {
             Form1 form1 = new Form1();
-            
+
             form1.WindowState = FormWindowState.Normal;
+        }
+        // Открытие окна "Настройки"
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            Form2 form2 = new Form2();
+            form2.Show();
+        }
+        //
+        // Открытие окна "Справка"
+        private void toolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            InfoForm infoForm = new InfoForm();
+            infoForm.Show();
+        }
+
+        private void toolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+            Form1 form1 = new Form1();
+
+            form1.Show();
+            this.WindowState = FormWindowState.Minimized;
         }
         //
 

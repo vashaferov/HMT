@@ -1,2 +1,2 @@
 <pathToConfig>
-C:\Users\Viacheslav\Desktop\HMT\
+C:\Users\vashaferov\Desktop\HMT\
