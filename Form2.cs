@@ -8,7 +8,7 @@ namespace HMT
         public string screenshotP;
         public string configP;
         public string processP;
-        string pathToConfig = pathHelper.GetPathToUserSF() + Environment.UserName + ".txt";
+        string pathToConfig = Directory.GetCurrentDirectory() + "\\" + Environment.UserName + ".txt";
 
         public Form2()
         {
@@ -28,8 +28,10 @@ namespace HMT
 
             if (UserConfigHelper.GetValue(pathToConfig, "monitor") == "main")
                 mainMonitor.Checked = true;
-            else
+            else if (UserConfigHelper.GetValue(pathToConfig, "monitor") == "primary")
                 primaryMonitor.Checked = true;
+            else
+                processRB.Checked = true;
 
             // Проверка на наличие второго монитора, если его нет, то передаются координаты основного монитора 
             int screens = Screen.AllScreens.Length;
@@ -42,7 +44,7 @@ namespace HMT
         // Сохранение настроек
         private void saveButton_Click(object sender, EventArgs e)
         {
-            Form1 form1= new Form1();
+            Form1 form1 = new Form1();
             if (screenPathTB.Text == "" || configPathTB.Text == "" || releaseTB.Text == "")
                 MessageBox.Show("Поля не заполнены!", "Настройки", MessageBoxButtons.OK);
             else
@@ -62,12 +64,15 @@ namespace HMT
             {
                 UserConfigHelper.SaveValue(pathToConfig, "monitor", "main");
 
-            } else if (primaryMonitor.Checked == Enabled)
+            }
+            else if (primaryMonitor.Checked == Enabled)
             {
                 UserConfigHelper.SaveValue(pathToConfig, "monitor", "primary");
             }
-
-
+            else if (processRB.Checked == Enabled)
+            {
+                UserConfigHelper.SaveValue(pathToConfig, "monitor", "process");
+            }
         }
         //
         // Проверка активности тригеров "Номер теста на скриншоте"
@@ -94,6 +99,12 @@ namespace HMT
         {
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
                 configPathTB.Text = openFileDialog1.FileName;
+        }
+
+        private void processCB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selected = processCB.SelectedItem.ToString();
+            UserConfigHelper.SaveValue(pathToConfig, "procSelectedItem", selected);
         }
         //
     }

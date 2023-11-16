@@ -10,15 +10,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="pathHelper.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="dcf.txt" />
     <None Remove="pathHelper.txt" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="dcf.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="pathHelper.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>

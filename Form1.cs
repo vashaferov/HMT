@@ -1,5 +1,7 @@
 using System.Diagnostics;
 
+
+
 namespace HMT
 {
     public partial class Form1 : Form
@@ -13,7 +15,7 @@ namespace HMT
         string screenPath;
         string release;
         string userName = Environment.UserName;
-        string pathToConfig = pathHelper.GetPathToUserSF() + Environment.UserName + ".txt";
+        string pathToConfig = Directory.GetCurrentDirectory() + "\\" + Environment.UserName + ".txt";
 
         public Form1()
         {
@@ -34,7 +36,7 @@ namespace HMT
             if (steepNum != "" && testNum != "")
             {
                 Directory.CreateDirectory(screenPath + "\\" + release + "\\" + testNum);
-                screenPath += "\\" + release + "\\" + testNum + "\\" + "Шаг_" + steepNum + ".png";               
+                screenPath += "\\" + release + "\\" + testNum + "\\" + "Шаг_" + steepNum + ".png";
                 if (pictureBox1.Image != null)
                     pictureBox1.Image.Dispose();
                 this.WindowState = FormWindowState.Minimized;
@@ -54,7 +56,8 @@ namespace HMT
                     lastScreenLabel.Visible = true;
                     pictureBox1.Image = Image.FromFile(screenPath);
                     pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-                } else
+                }
+                else
                 {
                     if (MessageBox.Show("Скриншот существует\nПерезаписать?", "Скриншот", MessageBoxButtons.YesNo) == DialogResult.Yes)
                     {
@@ -64,12 +67,14 @@ namespace HMT
                         lastScreenLabel.Visible = true;
                         pictureBox1.Image = Image.FromFile(screenPath);
                         pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-                    } else
+                    }
+                    else
                         pictureBox1.Image = null;
-                }   
-                this.WindowState = FormWindowState.Normal;                  
-                                
-            } else
+                }
+                this.WindowState = FormWindowState.Normal;
+
+            }
+            else
             {
                 resultTextBox.Text = "Не указан нормер шага или номер теста";
             }
@@ -100,7 +105,7 @@ namespace HMT
         {
             foreach (RadioButton rb in sectionGB.Controls.OfType<RadioButton>())
             {
-                if(rb.Checked == true)
+                if (rb.Checked == true)
                 {
                     resultText = subResultText + "_" + rb.Text;
                     showResult(resultText);
@@ -121,9 +126,9 @@ namespace HMT
             {
                 StreamReader sr = new StreamReader(UserConfigHelper.GetValue(pathToConfig, "conf"));
                 line = sr.ReadLine();
-                while(line != null)
+                while (line != null)
                 {
-                    if(line == "<"+resultText+">")
+                    if (line == "<" + resultText + ">")
                     {
                         line = sr.ReadLine().Trim();
                         while (line != "</" + resultText + ">")
@@ -140,7 +145,9 @@ namespace HMT
                     line = sr.ReadLine();
                 }
                 sr.Close();
-            } catch (Exception e) {
+            }
+            catch (Exception e)
+            {
                 resultTextBox.Text = "Ошибка при чтении файла";
             }
 
@@ -149,7 +156,7 @@ namespace HMT
         // Запись действия на кнопку
         private void Btn_Click(object? sender, EventArgs e)
         {
-            Button btn = (Button) sender;
+            Button btn = (Button)sender;
             StreamReader sr1 = new StreamReader(UserConfigHelper.GetValue(pathToConfig, "conf"));
             line = sr1.ReadLine();
             while (line != null)
@@ -191,7 +198,7 @@ namespace HMT
         private void компактныйтолькоСкриншотыToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form4 form4 = new Form4();
-            
+
             form4.Show();
             this.WindowState = FormWindowState.Minimized;
         }
@@ -213,9 +220,9 @@ namespace HMT
                     if (!File.Exists(processName))
                     {
                         processName = processName.Replace("Program Files", "Program Files (x86)");
-                    }                        
-                } 
-            }  
+                    }
+                }
+            }
             return processName;
         }
         // Открытие последнего скриншота в Paint
@@ -241,12 +248,13 @@ namespace HMT
                 {
                     resultTextBox.Text = "Архив для теста " + testTextBox.Text + " не создан";
                 }
-                
-            } else
+
+            }
+            else
             {
                 resultTextBox.Text = "Не указан номер теста";
             }
-            
+
         }
         //
         // Открытие окна "Справка"
@@ -270,6 +278,9 @@ namespace HMT
             timerForm.Show();
         }
 
-        
+        private void mailButton_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

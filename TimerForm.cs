@@ -66,7 +66,7 @@ namespace HMT
         {
             if(testTB.Text != null && testTB.Text != "")
             {
-                string screenPath = UserConfigHelper.GetValue(pathHelper.GetPathToUserSF() + Environment.UserName + ".txt", "screenshot").Replace(" ", "_");
+                string screenPath = UserConfigHelper.GetValue(Directory.GetCurrentDirectory() + "\\" + Environment.UserName + ".txt", "screenshot").Replace(" ", "_");
 
                 timer1.Enabled = false;
                 timer2.Enabled = false;

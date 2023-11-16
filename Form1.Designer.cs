@@ -28,413 +28,417 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.miniToolStrip = new System.Windows.Forms.MenuStrip();
-            this.menuStrip2 = new System.Windows.Forms.MenuStrip();
-            this.файлToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.настройкиToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.добавлениеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.видToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.компактныйтолькоСкриншотыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.учетВремениToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label1 = new System.Windows.Forms.Label();
-            this.steepTextBox = new System.Windows.Forms.TextBox();
-            this.screanshotButton = new System.Windows.Forms.Button();
-            this.resultButtonPane = new System.Windows.Forms.FlowLayoutPanel();
-            this.resultTextBox = new System.Windows.Forms.Label();
-            this.envGB = new System.Windows.Forms.GroupBox();
-            this.intRB = new System.Windows.Forms.RadioButton();
-            this.nextRB = new System.Windows.Forms.RadioButton();
-            this.realRB = new System.Windows.Forms.RadioButton();
-            this.sectionGB = new System.Windows.Forms.GroupBox();
-            this.logRB = new System.Windows.Forms.RadioButton();
-            this.linkRB = new System.Windows.Forms.RadioButton();
-            this.testTextBox = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.timerCB = new System.Windows.Forms.CheckBox();
-            this.browserGB = new System.Windows.Forms.GroupBox();
-            this.chromeRB = new System.Windows.Forms.RadioButton();
-            this.IEexplorerRB = new System.Windows.Forms.RadioButton();
-            this.linkToPaint = new System.Windows.Forms.LinkLabel();
-            this.zipButton = new System.Windows.Forms.Button();
-            this.mainPanel = new System.Windows.Forms.Panel();
-            this.lastScreenLabel = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.menuStrip2.SuspendLayout();
-            this.envGB.SuspendLayout();
-            this.sectionGB.SuspendLayout();
-            this.browserGB.SuspendLayout();
-            this.mainPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.SuspendLayout();
+            miniToolStrip = new MenuStrip();
+            menuStrip2 = new MenuStrip();
+            файлToolStripMenuItem1 = new ToolStripMenuItem();
+            настройкиToolStripMenuItem1 = new ToolStripMenuItem();
+            справкаToolStripMenuItem = new ToolStripMenuItem();
+            добавлениеToolStripMenuItem = new ToolStripMenuItem();
+            видToolStripMenuItem = new ToolStripMenuItem();
+            компактныйтолькоСкриншотыToolStripMenuItem = new ToolStripMenuItem();
+            учетВремениToolStripMenuItem = new ToolStripMenuItem();
+            label1 = new Label();
+            steepTextBox = new TextBox();
+            screanshotButton = new Button();
+            resultButtonPane = new FlowLayoutPanel();
+            resultTextBox = new Label();
+            envGB = new GroupBox();
+            intRB = new RadioButton();
+            nextRB = new RadioButton();
+            realRB = new RadioButton();
+            sectionGB = new GroupBox();
+            logRB = new RadioButton();
+            linkRB = new RadioButton();
+            testTextBox = new TextBox();
+            label2 = new Label();
+            timerCB = new CheckBox();
+            browserGB = new GroupBox();
+            chromeRB = new RadioButton();
+            IEexplorerRB = new RadioButton();
+            linkToPaint = new LinkLabel();
+            zipButton = new Button();
+            mainPanel = new Panel();
+            lastScreenLabel = new Label();
+            pictureBox1 = new PictureBox();
+            mailButton = new Button();
+            menuStrip2.SuspendLayout();
+            envGB.SuspendLayout();
+            sectionGB.SuspendLayout();
+            browserGB.SuspendLayout();
+            mainPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            SuspendLayout();
             // 
             // miniToolStrip
             // 
-            this.miniToolStrip.AccessibleName = "Выбор нового элемента";
-            this.miniToolStrip.AccessibleRole = System.Windows.Forms.AccessibleRole.ComboBox;
-            this.miniToolStrip.AutoSize = false;
-            this.miniToolStrip.Dock = System.Windows.Forms.DockStyle.None;
-            this.miniToolStrip.Location = new System.Drawing.Point(0, 0);
-            this.miniToolStrip.Name = "miniToolStrip";
-            this.miniToolStrip.Size = new System.Drawing.Size(522, 24);
-            this.miniToolStrip.TabIndex = 10;
+            miniToolStrip.AccessibleName = "Выбор нового элемента";
+            miniToolStrip.AccessibleRole = AccessibleRole.ComboBox;
+            miniToolStrip.AutoSize = false;
+            miniToolStrip.Dock = DockStyle.None;
+            miniToolStrip.Location = new Point(0, 0);
+            miniToolStrip.Name = "miniToolStrip";
+            miniToolStrip.Size = new Size(522, 24);
+            miniToolStrip.TabIndex = 10;
             // 
             // menuStrip2
             // 
-            this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.файлToolStripMenuItem1,
-            this.добавлениеToolStripMenuItem,
-            this.видToolStripMenuItem});
-            this.menuStrip2.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(616, 24);
-            this.menuStrip2.TabIndex = 13;
-            this.menuStrip2.Text = "menuStrip2";
+            menuStrip2.Items.AddRange(new ToolStripItem[] { файлToolStripMenuItem1, добавлениеToolStripMenuItem, видToolStripMenuItem });
+            menuStrip2.Location = new Point(0, 0);
+            menuStrip2.Name = "menuStrip2";
+            menuStrip2.Size = new Size(616, 24);
+            menuStrip2.TabIndex = 13;
+            menuStrip2.Text = "menuStrip2";
             // 
             // файлToolStripMenuItem1
             // 
-            this.файлToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.настройкиToolStripMenuItem1,
-            this.справкаToolStripMenuItem});
-            this.файлToolStripMenuItem1.Name = "файлToolStripMenuItem1";
-            this.файлToolStripMenuItem1.Size = new System.Drawing.Size(48, 20);
-            this.файлToolStripMenuItem1.Text = "Файл";
+            файлToolStripMenuItem1.DropDownItems.AddRange(new ToolStripItem[] { настройкиToolStripMenuItem1, справкаToolStripMenuItem });
+            файлToolStripMenuItem1.Name = "файлToolStripMenuItem1";
+            файлToolStripMenuItem1.Size = new Size(48, 20);
+            файлToolStripMenuItem1.Text = "Файл";
             // 
             // настройкиToolStripMenuItem1
             // 
-            this.настройкиToolStripMenuItem1.Name = "настройкиToolStripMenuItem1";
-            this.настройкиToolStripMenuItem1.Size = new System.Drawing.Size(134, 22);
-            this.настройкиToolStripMenuItem1.Text = "Настройки";
-            this.настройкиToolStripMenuItem1.Click += new System.EventHandler(this.настройкиToolStripMenuItem_Click);
+            настройкиToolStripMenuItem1.Name = "настройкиToolStripMenuItem1";
+            настройкиToolStripMenuItem1.Size = new Size(134, 22);
+            настройкиToolStripMenuItem1.Text = "Настройки";
+            настройкиToolStripMenuItem1.Click += настройкиToolStripMenuItem_Click;
             // 
             // справкаToolStripMenuItem
             // 
-            this.справкаToolStripMenuItem.Name = "справкаToolStripMenuItem";
-            this.справкаToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
-            this.справкаToolStripMenuItem.Text = "Справка";
-            this.справкаToolStripMenuItem.Click += new System.EventHandler(this.справкаToolStripMenuItem_Click);
+            справкаToolStripMenuItem.Name = "справкаToolStripMenuItem";
+            справкаToolStripMenuItem.Size = new Size(134, 22);
+            справкаToolStripMenuItem.Text = "Справка";
+            справкаToolStripMenuItem.Click += справкаToolStripMenuItem_Click;
             // 
             // добавлениеToolStripMenuItem
             // 
-            this.добавлениеToolStripMenuItem.Name = "добавлениеToolStripMenuItem";
-            this.добавлениеToolStripMenuItem.Size = new System.Drawing.Size(130, 20);
-            this.добавлениеToolStripMenuItem.Text = "Добавление ссылок";
-            this.добавлениеToolStripMenuItem.Click += new System.EventHandler(this.добавлениеToolStripMenuItem_Click);
+            добавлениеToolStripMenuItem.Name = "добавлениеToolStripMenuItem";
+            добавлениеToolStripMenuItem.Size = new Size(130, 20);
+            добавлениеToolStripMenuItem.Text = "Добавление ссылок";
+            добавлениеToolStripMenuItem.Click += добавлениеToolStripMenuItem_Click;
             // 
             // видToolStripMenuItem
             // 
-            this.видToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.компактныйтолькоСкриншотыToolStripMenuItem,
-            this.учетВремениToolStripMenuItem});
-            this.видToolStripMenuItem.Name = "видToolStripMenuItem";
-            this.видToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
-            this.видToolStripMenuItem.Text = "Вид";
+            видToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { компактныйтолькоСкриншотыToolStripMenuItem, учетВремениToolStripMenuItem });
+            видToolStripMenuItem.Name = "видToolStripMenuItem";
+            видToolStripMenuItem.Size = new Size(39, 20);
+            видToolStripMenuItem.Text = "Вид";
             // 
             // компактныйтолькоСкриншотыToolStripMenuItem
             // 
-            this.компактныйтолькоСкриншотыToolStripMenuItem.Name = "компактныйтолькоСкриншотыToolStripMenuItem";
-            this.компактныйтолькоСкриншотыToolStripMenuItem.Size = new System.Drawing.Size(261, 22);
-            this.компактныйтолькоСкриншотыToolStripMenuItem.Text = "Компактный (только скриншоты)";
-            this.компактныйтолькоСкриншотыToolStripMenuItem.Click += new System.EventHandler(this.компактныйтолькоСкриншотыToolStripMenuItem_Click);
+            компактныйтолькоСкриншотыToolStripMenuItem.Name = "компактныйтолькоСкриншотыToolStripMenuItem";
+            компактныйтолькоСкриншотыToolStripMenuItem.Size = new Size(261, 22);
+            компактныйтолькоСкриншотыToolStripMenuItem.Text = "Компактный (только скриншоты)";
+            компактныйтолькоСкриншотыToolStripMenuItem.Click += компактныйтолькоСкриншотыToolStripMenuItem_Click;
             // 
             // учетВремениToolStripMenuItem
             // 
-            this.учетВремениToolStripMenuItem.Name = "учетВремениToolStripMenuItem";
-            this.учетВремениToolStripMenuItem.Size = new System.Drawing.Size(261, 22);
-            this.учетВремениToolStripMenuItem.Text = "Учет времени";
-            this.учетВремениToolStripMenuItem.Click += new System.EventHandler(this.учетВремениToolStripMenuItem_Click);
+            учетВремениToolStripMenuItem.Name = "учетВремениToolStripMenuItem";
+            учетВремениToolStripMenuItem.Size = new Size(261, 22);
+            учетВремениToolStripMenuItem.Text = "Учет времени";
+            учетВремениToolStripMenuItem.Click += учетВремениToolStripMenuItem_Click;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(7, 298);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(124, 15);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Введите номер шага:";
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Location = new Point(7, 298);
+            label1.Name = "label1";
+            label1.Size = new Size(124, 15);
+            label1.TabIndex = 0;
+            label1.Text = "Введите номер шага:";
             // 
             // steepTextBox
             // 
-            this.steepTextBox.Location = new System.Drawing.Point(136, 295);
-            this.steepTextBox.Name = "steepTextBox";
-            this.steepTextBox.Size = new System.Drawing.Size(56, 23);
-            this.steepTextBox.TabIndex = 1;
-            this.steepTextBox.Tag = "steepTextBox";
+            steepTextBox.Location = new Point(136, 295);
+            steepTextBox.Name = "steepTextBox";
+            steepTextBox.Size = new Size(56, 23);
+            steepTextBox.TabIndex = 1;
+            steepTextBox.Tag = "steepTextBox";
             // 
             // screanshotButton
             // 
-            this.screanshotButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.screanshotButton.Location = new System.Drawing.Point(198, 266);
-            this.screanshotButton.Name = "screanshotButton";
-            this.screanshotButton.Size = new System.Drawing.Size(92, 52);
-            this.screanshotButton.TabIndex = 2;
-            this.screanshotButton.Tag = "screanshotButton";
-            this.screanshotButton.Text = "Скриншот";
-            this.screanshotButton.UseVisualStyleBackColor = true;
-            this.screanshotButton.Click += new System.EventHandler(this.screanshotButton_Click);
+            screanshotButton.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            screanshotButton.Location = new Point(198, 266);
+            screanshotButton.Name = "screanshotButton";
+            screanshotButton.Size = new Size(92, 52);
+            screanshotButton.TabIndex = 2;
+            screanshotButton.Tag = "screanshotButton";
+            screanshotButton.Text = "Скриншот";
+            screanshotButton.UseVisualStyleBackColor = true;
+            screanshotButton.Click += screanshotButton_Click;
             // 
             // resultButtonPane
             // 
-            this.resultButtonPane.Location = new System.Drawing.Point(113, 27);
-            this.resultButtonPane.Name = "resultButtonPane";
-            this.resultButtonPane.Size = new System.Drawing.Size(492, 182);
-            this.resultButtonPane.TabIndex = 6;
-            this.resultButtonPane.Tag = "resultButtonPane";
+            resultButtonPane.Location = new Point(113, 27);
+            resultButtonPane.Name = "resultButtonPane";
+            resultButtonPane.Size = new Size(492, 182);
+            resultButtonPane.TabIndex = 6;
+            resultButtonPane.Tag = "resultButtonPane";
             // 
             // resultTextBox
             // 
-            this.resultTextBox.AutoSize = true;
-            this.resultTextBox.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.resultTextBox.Location = new System.Drawing.Point(297, 331);
-            this.resultTextBox.Name = "resultTextBox";
-            this.resultTextBox.Size = new System.Drawing.Size(0, 13);
-            this.resultTextBox.TabIndex = 7;
-            this.resultTextBox.Tag = "resultTextBox";
+            resultTextBox.AutoSize = true;
+            resultTextBox.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
+            resultTextBox.Location = new Point(297, 331);
+            resultTextBox.Name = "resultTextBox";
+            resultTextBox.Size = new Size(0, 13);
+            resultTextBox.TabIndex = 7;
+            resultTextBox.Tag = "resultTextBox";
             // 
             // envGB
             // 
-            this.envGB.Controls.Add(this.intRB);
-            this.envGB.Controls.Add(this.nextRB);
-            this.envGB.Controls.Add(this.realRB);
-            this.envGB.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.envGB.Location = new System.Drawing.Point(9, 27);
-            this.envGB.Name = "envGB";
-            this.envGB.Size = new System.Drawing.Size(96, 101);
-            this.envGB.TabIndex = 8;
-            this.envGB.TabStop = false;
-            this.envGB.Tag = "envGB";
-            this.envGB.Text = "Стенд:";
+            envGB.Controls.Add(intRB);
+            envGB.Controls.Add(nextRB);
+            envGB.Controls.Add(realRB);
+            envGB.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            envGB.Location = new Point(9, 27);
+            envGB.Name = "envGB";
+            envGB.Size = new Size(96, 101);
+            envGB.TabIndex = 8;
+            envGB.TabStop = false;
+            envGB.Tag = "envGB";
+            envGB.Text = "Стенд:";
             // 
             // intRB
             // 
-            this.intRB.Location = new System.Drawing.Point(6, 70);
-            this.intRB.Name = "intRB";
-            this.intRB.Size = new System.Drawing.Size(67, 24);
-            this.intRB.TabIndex = 3;
-            this.intRB.TabStop = true;
-            this.intRB.Tag = "intRB";
-            this.intRB.Text = "Int";
-            this.intRB.UseVisualStyleBackColor = true;
-            this.intRB.CheckedChanged += new System.EventHandler(this.eventGB_mouseClick);
+            intRB.Location = new Point(6, 70);
+            intRB.Name = "intRB";
+            intRB.Size = new Size(67, 24);
+            intRB.TabIndex = 3;
+            intRB.TabStop = true;
+            intRB.Tag = "intRB";
+            intRB.Text = "Int";
+            intRB.UseVisualStyleBackColor = true;
+            intRB.CheckedChanged += eventGB_mouseClick;
             // 
             // nextRB
             // 
-            this.nextRB.Location = new System.Drawing.Point(6, 15);
-            this.nextRB.Name = "nextRB";
-            this.nextRB.Size = new System.Drawing.Size(84, 24);
-            this.nextRB.TabIndex = 1;
-            this.nextRB.TabStop = true;
-            this.nextRB.Tag = "nextRB";
-            this.nextRB.Text = "Next";
-            this.nextRB.UseVisualStyleBackColor = true;
-            this.nextRB.CheckedChanged += new System.EventHandler(this.eventGB_mouseClick);
+            nextRB.Location = new Point(6, 15);
+            nextRB.Name = "nextRB";
+            nextRB.Size = new Size(84, 24);
+            nextRB.TabIndex = 1;
+            nextRB.TabStop = true;
+            nextRB.Tag = "nextRB";
+            nextRB.Text = "Next";
+            nextRB.UseVisualStyleBackColor = true;
+            nextRB.CheckedChanged += eventGB_mouseClick;
             // 
             // realRB
             // 
-            this.realRB.AutoSize = true;
-            this.realRB.Location = new System.Drawing.Point(6, 45);
-            this.realRB.Name = "realRB";
-            this.realRB.Size = new System.Drawing.Size(47, 19);
-            this.realRB.TabIndex = 2;
-            this.realRB.TabStop = true;
-            this.realRB.Tag = "realRB";
-            this.realRB.Text = "Real";
-            this.realRB.UseVisualStyleBackColor = true;
-            this.realRB.CheckedChanged += new System.EventHandler(this.eventGB_mouseClick);
+            realRB.AutoSize = true;
+            realRB.Location = new Point(6, 45);
+            realRB.Name = "realRB";
+            realRB.Size = new Size(47, 19);
+            realRB.TabIndex = 2;
+            realRB.TabStop = true;
+            realRB.Tag = "realRB";
+            realRB.Text = "Real";
+            realRB.UseVisualStyleBackColor = true;
+            realRB.CheckedChanged += eventGB_mouseClick;
             // 
             // sectionGB
             // 
-            this.sectionGB.Controls.Add(this.logRB);
-            this.sectionGB.Controls.Add(this.linkRB);
-            this.sectionGB.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.sectionGB.Location = new System.Drawing.Point(9, 127);
-            this.sectionGB.Name = "sectionGB";
-            this.sectionGB.Size = new System.Drawing.Size(98, 82);
-            this.sectionGB.TabIndex = 9;
-            this.sectionGB.TabStop = false;
-            this.sectionGB.Tag = "sectionGB";
-            this.sectionGB.Text = "Раздел:";
-            this.sectionGB.Visible = false;
+            sectionGB.Controls.Add(logRB);
+            sectionGB.Controls.Add(linkRB);
+            sectionGB.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            sectionGB.Location = new Point(9, 127);
+            sectionGB.Name = "sectionGB";
+            sectionGB.Size = new Size(98, 82);
+            sectionGB.TabIndex = 9;
+            sectionGB.TabStop = false;
+            sectionGB.Tag = "sectionGB";
+            sectionGB.Text = "Раздел:";
+            sectionGB.Visible = false;
             // 
             // logRB
             // 
-            this.logRB.Location = new System.Drawing.Point(6, 49);
-            this.logRB.Name = "logRB";
-            this.logRB.Size = new System.Drawing.Size(79, 24);
-            this.logRB.TabIndex = 2;
-            this.logRB.TabStop = true;
-            this.logRB.Tag = "logRB";
-            this.logRB.Text = "Логи";
-            this.logRB.UseVisualStyleBackColor = true;
-            this.logRB.CheckedChanged += new System.EventHandler(this.sectionGB_mouseClick);
+            logRB.Location = new Point(6, 49);
+            logRB.Name = "logRB";
+            logRB.Size = new Size(79, 24);
+            logRB.TabIndex = 2;
+            logRB.TabStop = true;
+            logRB.Tag = "logRB";
+            logRB.Text = "Логи";
+            logRB.UseVisualStyleBackColor = true;
+            logRB.CheckedChanged += sectionGB_mouseClick;
             // 
             // linkRB
             // 
-            this.linkRB.Location = new System.Drawing.Point(6, 19);
-            this.linkRB.Name = "linkRB";
-            this.linkRB.Size = new System.Drawing.Size(79, 24);
-            this.linkRB.TabIndex = 1;
-            this.linkRB.TabStop = true;
-            this.linkRB.Tag = "linkRB";
-            this.linkRB.Text = "Ссылки";
-            this.linkRB.UseVisualStyleBackColor = true;
-            this.linkRB.CheckedChanged += new System.EventHandler(this.sectionGB_mouseClick);
+            linkRB.Location = new Point(6, 19);
+            linkRB.Name = "linkRB";
+            linkRB.Size = new Size(79, 24);
+            linkRB.TabIndex = 1;
+            linkRB.TabStop = true;
+            linkRB.Tag = "linkRB";
+            linkRB.Text = "Ссылки";
+            linkRB.UseVisualStyleBackColor = true;
+            linkRB.CheckedChanged += sectionGB_mouseClick;
             // 
             // testTextBox
             // 
-            this.testTextBox.Location = new System.Drawing.Point(136, 266);
-            this.testTextBox.Name = "testTextBox";
-            this.testTextBox.Size = new System.Drawing.Size(56, 23);
-            this.testTextBox.TabIndex = 11;
-            this.testTextBox.Tag = "steepTextBox";
+            testTextBox.Location = new Point(136, 266);
+            testTextBox.Name = "testTextBox";
+            testTextBox.Size = new Size(56, 23);
+            testTextBox.TabIndex = 11;
+            testTextBox.Tag = "steepTextBox";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(7, 269);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(125, 15);
-            this.label2.TabIndex = 12;
-            this.label2.Text = "Введите номер теста:";
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.Location = new Point(7, 269);
+            label2.Name = "label2";
+            label2.Size = new Size(125, 15);
+            label2.TabIndex = 12;
+            label2.Text = "Введите номер теста:";
             // 
             // timerCB
             // 
-            this.timerCB.AutoSize = true;
-            this.timerCB.Location = new System.Drawing.Point(11, 324);
-            this.timerCB.Name = "timerCB";
-            this.timerCB.Size = new System.Drawing.Size(180, 19);
-            this.timerCB.TabIndex = 14;
-            this.timerCB.Text = "Установить таймер 5 секунд";
-            this.timerCB.UseVisualStyleBackColor = true;
+            timerCB.AutoSize = true;
+            timerCB.Location = new Point(11, 324);
+            timerCB.Name = "timerCB";
+            timerCB.Size = new Size(180, 19);
+            timerCB.TabIndex = 14;
+            timerCB.Text = "Установить таймер 5 секунд";
+            timerCB.UseVisualStyleBackColor = true;
             // 
             // browserGB
             // 
-            this.browserGB.Controls.Add(this.chromeRB);
-            this.browserGB.Controls.Add(this.IEexplorerRB);
-            this.browserGB.Location = new System.Drawing.Point(9, 215);
-            this.browserGB.Name = "browserGB";
-            this.browserGB.Size = new System.Drawing.Size(206, 44);
-            this.browserGB.TabIndex = 15;
-            this.browserGB.TabStop = false;
-            this.browserGB.Text = "Выбор браузера:";
-            this.browserGB.Visible = false;
+            browserGB.Controls.Add(chromeRB);
+            browserGB.Controls.Add(IEexplorerRB);
+            browserGB.Location = new Point(9, 215);
+            browserGB.Name = "browserGB";
+            browserGB.Size = new Size(206, 44);
+            browserGB.TabIndex = 15;
+            browserGB.TabStop = false;
+            browserGB.Text = "Выбор браузера:";
+            browserGB.Visible = false;
             // 
             // chromeRB
             // 
-            this.chromeRB.AutoSize = true;
-            this.chromeRB.Location = new System.Drawing.Point(123, 19);
-            this.chromeRB.Name = "chromeRB";
-            this.chromeRB.Size = new System.Drawing.Size(68, 19);
-            this.chromeRB.TabIndex = 1;
-            this.chromeRB.TabStop = true;
-            this.chromeRB.Text = "Chrome";
-            this.chromeRB.UseVisualStyleBackColor = true;
+            chromeRB.AutoSize = true;
+            chromeRB.Location = new Point(123, 19);
+            chromeRB.Name = "chromeRB";
+            chromeRB.Size = new Size(68, 19);
+            chromeRB.TabIndex = 1;
+            chromeRB.TabStop = true;
+            chromeRB.Text = "Chrome";
+            chromeRB.UseVisualStyleBackColor = true;
             // 
             // IEexplorerRB
             // 
-            this.IEexplorerRB.AutoSize = true;
-            this.IEexplorerRB.Location = new System.Drawing.Point(6, 19);
-            this.IEexplorerRB.Name = "IEexplorerRB";
-            this.IEexplorerRB.Size = new System.Drawing.Size(112, 19);
-            this.IEexplorerRB.TabIndex = 0;
-            this.IEexplorerRB.TabStop = true;
-            this.IEexplorerRB.Text = "Internet Explorer";
-            this.IEexplorerRB.UseVisualStyleBackColor = true;
+            IEexplorerRB.AutoSize = true;
+            IEexplorerRB.Location = new Point(6, 19);
+            IEexplorerRB.Name = "IEexplorerRB";
+            IEexplorerRB.Size = new Size(112, 19);
+            IEexplorerRB.TabIndex = 0;
+            IEexplorerRB.TabStop = true;
+            IEexplorerRB.Text = "Internet Explorer";
+            IEexplorerRB.UseVisualStyleBackColor = true;
             // 
             // linkToPaint
             // 
-            this.linkToPaint.AutoSize = true;
-            this.linkToPaint.Location = new System.Drawing.Point(348, 236);
-            this.linkToPaint.Name = "linkToPaint";
-            this.linkToPaint.Size = new System.Drawing.Size(93, 15);
-            this.linkToPaint.TabIndex = 16;
-            this.linkToPaint.TabStop = true;
-            this.linkToPaint.Text = "Открыть в Paint";
-            this.linkToPaint.Visible = false;
-            this.linkToPaint.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            linkToPaint.AutoSize = true;
+            linkToPaint.Location = new Point(348, 236);
+            linkToPaint.Name = "linkToPaint";
+            linkToPaint.Size = new Size(93, 15);
+            linkToPaint.TabIndex = 16;
+            linkToPaint.TabStop = true;
+            linkToPaint.Text = "Открыть в Paint";
+            linkToPaint.Visible = false;
+            linkToPaint.LinkClicked += linkLabel1_LinkClicked;
             // 
             // zipButton
             // 
-            this.zipButton.Location = new System.Drawing.Point(198, 323);
-            this.zipButton.Name = "zipButton";
-            this.zipButton.Size = new System.Drawing.Size(93, 23);
-            this.zipButton.TabIndex = 17;
-            this.zipButton.Text = "Архивировать";
-            this.zipButton.UseVisualStyleBackColor = true;
-            this.zipButton.Click += new System.EventHandler(this.zipButton_Click);
+            zipButton.Location = new Point(198, 323);
+            zipButton.Name = "zipButton";
+            zipButton.Size = new Size(93, 23);
+            zipButton.TabIndex = 17;
+            zipButton.Text = "Архивировать";
+            zipButton.UseVisualStyleBackColor = true;
+            zipButton.Click += zipButton_Click;
             // 
             // mainPanel
             // 
-            this.mainPanel.AutoSize = true;
-            this.mainPanel.Controls.Add(this.lastScreenLabel);
-            this.mainPanel.Controls.Add(this.pictureBox1);
-            this.mainPanel.Controls.Add(this.zipButton);
-            this.mainPanel.Controls.Add(this.linkToPaint);
-            this.mainPanel.Controls.Add(this.browserGB);
-            this.mainPanel.Controls.Add(this.timerCB);
-            this.mainPanel.Controls.Add(this.label2);
-            this.mainPanel.Controls.Add(this.testTextBox);
-            this.mainPanel.Controls.Add(this.sectionGB);
-            this.mainPanel.Controls.Add(this.envGB);
-            this.mainPanel.Controls.Add(this.resultTextBox);
-            this.mainPanel.Controls.Add(this.resultButtonPane);
-            this.mainPanel.Controls.Add(this.screanshotButton);
-            this.mainPanel.Controls.Add(this.steepTextBox);
-            this.mainPanel.Controls.Add(this.label1);
-            this.mainPanel.Controls.Add(this.menuStrip2);
-            this.mainPanel.Location = new System.Drawing.Point(1, 1);
-            this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(616, 351);
-            this.mainPanel.TabIndex = 0;
-            this.mainPanel.Tag = "mainPanel";
+            mainPanel.AutoSize = true;
+            mainPanel.Controls.Add(mailButton);
+            mainPanel.Controls.Add(lastScreenLabel);
+            mainPanel.Controls.Add(pictureBox1);
+            mainPanel.Controls.Add(zipButton);
+            mainPanel.Controls.Add(linkToPaint);
+            mainPanel.Controls.Add(browserGB);
+            mainPanel.Controls.Add(timerCB);
+            mainPanel.Controls.Add(label2);
+            mainPanel.Controls.Add(testTextBox);
+            mainPanel.Controls.Add(sectionGB);
+            mainPanel.Controls.Add(envGB);
+            mainPanel.Controls.Add(resultTextBox);
+            mainPanel.Controls.Add(resultButtonPane);
+            mainPanel.Controls.Add(screanshotButton);
+            mainPanel.Controls.Add(steepTextBox);
+            mainPanel.Controls.Add(label1);
+            mainPanel.Controls.Add(menuStrip2);
+            mainPanel.Location = new Point(1, 1);
+            mainPanel.Name = "mainPanel";
+            mainPanel.Size = new Size(616, 351);
+            mainPanel.TabIndex = 0;
+            mainPanel.Tag = "mainPanel";
             // 
             // lastScreenLabel
             // 
-            this.lastScreenLabel.AutoSize = true;
-            this.lastScreenLabel.Location = new System.Drawing.Point(310, 218);
-            this.lastScreenLabel.Name = "lastScreenLabel";
-            this.lastScreenLabel.Size = new System.Drawing.Size(131, 15);
-            this.lastScreenLabel.TabIndex = 19;
-            this.lastScreenLabel.Text = "Последний скриншот:";
-            this.lastScreenLabel.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.lastScreenLabel.Visible = false;
+            lastScreenLabel.AutoSize = true;
+            lastScreenLabel.Location = new Point(310, 218);
+            lastScreenLabel.Name = "lastScreenLabel";
+            lastScreenLabel.Size = new Size(131, 15);
+            lastScreenLabel.TabIndex = 19;
+            lastScreenLabel.Text = "Последний скриншот:";
+            lastScreenLabel.TextAlign = ContentAlignment.BottomRight;
+            lastScreenLabel.Visible = false;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(443, 215);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(162, 113);
-            this.pictureBox1.TabIndex = 18;
-            this.pictureBox1.TabStop = false;
+            pictureBox1.Location = new Point(443, 215);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(162, 113);
+            pictureBox1.TabIndex = 18;
+            pictureBox1.TabStop = false;
+            // 
+            // mailButton
+            // 
+            mailButton.Location = new Point(319, 268);
+            mailButton.Name = "mailButton";
+            mailButton.Size = new Size(75, 23);
+            mailButton.TabIndex = 20;
+            mailButton.Text = "button1";
+            mailButton.UseVisualStyleBackColor = true;
+            mailButton.Click += mailButton_Click;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(618, 353);
-            this.Controls.Add(this.mainPanel);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.KeyPreview = true;
-            this.MainMenuStrip = this.miniToolStrip;
-            this.Name = "Form1";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "HMT";
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
-            this.menuStrip2.ResumeLayout(false);
-            this.menuStrip2.PerformLayout();
-            this.envGB.ResumeLayout(false);
-            this.envGB.PerformLayout();
-            this.sectionGB.ResumeLayout(false);
-            this.browserGB.ResumeLayout(false);
-            this.browserGB.PerformLayout();
-            this.mainPanel.ResumeLayout(false);
-            this.mainPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(618, 353);
+            Controls.Add(mainPanel);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
+            KeyPreview = true;
+            MainMenuStrip = miniToolStrip;
+            Name = "Form1";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "HMT";
+            KeyDown += Form1_KeyDown;
+            menuStrip2.ResumeLayout(false);
+            menuStrip2.PerformLayout();
+            envGB.ResumeLayout(false);
+            envGB.PerformLayout();
+            sectionGB.ResumeLayout(false);
+            browserGB.ResumeLayout(false);
+            browserGB.PerformLayout();
+            mainPanel.ResumeLayout(false);
+            mainPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -471,5 +475,6 @@
         private Label lastScreenLabel;
         private ToolStripMenuItem учетВремениToolStripMenuItem;
         public TextBox testTextBox;
+        private Button mailButton;
     }
 }

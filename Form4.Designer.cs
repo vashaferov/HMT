@@ -146,6 +146,7 @@
             KeyPreview = true;
             MainMenuStrip = menuStrip1;
             Name = "Form4";
+            TopMost = true;
             FormClosed += Form4_FormClosed;
             KeyDown += Form4_KeyDown;
             menuStrip1.ResumeLayout(false);

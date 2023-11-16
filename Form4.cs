@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
 namespace HMT
@@ -19,13 +20,15 @@ namespace HMT
         string testNum;
         string screenPath;
         string release;
-        string pathToConfig = pathHelper.GetPathToUserSF() + Environment.UserName + ".txt";
+        string pathToConfig = Directory.GetCurrentDirectory() + "\\" + Environment.UserName + ".txt";
+        //string pathToConfig = pathHelper.GetPathToUserSF() + Environment.UserName + ".txt";
 
 
         public Form4()
         {
             TopMost = true;
             InitializeComponent();
+            UserConfigHelper.CheckConfig(Environment.UserName);
         }
         // Создание скриншота
         private void button1_Click(object sender, EventArgs e)
@@ -104,7 +107,7 @@ namespace HMT
                 else
                 {
                     resultL.Text = "Архив для теста " + testNumTB.Text + " не создан";
-                }               
+                }
             }
             else
             {

@@ -16,31 +16,62 @@ namespace HMT
 {
     public class ScreenshotHelper
     {
+        [DllImport("user32.dll", SetLastError = true)]
+        static extern bool GetWindowRect(IntPtr hwnd, out RECT lpRect);
 
-        static string pathToConfig = pathHelper.GetPathToUserSF() + Environment.UserName + ".txt";
+        [DllImport("user32.dll")]
+        static extern bool PrintWindow(IntPtr hWnd, IntPtr hdcBlt, int nFlags);
+
+        [StructLayout(LayoutKind.Sequential)]
+        public struct RECT
+        {
+            public int Left, Top, Right, Bottom;
+        }
+
+        static string pathToConfig = Directory.GetCurrentDirectory() + "\\" + Environment.UserName + ".txt";
 
         // Скриншот монитора
         public static void screenFullWindow(String screanPath, String testNum, String steepNum)
         {
-            int m;
+            if (UserConfigHelper.GetValue(pathToConfig, "monitor") == "process")
+            {
+                var process = Process.GetProcessesByName(UserConfigHelper.GetValue(pathToConfig, "procSelectedItem")).FirstOrDefault();
+                // не забудьте поверку ошибок: вдруг у вас не нашлось ни одного процесса?
+                var hwnd = process.MainWindowHandle;
+                GetWindowRect(hwnd, out var rect);
+                using (var image = new Bitmap(rect.Right - rect.Left, rect.Bottom - rect.Top))
+                {
+                    using (var graphics = Graphics.FromImage(image))
+                    {
+                        var hdcBitmap = graphics.GetHdc();
+                        PrintWindow(hwnd, hdcBitmap, 0);
+                        graphics.ReleaseHdc(hdcBitmap);
+                    }
 
-            if (UserConfigHelper.GetValue(pathToConfig, "monitor") == "main")
-                m = 0;
-            else
-                m = 1;
+                    // тут у вас есть картинка, вы можете, например, сохранить её
+                    image.Save(screanPath, ImageFormat.Png);
+                }
+            } else
+            {
+                int m;
 
-            var resulution2 = Screen.AllScreens[m].Bounds.Location;
+                if (UserConfigHelper.GetValue(pathToConfig, "monitor") == "main")
+                    m = 0;
+                else
+                    m = 1;
 
-            Bitmap printscreen = new Bitmap(Screen.AllScreens[m].Bounds.Width, Screen.AllScreens[m].Bounds.Height);
+                var resulution2 = Screen.AllScreens[m].Bounds.Location;
 
-            Graphics graphics = Graphics.FromImage(printscreen as Image);
-            graphics.CopyFromScreen(resulution2, new Point(0, 0), printscreen.Size);
+                Bitmap printscreen = new Bitmap(Screen.AllScreens[m].Bounds.Width, Screen.AllScreens[m].Bounds.Height);
 
-            if (UserConfigHelper.GetValue(pathToConfig, "numOnScreen") == "True")
-                numOnScreen(graphics, testNum, steepNum);
-            
-            printscreen.Save(screanPath, ImageFormat.Png);                           
-  
+                Graphics graphics = Graphics.FromImage(printscreen as Image);
+                graphics.CopyFromScreen(resulution2, new Point(0, 0), printscreen.Size);
+
+                if (UserConfigHelper.GetValue(pathToConfig, "numOnScreen") == "True")
+                    numOnScreen(graphics, testNum, steepNum);
+
+                printscreen.Save(screanPath, ImageFormat.Png);
+            }                             
             GC.Collect();
         }
         //

@@ -5,7 +5,7 @@ namespace HMT
     public class UserConfigHelper
     {
         static string line;
-        static string pathToConfig = pathHelper.GetPathToUserSF();
+        static string pathToConfig = Directory.GetCurrentDirectory() + "\\";
 
         public static void CheckConfig(string nameUser)
         {
