@@ -37,20 +37,25 @@ namespace HMT
             {
                 var process = Process.GetProcessesByName(UserConfigHelper.GetValue(pathToConfig, "procSelectedItem")).FirstOrDefault();
                 // не забудьте поверку ошибок: вдруг у вас не нашлось ни одного процесса?
-                var hwnd = process.MainWindowHandle;
-                GetWindowRect(hwnd, out var rect);
-                using (var image = new Bitmap(rect.Right - rect.Left, rect.Bottom - rect.Top))
+                if (process != null)
                 {
-                    using (var graphics = Graphics.FromImage(image))
+                    var hwnd = process.MainWindowHandle;
+                    GetWindowRect(hwnd, out var rect);
+                    using (var image = new Bitmap(rect.Right - rect.Left, rect.Bottom - rect.Top))
                     {
-                        var hdcBitmap = graphics.GetHdc();
-                        PrintWindow(hwnd, hdcBitmap, 0);
-                        graphics.ReleaseHdc(hdcBitmap);
-                    }
+                        using (var graphics = Graphics.FromImage(image))
+                        {
+                            var hdcBitmap = graphics.GetHdc();
+                            PrintWindow(hwnd, hdcBitmap, 0);
+                            graphics.ReleaseHdc(hdcBitmap);
+                        }
 
-                    // тут у вас есть картинка, вы можете, например, сохранить её
-                    image.Save(screanPath, ImageFormat.Png);
-                }
+                        // тут у вас есть картинка, вы можете, например, сохранить её
+                        image.Save(screanPath, ImageFormat.Png);
+                    }
+                
+                } else
+                    MessageBox.Show("Процесс не найден. Проверьте запущена ли нужная программа.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             } else
             {
                 int m;

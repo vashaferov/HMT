@@ -13,7 +13,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
 namespace HMT
 {
-    public partial class Form4 : Form
+    public partial class mainForm : Form
     {
 
         string steepNum;
@@ -24,7 +24,7 @@ namespace HMT
         //string pathToConfig = pathHelper.GetPathToUserSF() + Environment.UserName + ".txt";
 
 
-        public Form4()
+        public mainForm()
         {
             TopMost = true;
             InitializeComponent();
@@ -87,7 +87,7 @@ namespace HMT
         // Открытие скриншота в Paint
         private void linkToPaint_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Process.Start(UserConfigHelper.GetValue(pathToConfig, "pathPaint"), screenPath);
+            Process.Start("mspaint.exe", screenPath);
         }
         //
         // Создание архива
@@ -124,16 +124,10 @@ namespace HMT
                 button1.PerformClick();
         }
         //
-        private void Form4_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Form1 form1 = new Form1();
-
-            form1.WindowState = FormWindowState.Normal;
-        }
         // Открытие окна "Настройки"
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
         {
-            Form2 form2 = new Form2();
+            settingsForm form2 = new settingsForm();
             form2.Show();
         }
         //
@@ -142,14 +136,6 @@ namespace HMT
         {
             InfoForm infoForm = new InfoForm();
             infoForm.Show();
-        }
-
-        private void toolStripMenuItem4_Click(object sender, EventArgs e)
-        {
-            Form1 form1 = new Form1();
-
-            form1.Show();
-            this.WindowState = FormWindowState.Minimized;
         }
         //
 

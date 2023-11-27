@@ -12,7 +12,7 @@ namespace HMT
             if (!File.Exists(pathToConfig + nameUser + ".txt"))
             {
                 File.Copy("dcf.txt", pathToConfig + nameUser + ".txt");
-                Form2 form2 = new Form2();
+                settingsForm form2 = new settingsForm();
                 Thread.Sleep(1000);
                 form2.Show();
             }

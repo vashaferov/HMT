@@ -7,7 +7,7 @@ namespace HMT
         static void Main()
         {
             ApplicationConfiguration.Initialize();
-            Application.Run(new Form4());  
+            Application.Run(new mainForm());  
         }
     }
 }
