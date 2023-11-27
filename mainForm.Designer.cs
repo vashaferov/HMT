@@ -1,6 +1,6 @@
 ﻿namespace HMT
 {
-    partial class Form4
+    partial class mainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form4));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mainForm));
             label1 = new Label();
             steepNumTB = new TextBox();
             button1 = new Button();
@@ -42,7 +42,6 @@
             toolStripMenuItem1 = new ToolStripMenuItem();
             toolStripMenuItem2 = new ToolStripMenuItem();
             toolStripMenuItem3 = new ToolStripMenuItem();
-            toolStripMenuItem4 = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -100,7 +99,7 @@
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { toolStripMenuItem1, toolStripMenuItem4 });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { toolStripMenuItem1 });
             resources.ApplyResources(menuStrip1, "menuStrip1");
             menuStrip1.Name = "menuStrip1";
             // 
@@ -122,12 +121,6 @@
             resources.ApplyResources(toolStripMenuItem3, "toolStripMenuItem3");
             toolStripMenuItem3.Click += toolStripMenuItem3_Click;
             // 
-            // toolStripMenuItem4
-            // 
-            toolStripMenuItem4.Name = "toolStripMenuItem4";
-            resources.ApplyResources(toolStripMenuItem4, "toolStripMenuItem4");
-            toolStripMenuItem4.Click += toolStripMenuItem4_Click;
-            // 
             // Form4
             // 
             resources.ApplyResources(this, "$this");
@@ -146,7 +139,7 @@
             KeyPreview = true;
             MainMenuStrip = menuStrip1;
             Name = "Form4";
-            FormClosed += Form4_FormClosed;
+            TopMost = true;
             KeyDown += Form4_KeyDown;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
@@ -169,6 +162,5 @@
         private ToolStripMenuItem toolStripMenuItem1;
         private ToolStripMenuItem toolStripMenuItem2;
         private ToolStripMenuItem toolStripMenuItem3;
-        private ToolStripMenuItem toolStripMenuItem4;
     }
 }

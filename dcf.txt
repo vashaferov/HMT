@@ -1,18 +1,10 @@
-<conf>
-\\Client\U$\conf.txt
 <screenshot>
 \\Client\U$\
 <release>
-Foris 
+Foris
 <numOnScreen>
 True
-<pathChrome>
-C:\Program Files\Google\Chrome\Application\chrome.exe
-<pathIE>
-C:\Program Files (x86)\Internet Explorer\iexplore.exe
-<pathPaint>
-mspaint.exe
-<pathExplorer>
-explorer.exe
 <monitor>
 main
+<procSelectedItem>
+iexplore

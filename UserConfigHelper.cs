@@ -5,14 +5,14 @@ namespace HMT
     public class UserConfigHelper
     {
         static string line;
-        static string pathToConfig = pathHelper.GetPathToUserSF();
+        static string pathToConfig = Directory.GetCurrentDirectory() + "\\";
 
         public static void CheckConfig(string nameUser)
         {
             if (!File.Exists(pathToConfig + nameUser + ".txt"))
             {
                 File.Copy("dcf.txt", pathToConfig + nameUser + ".txt");
-                Form2 form2 = new Form2();
+                settingsForm form2 = new settingsForm();
                 Thread.Sleep(1000);
                 form2.Show();
             }
